@@ -31,7 +31,7 @@ android {
 dependencies {
 
     //AndroidRTG for Real Time Graphics.
-    implementation 'com.github.UberElectron:Android-RTG-Lib:1.0.0'
+    implementation 'com.github.UberElectron:Android-RTG-Lib:16925d68fc'
 
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'

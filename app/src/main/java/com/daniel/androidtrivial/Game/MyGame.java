@@ -2,8 +2,12 @@ package com.daniel.androidtrivial.Game;
 
 import android.graphics.Canvas;
 import android.graphics.Rect;
+import android.graphics.RectF;
 import android.util.Log;
 
+import com.daniel.androidtrivial.Game.Utils.Camera;
+import com.daniel.androidtrivial.Game.Utils.Transform;
+import com.daniel.androidtrivial.Game.Utils.Vector2;
 import com.uberelectron.androidrtg.RTG_App;
 
 public class MyGame implements RTG_App
@@ -24,37 +28,44 @@ public class MyGame implements RTG_App
         c.drawColor(data.bgColor);
 
         //Draw test stuff.
-        c.drawRect(data.testRect, data.mainPaint);
+        Transform tf = data.testTransf;
+        Rect screenTestRect = data.mainCam.worldToScreenRect(tf.getRectF());
+        c.drawRect(screenTestRect, data.mainPaint);
     }
 
     @Override
     public void Update()
     {
-        Log.i(TAG, "Game Updated!!");
+        //Log.i(TAG, "Game Updated!!");
 
         //Move testRect around.
         GameData d = GameData.getInstance();
-        Rect testRect = d.testRect;
 
-        testRect.offset(10, 10);
-        if(testRect.right > d.screenWidth)
+        Camera cam = d.mainCam;
+
+        cam.transform.moveAmount(1, 1);
+        Vector2 pos = cam.transform.getPosition();
+        if(pos.x > 200)
         {
-            testRect.offsetTo(0, testRect.top);
+            cam.transform.setPosition(0, (int) pos.y);
         }
 
-        if(testRect.bottom > d.screenHeight)
+        if(pos.y > 200)
         {
-            testRect.offsetTo(testRect.left, 0);
+            cam.transform.setPosition((int) pos.x, 0);
         }
+
     }
 
     @Override
-    public void onSurfaceChanged(int width, int height) {
+    public void onSurfaceChanged(int width, int height)
+    {
         GameData.getInstance().setScreenSize(width, height);
     }
 
     @Override
-    public void Stop() {
+    public void Stop()
+    {
 
     }
 }

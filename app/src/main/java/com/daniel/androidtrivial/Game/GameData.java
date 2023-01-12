@@ -5,6 +5,9 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Build;
 
+import com.daniel.androidtrivial.Game.Utils.Camera;
+import com.daniel.androidtrivial.Game.Utils.Transform;
+
 public class GameData
 {
     // SINGLETON.
@@ -32,7 +35,9 @@ public class GameData
 
     int bgColor;
     Paint mainPaint;
-    Rect testRect;
+    Transform testTransf;
+
+    Camera mainCam;
 
     int screenWidth;
     int screenHeight;
@@ -40,6 +45,8 @@ public class GameData
 
     private GameData()
     {
+        mainCam = new Camera(0, 0, 100, 100);
+
         screenHeight = 500;
         screenWidth = 500;
     }
@@ -51,7 +58,9 @@ public class GameData
         mainPaint = new Paint();
         mainPaint.setColor(Color.CYAN);
 
-        testRect = new Rect(0, 0, 100, 100);
+        testTransf = new Transform(50, 50, 50, 50);
+
+        mainCam = new Camera(0, 0, 200, 200);
     }
 
 
@@ -59,6 +68,8 @@ public class GameData
     {
         screenWidth = width;
         screenHeight = height;
+
+        mainCam.updateScreenSize(width, height);
     }
 
 }

@@ -13,4 +13,11 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
+    @Override
+    public void onBackPressed()
+    {
+        //TODO: Do smt depending on active fragment.
+        //super.onBackPressed();
+    }
 }
