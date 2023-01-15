@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentManager;
 import com.daniel.androidtrivial.Fragments.App.MainMenuFragment;
 import com.daniel.androidtrivial.Game.GameData;
 import com.daniel.androidtrivial.Game.MyGame;
+import com.daniel.androidtrivial.Game.Utils.AssetManager;
 import com.daniel.androidtrivial.R;
 import com.uberelectron.androidrtg.RTG_Surface;
 
@@ -42,6 +43,9 @@ public class GameFragment extends Fragment
         //Init game and surface.
         RTG_Surface rtg_surface = v.findViewById(R.id.BoardSurface);
         initGame(rtg_surface);
+
+        //Load Game Assets.
+        AssetManager.getInstance().loadAssets(getContext());
 
         //Init other views.
         Button btBack = v.findViewById(R.id.game_bt_Back);

@@ -5,6 +5,7 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.Log;
 
+import com.daniel.androidtrivial.Game.Utils.AssetManager;
 import com.daniel.androidtrivial.Game.Utils.Camera;
 import com.daniel.androidtrivial.Game.Utils.Transform;
 import com.daniel.androidtrivial.Game.Utils.Vector2;
@@ -31,6 +32,8 @@ public class MyGame implements RTG_App
         Transform tf = data.testTransf;
         Rect screenTestRect = data.mainCam.worldToScreenRect(tf.getRectF());
         c.drawRect(screenTestRect, data.mainPaint);
+
+        data.board.Render(c, data.mainCam);
     }
 
     @Override

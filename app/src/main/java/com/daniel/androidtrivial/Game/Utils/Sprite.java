@@ -16,8 +16,15 @@ public class Sprite
     public Sprite(Bitmap image)
     {
         this.image = image;
-        //Generate rect as full image.
-        imageRect = new Rect(0, 0, image.getWidth(), image.getHeight());
+        if(image == null)
+        {
+            imageRect = new Rect(0, 0, 100, 100);
+        }
+        else
+        {
+            //Generate rect as full image.
+            imageRect = new Rect(0, 0, image.getWidth(), image.getHeight());
+        }
 
         imagePaint = new Paint();
     }
