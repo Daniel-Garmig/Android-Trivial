@@ -2,6 +2,7 @@ package com.daniel.androidtrivial.Game.GameObjetcs;
 
 import android.graphics.Canvas;
 
+import com.daniel.androidtrivial.Game.Data.BoardSquare;
 import com.daniel.androidtrivial.Game.Utils.Camera;
 import com.daniel.androidtrivial.Game.Utils.Renderizable;
 import com.daniel.androidtrivial.Game.Utils.Sprite;
@@ -12,13 +13,20 @@ import java.util.ArrayList;
 
 public class Player extends GameObject
 {
-    //TODO: Montar un sistema "global" de casillas.
-    ArrayList<Vector2> positions;
 
-
-    public Player()
+    public Player(BoardSquare startSq)
     {
         super("playerPiece");
+        sqId = startSq.id;
+        moveToSquare(startSq);
     }
 
+    //Store current sqId.
+    public int sqId;
+
+    public void moveToSquare(BoardSquare sq)
+    {
+        transform.setPosition(sq.pos.x, sq.pos.y);
+        sqId = sq.id;
+    }
 }

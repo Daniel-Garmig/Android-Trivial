@@ -1,11 +1,21 @@
 package com.daniel.androidtrivial.Game;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.util.Log;
 
+import com.daniel.androidtrivial.Game.Data.Board;
 import com.daniel.androidtrivial.Game.GameObjetcs.GameObject;
+import com.daniel.androidtrivial.Game.GameObjetcs.Player;
 import com.daniel.androidtrivial.Game.Utils.Camera;
 import com.daniel.androidtrivial.Game.Utils.Transform;
+import com.daniel.androidtrivial.R;
+import com.google.gson.Gson;
+
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class GameData
 {
@@ -31,12 +41,15 @@ public class GameData
 
     // END SINGLETON.
 
+    Context appContext;
 
     int bgColor;
     Paint mainPaint;
-    Transform testTransf;
 
-    GameObject board;
+    GameObject boardSprite;
+    Board boardData;
+
+    Player p1;
 
     Camera mainCam;
 
@@ -46,7 +59,13 @@ public class GameData
 
     private GameData()
     {
+        //Camera may be accessed before initGameData as it need to be updated on SurfaceCreated and surfaceChanged.
         mainCam = new Camera(0, 0, 1200, 1200);
+    }
+
+    public void setContext(Context c)
+    {
+        this.appContext = c;
     }
 
     public void initGameData()
@@ -56,11 +75,27 @@ public class GameData
         mainPaint = new Paint();
         mainPaint.setColor(Color.CYAN);
 
-        testTransf = new Transform(50, 50, 50, 50);
 
-        //mainCam = new Camera(0, 0, 200, 200);
+        boardSprite = new GameObject("board");
 
-        board = new GameObject("board");
+        //Load BoardData from Json.
+        String data = "";
+        try
+        {
+            //Read data from file.
+            InputStream is = appContext.getResources().openRawResource(R.raw.squares);
+            data = new Scanner(is).useDelimiter("\\A").next();
+            is.close();
+
+            //Deserialize data.
+            Gson gson = new Gson();
+            boardData = gson.fromJson(data, Board.class);
+        } catch (Exception e)
+        {
+            Log.e("GameData", "Error loading Board Squares.");
+        }
+
+        p1 = new Player(boardData.squares.get(1));
     }
 
 

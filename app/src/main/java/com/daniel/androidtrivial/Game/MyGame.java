@@ -2,10 +2,11 @@ package com.daniel.androidtrivial.Game;
 
 import android.graphics.Canvas;
 import android.graphics.Rect;
-import android.graphics.RectF;
 import android.util.Log;
 
-import com.daniel.androidtrivial.Game.Utils.AssetManager;
+import com.daniel.androidtrivial.Game.Data.Board;
+import com.daniel.androidtrivial.Game.Data.BoardSquare;
+import com.daniel.androidtrivial.Game.GameObjetcs.Player;
 import com.daniel.androidtrivial.Game.Utils.Camera;
 import com.daniel.androidtrivial.Game.Utils.Transform;
 import com.daniel.androidtrivial.Game.Utils.Vector2;
@@ -28,20 +29,16 @@ public class MyGame implements RTG_App
         GameData data = GameData.getInstance();
         c.drawColor(data.bgColor);
 
-        //Draw test stuff.
-        Transform tf = data.testTransf;
-        Rect screenTestRect = data.mainCam.worldToScreenRect(tf.getRectF());
-        c.drawRect(screenTestRect, data.mainPaint);
+        data.boardSprite.Render(c, data.mainCam);
 
-        data.board.Render(c, data.mainCam);
+        if(data.p1 != null) { data.p1.Render(c); }
     }
 
     @Override
-    public void Update()
+    public void Update(float dt)
     {
         //Log.i(TAG, "Game Updated!!");
 
-        //Move testRect around.
         GameData d = GameData.getInstance();
 
         Camera cam = d.mainCam;
@@ -57,7 +54,6 @@ public class MyGame implements RTG_App
         {
             cam.transform.setPosition((int) pos.x, 0);
         }
-
     }
 
     @Override
@@ -68,6 +64,30 @@ public class MyGame implements RTG_App
 
     @Override
     public void Stop()
+    {
+
+    }
+
+
+    public void onSurfaceTouch()
+    {
+        Log.i("MyGame", "Touched!!");
+
+        GameData d = GameData.getInstance();
+
+        //get board data.
+        Board b = d.boardData;
+        Player p = d.p1;
+
+        //Search next square.
+        BoardSquare lastSq = b.squares.get(p.sqId);
+        BoardSquare nextSq = b.squares.get(lastSq.continuousSquares.get(1));
+
+        p.moveToSquare(nextSq);
+    }
+
+
+    private void movePlayer(Player p1)
     {
 
     }

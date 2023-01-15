@@ -3,6 +3,7 @@ package com.daniel.androidtrivial.Fragments.Game;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -13,6 +14,7 @@ import androidx.fragment.app.FragmentManager;
 import com.daniel.androidtrivial.Fragments.App.MainMenuFragment;
 import com.daniel.androidtrivial.Game.GameData;
 import com.daniel.androidtrivial.Game.MyGame;
+import com.daniel.androidtrivial.Game.MyHandler;
 import com.daniel.androidtrivial.Game.Utils.AssetManager;
 import com.daniel.androidtrivial.R;
 import com.uberelectron.androidrtg.RTG_Surface;
@@ -46,6 +48,17 @@ public class GameFragment extends Fragment
 
         //Load Game Assets.
         AssetManager.getInstance().loadAssets(getContext());
+        GameData.getInstance().setContext(getContext());
+
+        //Add events to surface.
+        rtg_surface.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                rtg_surface.getThread().getHandler(MyHandler.class).sendTouch();
+                return false;
+            }
+        });
+
 
         //Init other views.
         Button btBack = v.findViewById(R.id.game_bt_Back);
@@ -62,7 +75,7 @@ public class GameFragment extends Fragment
     private void initGame(RTG_Surface surface)
     {
         surface.setApp(MyGame.class);
-
+        surface.setHandlerClass(MyHandler.class);
     }
 
 

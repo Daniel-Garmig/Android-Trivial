@@ -32,6 +32,8 @@ public class Transform
         rect.offsetTo(x, y);
     }
 
+    public void setPosition(float x, float y) { rect.offsetTo(x, y);}
+
     public void moveAmount(int movX, int movY)
     {
         rect.offset(movX, movY);
