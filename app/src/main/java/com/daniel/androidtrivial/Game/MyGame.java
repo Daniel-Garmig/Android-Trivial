@@ -1,14 +1,12 @@
 package com.daniel.androidtrivial.Game;
 
 import android.graphics.Canvas;
-import android.graphics.Rect;
 import android.util.Log;
 
 import com.daniel.androidtrivial.Game.Data.Board;
 import com.daniel.androidtrivial.Game.Data.BoardSquare;
-import com.daniel.androidtrivial.Game.GameObjetcs.Player;
+import com.daniel.androidtrivial.Game.GameObjetcs.PlayerPiece;
 import com.daniel.androidtrivial.Game.Utils.Camera;
-import com.daniel.androidtrivial.Game.Utils.Transform;
 import com.daniel.androidtrivial.Game.Utils.Vector2;
 import com.uberelectron.androidrtg.RTG_App;
 
@@ -43,7 +41,7 @@ public class MyGame implements RTG_App
 
         Camera cam = d.mainCam;
 
-        cam.transform.moveAmount(1, 1);
+        /*cam.transform.moveAmount(1, 1);
         Vector2 pos = cam.transform.getPosition();
         if(pos.x > 200)
         {
@@ -53,7 +51,7 @@ public class MyGame implements RTG_App
         if(pos.y > 200)
         {
             cam.transform.setPosition((int) pos.x, 0);
-        }
+        }*/
     }
 
     @Override
@@ -77,7 +75,7 @@ public class MyGame implements RTG_App
 
         //get board data.
         Board b = d.boardData;
-        Player p = d.p1;
+        PlayerPiece p = d.p1;
 
         //Search next square.
         BoardSquare lastSq = b.squares.get(p.sqId);
@@ -87,7 +85,7 @@ public class MyGame implements RTG_App
     }
 
 
-    private void movePlayer(Player p1)
+    private void movePlayer(PlayerPiece p1)
     {
 
     }

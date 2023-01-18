@@ -6,15 +6,14 @@ import android.graphics.Paint;
 import android.util.Log;
 
 import com.daniel.androidtrivial.Game.Data.Board;
+import com.daniel.androidtrivial.Game.Data.Match;
 import com.daniel.androidtrivial.Game.GameObjetcs.GameObject;
-import com.daniel.androidtrivial.Game.GameObjetcs.Player;
+import com.daniel.androidtrivial.Game.GameObjetcs.PlayerPiece;
 import com.daniel.androidtrivial.Game.Utils.Camera;
-import com.daniel.androidtrivial.Game.Utils.Transform;
 import com.daniel.androidtrivial.R;
 import com.google.gson.Gson;
 
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class GameData
@@ -49,7 +48,7 @@ public class GameData
     GameObject boardSprite;
     Board boardData;
 
-    Player p1;
+    PlayerPiece p1;
 
     Camera mainCam;
 
@@ -95,7 +94,7 @@ public class GameData
             Log.e("GameData", "Error loading Board Squares.");
         }
 
-        p1 = new Player(boardData.squares.get(1));
+        p1 = new PlayerPiece(boardData.squares.get(1));
     }
 
 

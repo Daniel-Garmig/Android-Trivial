@@ -31,4 +31,8 @@ public class BoardSquare
         this.pos = pos;
         this.continuousSquares = continuousSquares;
     }
+
+
+    // Methods.
+    public int getContinuousCount() { return continuousSquares.size(); }
 }
