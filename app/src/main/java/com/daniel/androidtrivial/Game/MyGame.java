@@ -8,6 +8,7 @@ import com.daniel.androidtrivial.Game.Data.BoardSquare;
 import com.daniel.androidtrivial.Game.GameObjetcs.PlayerPiece;
 import com.daniel.androidtrivial.Game.Utils.Camera;
 import com.daniel.androidtrivial.Game.Utils.Vector2;
+import com.daniel.androidtrivial.ThreadOrchestrator;
 import com.uberelectron.androidrtg.RTG_App;
 
 public class MyGame implements RTG_App
@@ -18,6 +19,9 @@ public class MyGame implements RTG_App
     public void Start()
     {
         GameData.getInstance().initGameData();
+
+        //ThreadOrchestrator
+        ThreadOrchestrator.getInstance().onDataLoaded(ThreadOrchestrator.msgGameDataLoaded);
     }
 
     @Override
@@ -88,5 +92,16 @@ public class MyGame implements RTG_App
     private void movePlayer(PlayerPiece p1)
     {
 
+    }
+
+    public void startMoveState(int movs)
+    {
+        for(int i = 0; i < movs; i++)
+        {
+            onSurfaceTouch();
+        }
+
+        //FIXME: Esto debería llamarse después de terminar las animaciones de movimiento.
+        ThreadOrchestrator.getInstance().sendGameEndsInteraction();
     }
 }

@@ -20,6 +20,7 @@ import com.daniel.androidtrivial.Game.Data.WedgesColors;
 import com.daniel.androidtrivial.Game.GameViewModel;
 import com.daniel.androidtrivial.Game.States.GameState;
 import com.daniel.androidtrivial.R;
+import com.daniel.androidtrivial.ThreadOrchestrator;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -179,6 +180,8 @@ public class MatchRoomFragment extends Fragment
 
         //viewModel.setStage(new StartGameState());
         viewModel.setStage(GameState.StartGame);
+
+        ThreadOrchestrator.getInstance().onDataLoaded(ThreadOrchestrator.msgViewModelDataLoaded);
 
         FragmentManager mng = getParentFragmentManager();
         mng.beginTransaction()

@@ -27,6 +27,8 @@ public class Sprite
         }
 
         imagePaint = new Paint();
+        imagePaint.setAntiAlias(true);
+        imagePaint.setFilterBitmap(true);
     }
 
     public Sprite(Bitmap image, Rect imageRect)

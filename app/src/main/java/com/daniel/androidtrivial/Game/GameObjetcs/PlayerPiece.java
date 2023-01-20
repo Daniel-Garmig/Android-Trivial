@@ -4,6 +4,9 @@ import com.daniel.androidtrivial.Game.Data.BoardSquare;
 
 public class PlayerPiece extends GameObject
 {
+    public PlayerPiece() {
+        super("playerPiece");
+    }
 
     public PlayerPiece(BoardSquare startSq)
     {

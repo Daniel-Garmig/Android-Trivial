@@ -6,7 +6,6 @@ import android.graphics.Paint;
 import android.util.Log;
 
 import com.daniel.androidtrivial.Game.Data.Board;
-import com.daniel.androidtrivial.Game.Data.Match;
 import com.daniel.androidtrivial.Game.GameObjetcs.GameObject;
 import com.daniel.androidtrivial.Game.GameObjetcs.PlayerPiece;
 import com.daniel.androidtrivial.Game.Utils.Camera;
@@ -40,8 +39,6 @@ public class GameData
 
     // END SINGLETON.
 
-    Context appContext;
-
     int bgColor;
     Paint mainPaint;
 
@@ -62,11 +59,6 @@ public class GameData
         mainCam = new Camera(0, 0, 1200, 1200);
     }
 
-    public void setContext(Context c)
-    {
-        this.appContext = c;
-    }
-
     public void initGameData()
     {
         bgColor = Color.BLACK;
@@ -77,6 +69,15 @@ public class GameData
 
         boardSprite = new GameObject("board");
 
+        if(p1 == null)
+        {
+            p1 = new PlayerPiece();
+            p1.sqId = 1;
+        }
+    }
+
+    public void loadBoardData(Context appContext)
+    {
         //Load BoardData from Json.
         String data = "";
         try
@@ -93,8 +94,6 @@ public class GameData
         {
             Log.e("GameData", "Error loading Board Squares.");
         }
-
-        p1 = new PlayerPiece(boardData.squares.get(1));
     }
 
 
