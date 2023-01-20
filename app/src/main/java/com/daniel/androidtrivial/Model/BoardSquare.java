@@ -1,6 +1,5 @@
-package com.daniel.androidtrivial.Game.Data;
+package com.daniel.androidtrivial.Model;
 
-import com.daniel.androidtrivial.Game.Utils.Transform;
 import com.daniel.androidtrivial.Game.Utils.Vector2;
 
 import java.util.ArrayList;

@@ -15,12 +15,12 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.daniel.androidtrivial.Fragments.App.InfoDialogFragment;
 import com.daniel.androidtrivial.Fragments.App.MainMenuFragment;
-import com.daniel.androidtrivial.Game.Data.Player;
+import com.daniel.androidtrivial.Model.Player;
 import com.daniel.androidtrivial.Game.GameData;
 import com.daniel.androidtrivial.Game.GameViewModel;
 import com.daniel.androidtrivial.Game.MyGame;
 import com.daniel.androidtrivial.Game.MyHandler;
-import com.daniel.androidtrivial.Game.States.GameState;
+import com.daniel.androidtrivial.Model.GameState;
 import com.daniel.androidtrivial.R;
 import com.daniel.androidtrivial.ThreadOrchestrator;
 import com.uberelectron.androidrtg.RTG_Surface;

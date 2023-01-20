@@ -15,10 +15,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.daniel.androidtrivial.Fragments.Game.GameFragment;
-import com.daniel.androidtrivial.Game.Data.Player;
-import com.daniel.androidtrivial.Game.Data.WedgesColors;
+import com.daniel.androidtrivial.Model.Player;
+import com.daniel.androidtrivial.Model.WedgesColors;
 import com.daniel.androidtrivial.Game.GameViewModel;
-import com.daniel.androidtrivial.Game.States.GameState;
+import com.daniel.androidtrivial.Model.GameState;
 import com.daniel.androidtrivial.R;
 import com.daniel.androidtrivial.ThreadOrchestrator;
 

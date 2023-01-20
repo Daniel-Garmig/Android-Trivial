@@ -5,7 +5,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.Log;
 
-import com.daniel.androidtrivial.Game.Data.Board;
+import com.daniel.androidtrivial.Model.Board;
 import com.daniel.androidtrivial.Game.GameObjetcs.GameObject;
 import com.daniel.androidtrivial.Game.GameObjetcs.PlayerPiece;
 import com.daniel.androidtrivial.Game.Utils.Camera;

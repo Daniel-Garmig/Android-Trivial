@@ -1,6 +1,6 @@
 package com.daniel.androidtrivial.Game.GameObjetcs;
 
-import com.daniel.androidtrivial.Game.Data.BoardSquare;
+import com.daniel.androidtrivial.Model.BoardSquare;
 
 public class PlayerPiece extends GameObject
 {

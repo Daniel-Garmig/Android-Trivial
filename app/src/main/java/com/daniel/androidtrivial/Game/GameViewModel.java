@@ -2,8 +2,8 @@ package com.daniel.androidtrivial.Game;
 
 import androidx.lifecycle.ViewModel;
 
-import com.daniel.androidtrivial.Game.Data.Player;
-import com.daniel.androidtrivial.Game.States.GameState;
+import com.daniel.androidtrivial.Model.Player;
+import com.daniel.androidtrivial.Model.GameState;
 
 import java.util.ArrayList;
 import java.util.HashMap;

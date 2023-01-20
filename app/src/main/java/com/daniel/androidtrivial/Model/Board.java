@@ -1,4 +1,4 @@
-package com.daniel.androidtrivial.Game.Data;
+package com.daniel.androidtrivial.Model;
 
 import java.util.HashMap;
 

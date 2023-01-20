@@ -3,17 +3,19 @@ package com.daniel.androidtrivial.Game;
 import android.graphics.Canvas;
 import android.util.Log;
 
-import com.daniel.androidtrivial.Game.Data.Board;
-import com.daniel.androidtrivial.Game.Data.BoardSquare;
+import com.daniel.androidtrivial.Model.Board;
+import com.daniel.androidtrivial.Model.BoardSquare;
 import com.daniel.androidtrivial.Game.GameObjetcs.PlayerPiece;
 import com.daniel.androidtrivial.Game.Utils.Camera;
-import com.daniel.androidtrivial.Game.Utils.Vector2;
 import com.daniel.androidtrivial.ThreadOrchestrator;
 import com.uberelectron.androidrtg.RTG_App;
 
 public class MyGame implements RTG_App
 {
     private static final String TAG = "GameBoardApp";
+
+    boolean doingStuff = false;
+
 
     @Override
     public void Start()
@@ -75,7 +77,7 @@ public class MyGame implements RTG_App
     {
         Log.i("MyGame", "Touched!!");
 
-        GameData d = GameData.getInstance();
+        /*GameData d = GameData.getInstance();
 
         //get board data.
         Board b = d.boardData;
@@ -85,23 +87,41 @@ public class MyGame implements RTG_App
         BoardSquare lastSq = b.squares.get(p.sqId);
         BoardSquare nextSq = b.squares.get(lastSq.continuousSquares.get(1));
 
-        p.moveToSquare(nextSq);
+        p.moveToSquare(nextSq);*/
+
+        if(doingStuff)
+        {
+            ThreadOrchestrator.getInstance().sendGameEndsInteraction();
+            doingStuff = false;
+        }
     }
 
 
-    private void movePlayer(PlayerPiece p1)
+    private void movePlayer(PlayerPiece p)
     {
+        GameData d = GameData.getInstance();
 
+        //get board data.
+        Board b = d.boardData;
+
+        //Search next square.
+        BoardSquare lastSq = b.squares.get(p.sqId);
+        BoardSquare nextSq = b.squares.get(lastSq.continuousSquares.get(1));
+
+        p.moveToSquare(nextSq);
     }
 
     public void startMoveState(int movs)
     {
+        GameData d = GameData.getInstance();
+
+        PlayerPiece p = d.p1;
+
         for(int i = 0; i < movs; i++)
         {
-            onSurfaceTouch();
+            movePlayer(p);
         }
 
-        //FIXME: Esto debería llamarse después de terminar las animaciones de movimiento.
-        ThreadOrchestrator.getInstance().sendGameEndsInteraction();
+        doingStuff = true;
     }
 }

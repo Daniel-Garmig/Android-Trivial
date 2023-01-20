@@ -1,4 +1,4 @@
-package com.daniel.androidtrivial.Game.States;
+package com.daniel.androidtrivial.Model;
 
 public enum GameState
 {
