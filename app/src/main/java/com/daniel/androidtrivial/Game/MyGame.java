@@ -23,7 +23,7 @@ public class MyGame implements RTG_App
         GameData.getInstance().initGameData();
 
         //ThreadOrchestrator
-        ThreadOrchestrator.getInstance().onDataLoaded(ThreadOrchestrator.msgGameDataLoaded);
+        ThreadOrchestrator.getInstance().sendDataLoaded(ThreadOrchestrator.msgGameDataLoaded);
     }
 
     @Override

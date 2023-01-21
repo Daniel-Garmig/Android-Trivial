@@ -106,7 +106,7 @@ public class GameFragment extends Fragment
             @Override
             public void run() {
                 GameData.getInstance().loadBoardData(getContext());
-                ThreadOrchestrator.getInstance().onDataLoaded(ThreadOrchestrator.msgBoardDataLoaded);
+                ThreadOrchestrator.getInstance().sendDataLoaded(ThreadOrchestrator.msgBoardDataLoaded);
             }
         });
         boardLoad.start();

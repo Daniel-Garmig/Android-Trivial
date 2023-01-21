@@ -1,0 +1,42 @@
+{
+  "category": {
+    "ID": 1,
+    "name": "Ciencias"
+  },
+  "questions": [
+    {
+      "question": {
+        "ID": 1,
+        "ID_CorrectAnswer": 1,
+        "sentence": "Cual es el satélite de la tierra"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Luna"
+        },
+        {
+          "ID": 2,
+          "answer": "Marte"
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 2,
+        "ID_CorrectAnswer": 2,
+        "sentence": "Cuantos océanos hay"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "5"
+        },
+        {
+          "ID": 2,
+          "answer": "2"
+        }
+      ]
+    }
+  ]
+}

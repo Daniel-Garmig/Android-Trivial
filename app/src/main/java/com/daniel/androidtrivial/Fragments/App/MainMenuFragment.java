@@ -12,10 +12,15 @@ import androidx.fragment.app.FragmentManager;
 
 import com.daniel.androidtrivial.Fragments.Game.DiceRollFragment;
 import com.daniel.androidtrivial.Fragments.Game.GameFragment;
+import com.daniel.androidtrivial.QuestionsManager;
 import com.daniel.androidtrivial.R;
+import com.daniel.androidtrivial.ThreadOrchestrator;
 
 public class MainMenuFragment extends Fragment
 {
+    LoadingDialogFragment loadingDialog;
+
+
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -62,6 +67,14 @@ public class MainMenuFragment extends Fragment
                 debugLoadRoom();
             }
         });
+
+        Button btCreateDB = v.findViewById(R.id.menu_bt_createDB);
+        btCreateDB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                debugCreateDB();
+            }
+        });
     }
 
     private void onPlayButton()
@@ -88,5 +101,24 @@ public class MainMenuFragment extends Fragment
                 .setReorderingAllowed(true)
                 .replace(R.id.MainFragmentContainer, MatchRoomFragment.class, null)
                 .commit();
+    }
+
+
+    private void debugCreateDB()
+    {
+        //STRINGRES
+        loadingDialog = LoadingDialogFragment.newInstance("Creating Questions DB");
+        loadingDialog.show(getParentFragmentManager(), "LoadingDialog");
+
+        ThreadOrchestrator.getInstance().setOnDBCreationSuccess(new Runnable() {
+            @Override
+            public void run() {
+                loadingDialog.onFinishLoad();
+            }
+        });
+
+        int[] categories = { R.raw.science_es };
+        QuestionsManager.getInstance().createDefaultDB(categories);
+
     }
 }

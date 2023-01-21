@@ -5,7 +5,6 @@ import android.os.Message;
 
 import androidx.annotation.NonNull;
 
-import com.daniel.androidtrivial.Game.GameData;
 
 /**
  * Class for communicating threads (manually).
@@ -23,7 +22,7 @@ public class ThreadOrchestrator extends Handler
         ThreadOrchestrator orchestator = instance;
         if(orchestator != null) { return orchestator; }
 
-        synchronized (GameData.class)
+        synchronized (ThreadOrchestrator.class)
         {
             if(instance == null)
             {
@@ -49,6 +48,9 @@ public class ThreadOrchestrator extends Handler
     public static final int MSG_ALL_DATA_LOADED = 10;
     public static final int MSG_RTG_GAME_INTERACTION_ENDED = 11;
 
+    public static final int MSG_DB_CREATION_ERROR = 20;
+    public static final int MSG_DB_CREATION_SUCCESS = 21;
+
 
     boolean gameDataLoaded = false;
     boolean boardDataLoaded = false;
@@ -59,19 +61,27 @@ public class ThreadOrchestrator extends Handler
     /**
      * Used when all game data is loaded by respective threads so game can start.
      */
-    Runnable onAllDataLoaded;
+    private Runnable onAllDataLoaded;
 
     /**
      * Used when RTG_Game ends it's interaction and UI can continue game Logic.
      */
-    Runnable onRTG_GameEndsInteraction;
+    private Runnable onRTG_GameEndsInteraction;
+
+    private Runnable onDBCreationError;
+    private Runnable OnDBCreationSuccess;
 
 
     public void setOnAllDataLoaded(Runnable onAllDataLoaded) { this.onAllDataLoaded = onAllDataLoaded; }
     public void setOnRTG_GameEndsInteraction(Runnable onRTG_GameEndsInteraction) { this.onRTG_GameEndsInteraction = onRTG_GameEndsInteraction; }
 
 
-    public void onDataLoaded(int msgId)
+    public void setOnDBCreationError(Runnable onDBCreationError) { this.onDBCreationError = onDBCreationError; }
+    public void setOnDBCreationSuccess(Runnable onDBCreationSuccess) { this.OnDBCreationSuccess = onDBCreationSuccess; }
+
+
+
+    public void sendDataLoaded(int msgId)
     {
         switch (msgId)
         {
@@ -100,6 +110,16 @@ public class ThreadOrchestrator extends Handler
         sendMessage(obtainMessage(MSG_RTG_GAME_INTERACTION_ENDED));
     }
 
+    public void sendDBCreationError(String msg)
+    {
+        sendMessage(obtainMessage(MSG_DB_CREATION_ERROR));
+    }
+
+    public void sendDBCreationSuccess(String msg)
+    {
+        sendMessage(obtainMessage(MSG_DB_CREATION_SUCCESS));
+    }
+
     @Override
     public void handleMessage(@NonNull Message msg)
     {
@@ -112,6 +132,12 @@ public class ThreadOrchestrator extends Handler
                 break;
             case MSG_RTG_GAME_INTERACTION_ENDED:
                 onRTG_GameEndsInteraction.run();
+                break;
+            case MSG_DB_CREATION_ERROR:
+                onDBCreationError.run();
+                break;
+            case MSG_DB_CREATION_SUCCESS:
+                OnDBCreationSuccess.run();
                 break;
         }
     }

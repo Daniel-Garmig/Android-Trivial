@@ -181,7 +181,7 @@ public class MatchRoomFragment extends Fragment
         //viewModel.setStage(new StartGameState());
         viewModel.setStage(GameState.StartGame);
 
-        ThreadOrchestrator.getInstance().onDataLoaded(ThreadOrchestrator.msgViewModelDataLoaded);
+        ThreadOrchestrator.getInstance().sendDataLoaded(ThreadOrchestrator.msgViewModelDataLoaded);
 
         FragmentManager mng = getParentFragmentManager();
         mng.beginTransaction()
