@@ -7,8 +7,12 @@ import com.daniel.androidtrivial.Model.Board;
 import com.daniel.androidtrivial.Model.BoardSquare;
 import com.daniel.androidtrivial.Game.GameObjetcs.PlayerPiece;
 import com.daniel.androidtrivial.Game.Utils.Camera;
+import com.daniel.androidtrivial.Model.Player;
 import com.daniel.androidtrivial.ThreadOrchestrator;
 import com.uberelectron.androidrtg.RTG_App;
+
+import java.util.HashMap;
+import java.util.List;
 
 public class MyGame implements RTG_App
 {
@@ -35,7 +39,10 @@ public class MyGame implements RTG_App
 
         data.boardSprite.Render(c, data.mainCam);
 
-        if(data.p1 != null) { data.p1.Render(c); }
+        for (PlayerPiece p : data.playerPieceList.values())
+        {
+            p.Render(c, data.mainCam);
+        }
     }
 
     @Override
@@ -46,18 +53,6 @@ public class MyGame implements RTG_App
         GameData d = GameData.getInstance();
 
         Camera cam = d.mainCam;
-
-        /*cam.transform.moveAmount(1, 1);
-        Vector2 pos = cam.transform.getPosition();
-        if(pos.x > 200)
-        {
-            cam.transform.setPosition(0, (int) pos.y);
-        }
-
-        if(pos.y > 200)
-        {
-            cam.transform.setPosition((int) pos.x, 0);
-        }*/
     }
 
     @Override
@@ -108,20 +103,32 @@ public class MyGame implements RTG_App
         BoardSquare lastSq = b.squares.get(p.sqId);
         BoardSquare nextSq = b.squares.get(lastSq.continuousSquares.get(1));
 
-        p.moveToSquare(nextSq);
+        p.setToSquare(nextSq);
     }
 
-    public void startMoveState(int movs)
+    public void startMoveState(int movs, Player currentPlayer)
     {
         GameData d = GameData.getInstance();
 
-        PlayerPiece p = d.p1;
+        PlayerPiece p = d.playerPieceList.get(currentPlayer.getId());
 
+        //FIXME: Move don't go here!
         for(int i = 0; i < movs; i++)
         {
             movePlayer(p);
         }
 
         doingStuff = true;
+    }
+
+
+    public void createPlayers(List<Player> players)
+    {
+        GameData.getInstance().createPlayers(players);
+    }
+
+    public void updatePositions(HashMap<Integer, Integer> positions)
+    {
+        GameData.getInstance().updatePositions(positions);
     }
 }

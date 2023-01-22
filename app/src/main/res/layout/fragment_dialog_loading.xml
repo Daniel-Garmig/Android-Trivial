@@ -15,7 +15,7 @@
         android:paddingLeft="20sp"
         android:paddingRight="20sp"
         android:text="Info Message"
-        android:textAlignment="viewEnd"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/fg_loading_progessBar"

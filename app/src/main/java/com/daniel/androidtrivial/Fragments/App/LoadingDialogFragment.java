@@ -14,6 +14,9 @@ import androidx.fragment.app.DialogFragment;
 
 import com.daniel.androidtrivial.R;
 
+
+//TODO: Mb do it fullscreen?
+//TODO: Add more customization?
 public class LoadingDialogFragment extends DialogFragment
 {
     private static final String argMsg = "msg";

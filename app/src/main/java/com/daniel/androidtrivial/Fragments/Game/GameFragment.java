@@ -14,6 +14,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.daniel.androidtrivial.Fragments.App.InfoDialogFragment;
+import com.daniel.androidtrivial.Fragments.App.LoadingDialogFragment;
 import com.daniel.androidtrivial.Fragments.App.MainMenuFragment;
 import com.daniel.androidtrivial.Model.Player;
 import com.daniel.androidtrivial.Game.GameData;
@@ -29,6 +30,8 @@ public class GameFragment extends Fragment
 {
     private static final String TAG = "GameFragment";
 
+    LoadingDialogFragment loadingDialog;
+
     GameViewModel viewModel;
     RTG_Surface rtg_surface;
 
@@ -42,7 +45,9 @@ public class GameFragment extends Fragment
         ThreadOrchestrator.getInstance().setOnAllDataLoaded(new Runnable() {
             @Override
             public void run() {
-                initData();
+                loadingDialog.onFinishLoad();
+                loadingDialog.dismiss();
+                initGame();
             }
         });
 
@@ -53,7 +58,8 @@ public class GameFragment extends Fragment
             }
         });
 
-
+        //FIXME: Quizás esto no va aquí...
+        loadingDialog = LoadingDialogFragment.newInstance("Loading Game!");
     }
 
 
@@ -71,32 +77,12 @@ public class GameFragment extends Fragment
             viewModel = new ViewModelProvider(getActivity()).get(GameViewModel.class);
         }
 
+        loadingDialog.show(getParentFragmentManager(), "Loading");
+
         loadData();
         initComponents(frag);
 
         return frag;
-    }
-
-
-    private void initData()
-    {
-
-        //TODO: Obtener datos del ViewModel para actualizar el UI.
-
-        //TODO: End game loading dialog and start game.
-
-        //State Logic.
-        GameState state = viewModel.getStage();
-        switch (state)
-        {
-            case StartGame:
-                startGameState();
-                break;
-            case LoadedGame:
-                loadedGameState();
-                break;
-        }
-
     }
 
     private void loadData()
@@ -111,24 +97,17 @@ public class GameFragment extends Fragment
         });
         boardLoad.start();
 
+        if(viewModel.getStage() == GameState.LoadedGame)
+        {
+            //TODO: Load data from JSON to viewModel.
+        }
     }
 
     private void initComponents(View v)
     {
-
         //Init game and surface.
         rtg_surface = v.findViewById(R.id.BoardSurface);
         initRTGApp(rtg_surface);
-
-
-        //Add events to surface.
-        rtg_surface.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                rtg_surface.getThread().getHandler(MyHandler.class).sendTouch();
-                return true;
-            }
-        });
 
 
         //Init other views.
@@ -139,16 +118,22 @@ public class GameFragment extends Fragment
                 onReturnButton();
             }
         });
-
-        //TODO: Launch game loading dialog.
     }
-
 
 
     private void initRTGApp(RTG_Surface surface)
     {
         surface.setApp(MyGame.class);
         surface.setHandlerClass(MyHandler.class);
+
+        //Add events to surface.
+        rtg_surface.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                rtg_surface.getThread().getHandler(MyHandler.class).sendTouch();
+                return true;
+            }
+        });
     }
 
 
@@ -159,6 +144,32 @@ public class GameFragment extends Fragment
                 .setReorderingAllowed(true)
                 .replace(R.id.MainFragmentContainer, MainMenuFragment.class, null)
                 .commit();
+    }
+
+
+
+    private void initGame()
+    {
+
+        //TODO: Obtener datos del ViewModel para actualizar el UI.
+
+        //State Logic.
+        GameState state = viewModel.getStage();
+        switch (state)
+        {
+            case StartGame:
+                startGameState();
+                break;
+            case LoadedGame:
+                loadedGameState();
+                break;
+            case NextTurn:
+                //We will get here after question fragment.
+                //FIXME: This case mb Question instead.
+                nextTurnState();
+                break;
+        }
+
     }
 
 
@@ -178,7 +189,9 @@ public class GameFragment extends Fragment
         dg.show(getParentFragmentManager(), "Info");
 
         //TODO: This should start a new game on RTG_APP.
-        //GameData.getInstance().
+        //Enviar movs al gameThread.
+        rtg_surface.getThread().getHandler(MyHandler.class).sendCreatePlayers(viewModel.getPlayers());
+        rtg_surface.getThread().getHandler(MyHandler.class).sendUpdatePositions(viewModel.getPlayerPositions());
     }
 
     private void loadedGameState()
@@ -187,7 +200,7 @@ public class GameFragment extends Fragment
 
         InfoDialogFragment.newInstance("Welcome Back!", "Juego cargado con éxito.");
 
-        //TODO: Cargar los datos guardados y pasarlos al RTG_App.
+        //TODO: Pasar los datos cargados al RTG_App.
     }
 
     private void nextTurnState()
@@ -236,7 +249,7 @@ public class GameFragment extends Fragment
 
         int movs = viewModel.getDiceRoll();
         //Enviar movs al gameThread.
-        rtg_surface.getThread().getHandler(MyHandler.class).sendStartMoveState(movs);
+        rtg_surface.getThread().getHandler(MyHandler.class).sendStartMoveState(movs, viewModel.getCurrentPlayer());
     }
 
 
@@ -248,6 +261,11 @@ public class GameFragment extends Fragment
 
         if(state == GameState.Move)
         {
+            //Update viewModelData with movement.
+            int playerID = viewModel.getCurrentPlayerID();
+            int updatedPosition = GameData.getInstance().getPlayerSquareID(playerID);
+            viewModel.getPlayerPositions().put(playerID, updatedPosition);
+
             nextTurnState();
         }
     }

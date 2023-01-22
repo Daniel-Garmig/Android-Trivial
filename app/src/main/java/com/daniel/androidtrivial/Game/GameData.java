@@ -9,10 +9,15 @@ import com.daniel.androidtrivial.Model.Board;
 import com.daniel.androidtrivial.Game.GameObjetcs.GameObject;
 import com.daniel.androidtrivial.Game.GameObjetcs.PlayerPiece;
 import com.daniel.androidtrivial.Game.Utils.Camera;
+import com.daniel.androidtrivial.Model.BoardSquare;
+import com.daniel.androidtrivial.Model.Player;
 import com.daniel.androidtrivial.R;
 import com.google.gson.Gson;
 
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class GameData
@@ -45,7 +50,7 @@ public class GameData
     GameObject boardSprite;
     Board boardData;
 
-    PlayerPiece p1;
+    HashMap<Integer, PlayerPiece> playerPieceList;
 
     Camera mainCam;
 
@@ -69,15 +74,16 @@ public class GameData
 
         boardSprite = new GameObject("board");
 
-        if(p1 == null)
+        if(playerPieceList == null)
         {
-            p1 = new PlayerPiece();
-            p1.sqId = 1;
+            playerPieceList = new HashMap<>();
         }
     }
 
     public void loadBoardData(Context appContext)
     {
+        if(boardData != null) { return; }
+
         //Load BoardData from Json.
         String data = "";
         try
@@ -94,6 +100,7 @@ public class GameData
         {
             Log.e("GameData", "Error loading Board Squares.");
         }
+        Log.i("GameData", "Board Data Loaded");
     }
 
 
@@ -105,4 +112,32 @@ public class GameData
         mainCam.updateScreenSize(width, height);
     }
 
+
+    public void createPlayers(List<Player> players)
+    {
+        for(Player p : players)
+        {
+            PlayerPiece piece = new PlayerPiece();
+            //TODO: Custom Color.
+            piece.sqId = 1;
+            playerPieceList.put(p.getId(), piece);
+        }
+    }
+
+    public void updatePositions(HashMap<Integer, Integer> positions)
+    {
+        for(Map.Entry<Integer, Integer> playerPos : positions.entrySet())
+        {
+            BoardSquare moveSquare = boardData.squares.get(playerPos.getValue());
+            playerPieceList.get(playerPos.getKey()).setToSquare(moveSquare);
+        }
+    }
+
+
+    public int getPlayerSquareID(int playerID)
+    {
+        PlayerPiece piece = playerPieceList.get(playerID);
+        if(piece == null) { return -1; }
+        return piece.sqId;
+    }
 }

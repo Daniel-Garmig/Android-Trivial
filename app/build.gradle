@@ -37,7 +37,7 @@ android {
 dependencies {
 
     //AndroidRTG for Real Time Graphics.
-    implementation 'com.github.UberElectron:Android-RTG-Lib:cadc6797ec'
+    implementation 'com.github.UberElectron:Android-RTG-Lib:1.1.0'
 
     //Gson for JSON serialization.
     implementation 'com.google.code.gson:gson:2.10.1'

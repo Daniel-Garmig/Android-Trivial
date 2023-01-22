@@ -48,6 +48,19 @@ public class GameViewModel extends ViewModel
 
 
     public int getCurrentPlayerID() { return currentPlayerID; }
+    public Player getCurrentPlayer() { return getPlayer(currentPlayerID); }
+
+
+    public Player getPlayer(int playerID)
+    {
+        for(Player p : players)
+        {
+            if(p.getId() == playerID) { return p; }
+        }
+
+        return null;
+    }
+
 
     public void nextTurn()
     {
@@ -63,13 +76,4 @@ public class GameViewModel extends ViewModel
     }
 
 
-    public Player getPlayer(int playerID)
-    {
-        for(Player p : players)
-        {
-            if(p.getId() == playerID) { return p; }
-        }
-
-        return null;
-    }
 }

@@ -12,13 +12,13 @@ public class PlayerPiece extends GameObject
     {
         super("playerPiece");
         sqId = startSq.id;
-        moveToSquare(startSq);
+        setToSquare(startSq);
     }
 
     //Store current sqId.
     public int sqId;
 
-    public void moveToSquare(BoardSquare sq)
+    public void setToSquare(BoardSquare sq)
     {
         transform.setPosition(sq.pos.x, sq.pos.y);
         sqId = sq.id;
