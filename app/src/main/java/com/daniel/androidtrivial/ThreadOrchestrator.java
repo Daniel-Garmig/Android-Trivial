@@ -5,6 +5,10 @@ import android.os.Message;
 
 import androidx.annotation.NonNull;
 
+import java.util.HashMap;
+
+//TODO: Move all thread start to here, so it's controlled on a central location.
+//  At the end of the day, this is a thread orchestrator...
 
 /**
  * Class for communicating threads (manually).
@@ -38,7 +42,25 @@ public class ThreadOrchestrator extends Handler
     public ThreadOrchestrator()
     {
         instance = this;
+        activeThreads = new HashMap<>();
     }
+
+
+    //THREAD MANAGEMENT
+
+    //TODO: Revisar si de verdad necesitamos guardar los threads. Me parece un memory leak.
+    HashMap<String, Thread> activeThreads;
+
+    public void startThread(String name, Runnable task)
+    {
+        Thread t = new Thread(task);
+        t.setName(name);
+        t.start();
+    }
+
+
+    // HANDLER
+
 
     public static final int msgGameDataLoaded = 0;
     public static final int msgBoardDataLoaded = 1;
@@ -50,6 +72,11 @@ public class ThreadOrchestrator extends Handler
 
     public static final int MSG_DB_CREATION_ERROR = 20;
     public static final int MSG_DB_CREATION_SUCCESS = 21;
+
+    //Error doing operations on DB (query, insert, update, ...).
+    public static final int MSG_DB_OPERATION_ERROR = 25;
+
+    public static final int MSG_QUESTION_QUERY_ENDED = 30;
 
 
     boolean gameDataLoaded = false;
@@ -69,19 +96,26 @@ public class ThreadOrchestrator extends Handler
     private Runnable onRTG_GameEndsInteraction;
 
     private Runnable onDBCreationError;
-    private Runnable OnDBCreationSuccess;
+    private Runnable onDBCreationSuccess;
+    private Runnable onDBOperationError;
+
+    private Runnable onQuestionQueryEnded;
 
 
     public void setOnAllDataLoaded(Runnable onAllDataLoaded) { this.onAllDataLoaded = onAllDataLoaded; }
     public void setOnRTG_GameEndsInteraction(Runnable onRTG_GameEndsInteraction) { this.onRTG_GameEndsInteraction = onRTG_GameEndsInteraction; }
 
-
     public void setOnDBCreationError(Runnable onDBCreationError) { this.onDBCreationError = onDBCreationError; }
-    public void setOnDBCreationSuccess(Runnable onDBCreationSuccess) { this.OnDBCreationSuccess = onDBCreationSuccess; }
+    public void setOnDBCreationSuccess(Runnable onDBCreationSuccess) { this.onDBCreationSuccess = onDBCreationSuccess; }
+
+    public void setOnDBOperationError(Runnable onDBOperationError) { this.onDBOperationError = onDBOperationError; }
+
+
+    public void setOnQuestionQueryEnded(Runnable onQuestionQueryEnded) { this.onQuestionQueryEnded = onQuestionQueryEnded; }
 
 
 
-    public void sendDataLoaded(int msgId)
+    public synchronized void sendDataLoaded(int msgId)
     {
         switch (msgId)
         {
@@ -102,6 +136,9 @@ public class ThreadOrchestrator extends Handler
         if(gameDataLoaded && boardDataLoaded && assetsLoaded && viewModelDataLoaded)
         {
             sendMessage(obtainMessage(MSG_ALL_DATA_LOADED));
+            gameDataLoaded = false;
+            boardDataLoaded = false;
+            //Assets and viewModel data are only loaded once.
         }
     }
 
@@ -118,6 +155,17 @@ public class ThreadOrchestrator extends Handler
     public void sendDBCreationSuccess(String msg)
     {
         sendMessage(obtainMessage(MSG_DB_CREATION_SUCCESS));
+    }
+
+    public void sendDBOperationError(String msg)
+    {
+        sendMessage(obtainMessage(MSG_DB_OPERATION_ERROR));
+    }
+
+
+    public void sendQuestionQueryEnded()
+    {
+        sendMessage(obtainMessage(MSG_QUESTION_QUERY_ENDED));
     }
 
     @Override
@@ -137,7 +185,13 @@ public class ThreadOrchestrator extends Handler
                 onDBCreationError.run();
                 break;
             case MSG_DB_CREATION_SUCCESS:
-                OnDBCreationSuccess.run();
+                onDBCreationSuccess.run();
+                break;
+            case MSG_DB_OPERATION_ERROR:
+                onDBOperationError.run();
+                break;
+            case MSG_QUESTION_QUERY_ENDED:
+                onQuestionQueryEnded.run();
                 break;
         }
     }

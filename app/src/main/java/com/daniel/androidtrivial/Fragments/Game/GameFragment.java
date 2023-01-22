@@ -22,9 +22,18 @@ import com.daniel.androidtrivial.Game.GameViewModel;
 import com.daniel.androidtrivial.Game.MyGame;
 import com.daniel.androidtrivial.Game.MyHandler;
 import com.daniel.androidtrivial.Model.GameState;
+import com.daniel.androidtrivial.Model.Questions.RoomDB.Category;
+import com.daniel.androidtrivial.Model.Questions.RoomDB.QuestionDAO;
+import com.daniel.androidtrivial.Model.Questions.RoomDB.QuestionDatabase;
+import com.daniel.androidtrivial.Model.Questions.RoomDB.QuestionWithOptions;
+import com.daniel.androidtrivial.Model.WedgesColors;
+import com.daniel.androidtrivial.QuestionsManager;
 import com.daniel.androidtrivial.R;
 import com.daniel.androidtrivial.ThreadOrchestrator;
 import com.uberelectron.androidrtg.RTG_Surface;
+
+import java.util.List;
+import java.util.Random;
 
 public class GameFragment extends Fragment
 {
@@ -41,22 +50,7 @@ public class GameFragment extends Fragment
     {
         super.onCreate(savedInstanceState);
 
-        //When all thread ends loading data, game can start securely.
-        ThreadOrchestrator.getInstance().setOnAllDataLoaded(new Runnable() {
-            @Override
-            public void run() {
-                loadingDialog.onFinishLoad();
-                loadingDialog.dismiss();
-                initGame();
-            }
-        });
-
-        ThreadOrchestrator.getInstance().setOnRTG_GameEndsInteraction(new Runnable() {
-            @Override
-            public void run() {
-                onGameInteractionEnded();
-            }
-        });
+        initEventHandler();
 
         //FIXME: Quizás esto no va aquí...
         loadingDialog = LoadingDialogFragment.newInstance("Loading Game!");
@@ -75,6 +69,7 @@ public class GameFragment extends Fragment
         if(act != null)
         {
             viewModel = new ViewModelProvider(getActivity()).get(GameViewModel.class);
+            //TODO: Mb create error MSG?
         }
 
         loadingDialog.show(getParentFragmentManager(), "Loading");
@@ -85,17 +80,43 @@ public class GameFragment extends Fragment
         return frag;
     }
 
+    private void initEventHandler()
+    {
+        //When all thread ends loading data, game can start securely.
+        ThreadOrchestrator.getInstance().setOnAllDataLoaded(new Runnable() {
+            @Override
+            public void run() {
+                loadingDialog.onFinishLoad();
+                loadingDialog.dismiss();
+                startGameLoop();
+            }
+        });
+
+        ThreadOrchestrator.getInstance().setOnRTG_GameEndsInteraction(new Runnable() {
+            @Override
+            public void run() {
+                onGameInteractionEnded();
+            }
+        });
+
+        ThreadOrchestrator.getInstance().setOnQuestionQueryEnded(new Runnable() {
+            @Override
+            public void run() {
+                onQuestionQueryEnded();
+            }
+        });
+    }
+
     private void loadData()
     {
         //Load Board data.
-        Thread boardLoad = new Thread(new Runnable() {
+        ThreadOrchestrator.getInstance().startThread("boardLoading", new Runnable() {
             @Override
             public void run() {
                 GameData.getInstance().loadBoardData(getContext());
                 ThreadOrchestrator.getInstance().sendDataLoaded(ThreadOrchestrator.msgBoardDataLoaded);
             }
         });
-        boardLoad.start();
 
         if(viewModel.getStage() == GameState.LoadedGame)
         {
@@ -148,7 +169,7 @@ public class GameFragment extends Fragment
 
 
 
-    private void initGame()
+    private void startGameLoop()
     {
 
         //TODO: Obtener datos del ViewModel para actualizar el UI.
@@ -163,8 +184,12 @@ public class GameFragment extends Fragment
             case LoadedGame:
                 loadedGameState();
                 break;
+            case RollDice:
+                //We will get here after successful question.
+                rollDiceState();
+                break;
             case NextTurn:
-                //We will get here after question fragment.
+                //We will get here after wrong question answer.
                 //FIXME: This case mb Question instead.
                 nextTurnState();
                 break;
@@ -252,7 +277,76 @@ public class GameFragment extends Fragment
         rtg_surface.getThread().getHandler(MyHandler.class).sendStartMoveState(movs, viewModel.getCurrentPlayer());
     }
 
+    private void questionState()
+    {
+        //TODO: Query category and load questions.
+        //  must be done on other thread.
+        Runnable getQuestionTask = new Runnable() {
+            @Override
+            public void run() {
+                try
+                {
+                    int squareID = viewModel.getCurrentPlayerPosition();
+                    WedgesColors squareColor = GameData.getInstance().getSquare(squareID).categoryColor;
+                    int categoryID = viewModel.getColorsCategories().get(squareColor);
 
+                    QuestionDatabase db = QuestionsManager.getInstance().getDb();
+
+                    //Get Category.
+                    Category cat = db.categoryDAO().getCatByID(categoryID);
+                    if(cat == null) { ThreadOrchestrator.getInstance().sendDBOperationError("No se ha podido obtener la categoría."); }
+                    viewModel.setCurrentCategory(cat);
+
+                    //TODO: Buscar forma para no tener que cargar todas, sólo la necesaria.
+                    //  Teniendo en cuenta que los IDs no tienen porqué ser continuos.
+                    //  Puedes tener 10 preguntas, pero la que está en posición 5 tener ID 8.
+
+                    QuestionDAO qDAO = db.questionDAO();
+                    List<QuestionWithOptions> questions = qDAO.getQuestionsWithOptionsByCategory(categoryID);
+
+                    //Select random question.
+                    Random gen = new Random();
+                    int pos = gen.nextInt(questions.size());
+
+                    viewModel.setCurrentQuestion(questions.get(pos));
+
+                    ThreadOrchestrator.getInstance().sendQuestionQueryEnded();
+                }
+                catch (Exception e)
+                {
+                    ThreadOrchestrator.getInstance().sendDBOperationError(e.toString());
+                }
+            }
+        };
+
+        ThreadOrchestrator.getInstance().startThread("Question Querry", getQuestionTask);
+
+        loadingDialog = LoadingDialogFragment.newInstance("Pregunta...");
+        loadingDialog.show(getParentFragmentManager(), "LoadingQuestion");
+    }
+
+
+
+
+    private void onQuestionQueryEnded()
+    {
+        loadingDialog.dismiss();
+
+
+        InfoDialogFragment dg = InfoDialogFragment.newInstance("Pregunta de " + viewModel.getCurrentCategory().name, "");
+        dg.setBtActions(new Runnable() {
+            @Override
+            public void run() {
+                //TODO: Switch to question fragment.
+                FragmentManager mng = getParentFragmentManager();
+                mng.beginTransaction()
+                        .setReorderingAllowed(true)
+                        .replace(R.id.MainFragmentContainer, QuestionFragment.class, null)
+                        .commit();
+            }
+        });
+        dg.show(getParentFragmentManager(), "QuestionInfo");
+    }
 
 
     private void onGameInteractionEnded()
@@ -261,12 +355,13 @@ public class GameFragment extends Fragment
 
         if(state == GameState.Move)
         {
-            //Update viewModelData with movement.
+            //Update viewModelData with movement from GameThread.
             int playerID = viewModel.getCurrentPlayerID();
             int updatedPosition = GameData.getInstance().getPlayerSquareID(playerID);
             viewModel.getPlayerPositions().put(playerID, updatedPosition);
 
-            nextTurnState();
+            //Question state.
+            questionState();
         }
     }
 }

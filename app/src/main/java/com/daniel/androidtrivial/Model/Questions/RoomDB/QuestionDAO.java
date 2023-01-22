@@ -17,9 +17,16 @@ public interface QuestionDAO
     @Query("select * from question where ID_Cat = :categoryID")
     List<Question> getQuestionsByCategory(int categoryID);
 
+    @Query("select count(ID) from question where ID_Cat = :categoryID")
+    int getQuestionsCountByCategory(int categoryID);
+
     @Transaction
     @Query("select * from question")
     List<QuestionWithOptions> getQuestionsWithOptions();
+
+    @Transaction
+    @Query("select * from question where ID_Cat = :idCat")
+    List<QuestionWithOptions> getQuestionsWithOptionsByCategory(int idCat);
 
     @Transaction
     @Query("select * from question where ID = :idQuestion AND ID_Cat = :idCat")

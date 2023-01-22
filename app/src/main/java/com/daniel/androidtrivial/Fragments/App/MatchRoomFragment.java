@@ -161,6 +161,19 @@ public class MatchRoomFragment extends Fragment
 
     }
 
+    private void useDefaultColorCategories()
+    {
+        HashMap<WedgesColors, Integer> colorsCategories = new HashMap<>();
+        colorsCategories.put(WedgesColors.green, 1);
+        colorsCategories.put(WedgesColors.purple, 2);
+        colorsCategories.put(WedgesColors.orange, 3);
+        colorsCategories.put(WedgesColors.yellow, 4);
+        colorsCategories.put(WedgesColors.pink, 5);
+        colorsCategories.put(WedgesColors.blue, 6);
+
+        viewModel.setColorsCategories(colorsCategories);
+    }
+
 
     private void initGame()
     {
@@ -180,6 +193,9 @@ public class MatchRoomFragment extends Fragment
 
         //viewModel.setStage(new StartGameState());
         viewModel.setStage(GameState.StartGame);
+
+        //TODO: Create color-category relation for the given match and story it on viewModel.
+        useDefaultColorCategories();
 
         ThreadOrchestrator.getInstance().sendDataLoaded(ThreadOrchestrator.msgViewModelDataLoaded);
 

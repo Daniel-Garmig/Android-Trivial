@@ -103,6 +103,10 @@ public class GameData
         Log.i("GameData", "Board Data Loaded");
     }
 
+    public BoardSquare getSquare(int id)
+    {
+        return boardData.squares.get(id);
+    }
 
     public void setScreenSize(int width, int height)
     {
