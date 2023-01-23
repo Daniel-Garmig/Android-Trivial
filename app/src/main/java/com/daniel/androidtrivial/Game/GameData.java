@@ -5,6 +5,8 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.Log;
 
+import com.daniel.androidtrivial.Game.GameObjetcs.DirectionIndicator;
+import com.daniel.androidtrivial.Game.Utils.Vector2;
 import com.daniel.androidtrivial.Model.Board;
 import com.daniel.androidtrivial.Game.GameObjetcs.GameObject;
 import com.daniel.androidtrivial.Game.GameObjetcs.PlayerPiece;
@@ -15,6 +17,7 @@ import com.daniel.androidtrivial.R;
 import com.google.gson.Gson;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -44,18 +47,26 @@ public class GameData
 
     // END SINGLETON.
 
+    int screenWidth;
+    int screenHeight;
+
+    Camera mainCam;
+
     int bgColor;
     Paint mainPaint;
+
 
     GameObject boardSprite;
     Board boardData;
 
     HashMap<Integer, PlayerPiece> playerPieceList;
 
-    Camera mainCam;
+    ArrayList<DirectionIndicator> possibleDirections;
 
-    int screenWidth;
-    int screenHeight;
+
+    int remainingMovs;
+    int currentPlayerID;
+
 
 
     private GameData()
@@ -77,6 +88,10 @@ public class GameData
         if(playerPieceList == null)
         {
             playerPieceList = new HashMap<>();
+        }
+        if(possibleDirections == null)
+        {
+            possibleDirections = new ArrayList<>();
         }
     }
 
@@ -145,4 +160,12 @@ public class GameData
         if(piece == null) { return -1; }
         return piece.sqId;
     }
+
+    public PlayerPiece getCurrentPlayerPiece()
+    {
+        return playerPieceList.get(currentPlayerID);
+    }
+
+
+
 }

@@ -52,7 +52,7 @@ public class AssetManager
         this.appContext = appContext;
 
         loadBitmap("board", R.drawable.trivialboard);
-        loadBitmap("playerPiece", R.drawable.trivialpiece);
+        loadBitmap("playerPiece", R.drawable.piece_green_png);
 
     }
 

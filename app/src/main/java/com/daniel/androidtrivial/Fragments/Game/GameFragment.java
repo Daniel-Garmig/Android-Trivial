@@ -151,7 +151,7 @@ public class GameFragment extends Fragment
         rtg_surface.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                rtg_surface.getThread().getHandler(MyHandler.class).sendTouch();
+                rtg_surface.getThread().getHandler(MyHandler.class).sendTouch(event);
                 return true;
             }
         });
@@ -279,22 +279,14 @@ public class GameFragment extends Fragment
 
     private void questionState()
     {
-        //Check you can obtain a wedge.
-        int squareID = viewModel.getCurrentPlayerPosition();
-        boolean isQuesito = GameData.getInstance().getSquare(squareID).isQuesito;
-        viewModel.setCurrentQuestionQuesito(isQuesito);
+        viewModel.updateCurrentQuestion();
 
-
-        //TODO: Query category and load questions.
-        //  must be done on other thread.
         Runnable getQuestionTask = new Runnable() {
             @Override
             public void run() {
                 try
                 {
-                    int squareID = viewModel.getCurrentPlayerPosition();
-                    WedgesColors squareColor = GameData.getInstance().getSquare(squareID).categoryColor;
-                    int categoryID = viewModel.getColorsCategories().get(squareColor);
+                    int categoryID = viewModel.getColorsCategories().get(viewModel.getCurrentColor());
 
                     QuestionDatabase db = QuestionsManager.getInstance().getDb();
 

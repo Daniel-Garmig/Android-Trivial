@@ -34,12 +34,21 @@ public class Transform
 
     public void setPosition(float x, float y) { rect.offsetTo(x, y);}
 
+    public void setPosition(Vector2 newPos) { rect.offsetTo(newPos.x, newPos.y);}
+
     public void moveAmount(int movX, int movY)
     {
         rect.offset(movX, movY);
     }
 
+    public void moveAmount(float movX, float movY)
+    {
+        rect.offset(movX, movY);
+    }
+
+
     public Vector2 getPosition() { return new Vector2(rect.left, rect.top); }
+
 
 
     public void setSize(float sizeX, float sizeY)

@@ -1,6 +1,7 @@
 package com.daniel.androidtrivial.Game;
 
 import android.os.Message;
+import android.view.MotionEvent;
 
 import androidx.annotation.NonNull;
 
@@ -18,8 +19,9 @@ public class MyHandler extends RTG_Handler {
     private static final int MSG_UPDATE_POSITIONS = 16;
 
 
-    public void sendTouch() {
-        sendMessage(obtainMessage(MSG_TOUCH));
+    public void sendTouch(MotionEvent event)
+    {
+        sendMessage(obtainMessage(MSG_TOUCH, event));
     }
 
     public void sendStartMoveState(int movs, Player currentPlayer)
@@ -41,7 +43,7 @@ public class MyHandler extends RTG_Handler {
     public boolean sendMessageAtTime(@NonNull Message msg, long uptimeMillis) {
         switch (msg.what) {
             case MSG_TOUCH:
-                thread.getApp(MyGame.class).onSurfaceTouch();
+                thread.getApp(MyGame.class).onSurfaceTouch((MotionEvent) msg.obj);
                 break;
             case MSG_MOVE_STATE:
                 thread.getApp(MyGame.class).startMoveState(msg.arg1, (Player) msg.obj);

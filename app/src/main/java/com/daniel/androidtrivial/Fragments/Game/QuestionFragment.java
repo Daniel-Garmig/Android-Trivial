@@ -81,8 +81,8 @@ public class QuestionFragment extends Fragment
         }
 
         //TODO:
-        // Wait for user input or time ends.
-        // Return to gameFragment securely.
+        //  Timer!!
+        //  Result feedback.
 
     }
 
@@ -107,7 +107,6 @@ public class QuestionFragment extends Fragment
         //TODO: Add scores and win stuff...
 
         Question q = viewModel.getCurrentQuestion().question;
-        Category cat = viewModel.getCurrentCategory();
 
         int correctOpID = q.ID_CorrectAnswer;
         if(opId == correctOpID)
@@ -115,7 +114,7 @@ public class QuestionFragment extends Fragment
             if(viewModel.isCurrentQuestionQuesito())
             {
                 Player p = viewModel.getCurrentPlayer();
-                p.setWedge(WedgesColors.valueOf(cat.name), true);
+                p.setWedge(viewModel.getCurrentColor(), true);
             }
 
             viewModel.setStage(GameState.RollDice);

@@ -2,6 +2,7 @@ package com.daniel.androidtrivial.Game;
 
 import androidx.lifecycle.ViewModel;
 
+import com.daniel.androidtrivial.Model.BoardSquare;
 import com.daniel.androidtrivial.Model.Player;
 import com.daniel.androidtrivial.Model.GameState;
 import com.daniel.androidtrivial.Model.Questions.RoomDB.Category;
@@ -31,6 +32,8 @@ public class GameViewModel extends ViewModel
 
 
     private int diceRoll;
+
+    private WedgesColors currentColor;
     private Category currentCategory;
     private QuestionWithOptions currentQuestion;
     private boolean isCurrentQuestionQuesito;
@@ -39,6 +42,9 @@ public class GameViewModel extends ViewModel
 
     public void setDiceRoll(int rs) { this.diceRoll = rs; }
     public int getDiceRoll() { return diceRoll; }
+
+    public WedgesColors getCurrentColor() { return currentColor; }
+    public void setCurrentColor(WedgesColors currentColor) { this.currentColor = currentColor; }
 
     public Category getCurrentCategory() { return currentCategory; }
     public void setCurrentCategory(Category currentCategory) { this.currentCategory = currentCategory; }
@@ -94,6 +100,15 @@ public class GameViewModel extends ViewModel
         //Next turn.
         gameTurnPosition++;
         currentPlayerID = playerOrder[gameTurnPosition];
+    }
+
+
+    public void updateCurrentQuestion()
+    {
+        BoardSquare squareData = GameData.getInstance().getSquare(getCurrentPlayerPosition());
+
+        currentColor = squareData.categoryColor;
+        isCurrentQuestionQuesito = squareData.isQuesito;
     }
 
 }
