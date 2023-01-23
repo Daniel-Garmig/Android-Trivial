@@ -72,18 +72,6 @@ public class MyGame implements RTG_App
     {
         Log.i("MyGame", "Touched!!");
 
-        /*GameData d = GameData.getInstance();
-
-        //get board data.
-        Board b = d.boardData;
-        PlayerPiece p = d.p1;
-
-        //Search next square.
-        BoardSquare lastSq = b.squares.get(p.sqId);
-        BoardSquare nextSq = b.squares.get(lastSq.continuousSquares.get(1));
-
-        p.moveToSquare(nextSq);*/
-
         if(doingStuff)
         {
             ThreadOrchestrator.getInstance().sendGameEndsInteraction();

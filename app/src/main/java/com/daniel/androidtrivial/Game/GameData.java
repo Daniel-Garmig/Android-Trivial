@@ -124,6 +124,7 @@ public class GameData
             PlayerPiece piece = new PlayerPiece();
             //TODO: Custom Color.
             piece.sqId = 1;
+            piece.transform.setSize(100,100);
             playerPieceList.put(p.getId(), piece);
         }
     }

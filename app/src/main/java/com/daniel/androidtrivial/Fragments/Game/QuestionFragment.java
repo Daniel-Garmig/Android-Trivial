@@ -16,8 +16,12 @@ import androidx.lifecycle.ViewModelProvider;
 import com.daniel.androidtrivial.Fragments.App.LoadingDialogFragment;
 import com.daniel.androidtrivial.Game.GameViewModel;
 import com.daniel.androidtrivial.Model.GameState;
+import com.daniel.androidtrivial.Model.Player;
+import com.daniel.androidtrivial.Model.Questions.RoomDB.Category;
+import com.daniel.androidtrivial.Model.Questions.RoomDB.Question;
 import com.daniel.androidtrivial.Model.Questions.RoomDB.QuestionOption;
 import com.daniel.androidtrivial.Model.Questions.RoomDB.QuestionWithOptions;
+import com.daniel.androidtrivial.Model.WedgesColors;
 import com.daniel.androidtrivial.R;
 
 import java.util.List;
@@ -100,8 +104,26 @@ public class QuestionFragment extends Fragment
 
     private void onOptionClick(int opId)
     {
-        //TODO: Question check and stuff.
-        viewModel.setStage(GameState.NextTurn);
+        //TODO: Add scores and win stuff...
+
+        Question q = viewModel.getCurrentQuestion().question;
+        Category cat = viewModel.getCurrentCategory();
+
+        int correctOpID = q.ID_CorrectAnswer;
+        if(opId == correctOpID)
+        {
+            if(viewModel.isCurrentQuestionQuesito())
+            {
+                Player p = viewModel.getCurrentPlayer();
+                p.setWedge(WedgesColors.valueOf(cat.name), true);
+            }
+
+            viewModel.setStage(GameState.RollDice);
+        }
+        else
+        {
+            viewModel.setStage(GameState.NextTurn);
+        }
 
         //Return to GameFragment.
         FragmentManager mng = getParentFragmentManager();

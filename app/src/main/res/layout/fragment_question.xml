@@ -29,51 +29,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/quest_text_title">
-
-        <Button
-            android:id="@+id/quest_bt_op1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15sp"
-            android:layout_marginBottom="15sp"
-            android:text="Button"
-            tools:visibility="gone" />
-
-        <Button
-            android:id="@+id/quest_bt_op2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15sp"
-            android:layout_marginBottom="15sp"
-            android:text="Button"
-            tools:visibility="gone" />
-
-        <Button
-            android:id="@+id/quest_bt_op3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15sp"
-            android:layout_marginBottom="15sp"
-            android:text="Button"
-            tools:visibility="gone" />
-
-        <Button
-            android:id="@+id/quest_bt_op4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15sp"
-            android:layout_marginBottom="15sp"
-            android:text="Button"
-            tools:visibility="gone" />
-
-        <Button
-            android:id="@+id/quest_bt_op5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15sp"
-            android:layout_marginBottom="15sp"
-            android:text="Button"
-            tools:visibility="gone" />
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/quest_text_title"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

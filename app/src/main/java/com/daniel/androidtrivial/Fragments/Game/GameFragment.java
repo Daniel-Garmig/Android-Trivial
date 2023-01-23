@@ -279,6 +279,12 @@ public class GameFragment extends Fragment
 
     private void questionState()
     {
+        //Check you can obtain a wedge.
+        int squareID = viewModel.getCurrentPlayerPosition();
+        boolean isQuesito = GameData.getInstance().getSquare(squareID).isQuesito;
+        viewModel.setCurrentQuestionQuesito(isQuesito);
+
+
         //TODO: Query category and load questions.
         //  must be done on other thread.
         Runnable getQuestionTask = new Runnable() {
@@ -321,7 +327,7 @@ public class GameFragment extends Fragment
 
         ThreadOrchestrator.getInstance().startThread("Question Querry", getQuestionTask);
 
-        loadingDialog = LoadingDialogFragment.newInstance("Pregunta...");
+        loadingDialog = LoadingDialogFragment.newInstance(getString(R.string.game_loading_question));
         loadingDialog.show(getParentFragmentManager(), "LoadingQuestion");
     }
 
@@ -332,8 +338,10 @@ public class GameFragment extends Fragment
     {
         loadingDialog.dismiss();
 
+        String title = String.format(getString(R.string.game_info_question_title), viewModel.getCurrentCategory().name);
+        String msg = (viewModel.isCurrentQuestionQuesito() ? getString(R.string.game_info_question_quesito) : getString(R.string.game_info_question_noQuesito));
+        InfoDialogFragment dg = InfoDialogFragment.newInstance(title, msg);
 
-        InfoDialogFragment dg = InfoDialogFragment.newInstance("Pregunta de " + viewModel.getCurrentCategory().name, "");
         dg.setBtActions(new Runnable() {
             @Override
             public void run() {

@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">AndroidTrivial</string>
+
+
+    
+    <string name="game_loading_question">Cargando pregunta...</string>
+    <string name="game_info_question_title">Pregunta de %1$s</string>
+    <string name="game_info_question_noQuesito">Responde a esta pregunta para conseguir puntos y segur avanzando.</string>
+    <string name="game_info_question_quesito">¡En esta pregunta puedes conseguir un quesito!</string>
 </resources>

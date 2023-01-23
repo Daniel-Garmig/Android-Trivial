@@ -48,4 +48,9 @@ public class Player
 
     public WedgesColors getPlayerColor() { return playerColor; }
     public void setPlayerColor(WedgesColors playerColor) { this.playerColor = playerColor; }
+
+    public void setWedge(WedgesColors color, boolean haveIt)
+    {
+        wedges.put(color, haveIt);
+    }
 }

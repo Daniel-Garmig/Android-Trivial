@@ -33,6 +33,7 @@ public class GameViewModel extends ViewModel
     private int diceRoll;
     private Category currentCategory;
     private QuestionWithOptions currentQuestion;
+    private boolean isCurrentQuestionQuesito;
 
 
 
@@ -45,6 +46,8 @@ public class GameViewModel extends ViewModel
     public QuestionWithOptions getCurrentQuestion() { return currentQuestion; }
     public void setCurrentQuestion(QuestionWithOptions currentQuestion) { this.currentQuestion = currentQuestion; }
 
+    public boolean isCurrentQuestionQuesito() { return isCurrentQuestionQuesito; }
+    public void setCurrentQuestionQuesito(boolean currentQuestionQuesito) { isCurrentQuestionQuesito = currentQuestionQuesito; }
 
     public ArrayList<Player> getPlayers() { return players; }
     public void setPlayers(ArrayList<Player> players) { this.players = players; }
@@ -92,6 +95,5 @@ public class GameViewModel extends ViewModel
         gameTurnPosition++;
         currentPlayerID = playerOrder[gameTurnPosition];
     }
-
 
 }
