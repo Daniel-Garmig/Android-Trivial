@@ -56,6 +56,9 @@ public class MyGame implements RTG_App
             di.Render(c, cam);
         }
 
+        //data.boardData.debugRender(c, cam);
+        data.icon.Render(c, cam);
+
 
     }
 
@@ -79,14 +82,27 @@ public class MyGame implements RTG_App
                 animEnded = false;
             }
         }
+        d.icon.updateAnimation(dt);
+        if(!d.icon.isAnimationFinished()) { animEnded = false; }
 
-        if(animEnded)
+        //If we where doing anims and them have ended.
+        if(doingAnimations && animEnded)
         {
             doingAnimations = false;
             //Move all pieces to the correct position.
             for(PlayerPiece p : d.playerPieceList.values())
             {
                 p.setToSquare(d.getSquare(p.sqId));
+            }
+
+            //No remaining movements.
+            if(d.remainingMovs <= 0)
+            {
+                //TODO: End move phase.
+            } else
+            {
+                PlayerPiece currentPlayer = d.getCurrentPlayerPiece();
+                showMovementOptions(d.getSquare(currentPlayer.sqId));
             }
         }
 
@@ -154,8 +170,8 @@ public class MyGame implements RTG_App
                 //If intersection -> ask player.
                 if(nextSquare.continuousSquares.size() > 2)
                 {
-                    //TODO.
-                    //  Esperar que terminen las anims y volver a recibir input.
+                    //Wait for animations to end and receive new user input.
+                    d.remainingMovs--;
                     break;
                 }
                 //Look for other id -> There are only 2.
@@ -173,6 +189,8 @@ public class MyGame implements RTG_App
 
             d.possibleDirections.clear();
             doingAnimations = true;
+
+            //TODO: Test if final sq is empty.
         }
 
         if(d.remainingMovs <= 0 && !doingAnimations)
@@ -181,7 +199,7 @@ public class MyGame implements RTG_App
         }
     }
 
-
+    //DEBUG: Old Movement method.
     private void movePlayer(PlayerPiece p)
     {
         GameData d = GameData.getInstance();
@@ -210,6 +228,8 @@ public class MyGame implements RTG_App
 
         for(int sqID : currentSquare.continuousSquares)
         {
+            //TODO: Check route is possible.
+
             //Get ContinuousSquare position.
             Vector2 initPos = currentSquare.pos;
             Vector2 endPos = d.getSquare(sqID).pos;

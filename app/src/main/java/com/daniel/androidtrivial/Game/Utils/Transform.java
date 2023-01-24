@@ -36,6 +36,11 @@ public class Transform
 
     public void setPosition(Vector2 newPos) { rect.offsetTo(newPos.x, newPos.y);}
 
+    public void setCenterPosition(Vector2 newCenterPos)
+    {
+        setPosition(newCenterPos.x - getSize().x/2, newCenterPos.y - getSize().y/2);
+    }
+
     public void moveAmount(int movX, int movY)
     {
         rect.offset(movX, movY);
@@ -63,6 +68,11 @@ public class Transform
         float posX = rect.left;
         float posY = rect.top;
         rect.set(posX, posY, posX + sizeX, posY + sizeY);
+    }
+
+    public void resizeAmount(float dtX, float dtY)
+    {
+        setSize(rect.width() + dtX, rect.height() + dtY);
     }
 
 

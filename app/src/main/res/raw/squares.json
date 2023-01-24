@@ -5,12 +5,13 @@
       "categoryColor": "green",
       "isQuesito": true,
       "pos": {
-        "x": 500.0,
-        "y": 500.0
+        "x": 600.0,
+        "y": 600.0
       },
       "continuousSquares": [
-        4,
-        1
+        1,
+        5,
+        8
       ]
     },
     "1": {
@@ -18,8 +19,8 @@
       "categoryColor": "green",
       "isQuesito": false,
       "pos": {
-        "x": 0.0,
-        "y": 0.0
+        "x": 460.0,
+        "y": 350.0
       },
       "continuousSquares": [
         0,
@@ -31,8 +32,8 @@
       "categoryColor": "green",
       "isQuesito": false,
       "pos": {
-        "x": 100.0,
-        "y": 0.0
+        "x": 336.0,
+        "y": 135.0
       },
       "continuousSquares": [
         1,
@@ -44,8 +45,8 @@
       "categoryColor": "green",
       "isQuesito": false,
       "pos": {
-        "x": 100.0,
-        "y": 100.0
+        "x": 600.0,
+        "y": 60.0
       },
       "continuousSquares": [
         2,
@@ -57,11 +58,64 @@
       "categoryColor": "green",
       "isQuesito": false,
       "pos": {
-        "x": 0.0,
-        "y": 100.0
+        "x": 860.0,
+        "y": 135.0
       },
       "continuousSquares": [
         3,
+        5,
+        6
+      ]
+    },
+    "5": {
+      "id": 5,
+      "categoryColor": "green",
+      "isQuesito": false,
+      "pos": {
+        "x": 740.0,
+        "y": 350.0
+      },
+      "continuousSquares": [
+        4,
+        0
+      ]
+    },
+    "6": {
+      "id": 6,
+      "categoryColor": "green",
+      "isQuesito": false,
+      "pos": {
+        "x": 1060.0,
+        "y": 330.0
+      },
+      "continuousSquares": [
+        4,
+        7
+      ]
+    },
+    "7": {
+      "id": 7,
+      "categoryColor": "green",
+      "isQuesito": false,
+      "pos": {
+        "x": 1130.0,
+        "y": 600.0
+      },
+      "continuousSquares": [
+        6,
+        8
+      ]
+    },
+    "8": {
+      "id": 8,
+      "categoryColor": "green",
+      "isQuesito": false,
+      "pos": {
+        "x": 885.0,
+        "y": 600.0
+      },
+      "continuousSquares": [
+        7,
         0
       ]
     }

@@ -18,10 +18,11 @@ public class MoveAnimation implements Animation
         targetPositions = new ArrayDeque<>();
     }
 
+
     @Override
     public void update(float dt)
     {
-        //We should have to do anything.
+        //We have finished
         if(targetPositions.isEmpty()) { return; }
 
         Vector2 director = Vector2.getDirector(transform.getPosition(), targetPositions.getFirst());

@@ -31,7 +31,7 @@ public class PlayerPiece extends GameObject implements Animated
 
     public void setToSquare(BoardSquare sq)
     {
-        transform.setPosition(sq.pos.x, sq.pos.y);
+        transform.setCenterPosition(sq.pos);
         sqId = sq.id;
     }
 
@@ -47,5 +47,10 @@ public class PlayerPiece extends GameObject implements Animated
     }
 
 
-    public void addMovementTarget(Vector2 target) { animation.addTargetPosition(target); }
+    public void addMovementTarget(Vector2 target)
+    {
+        //Mod target so piece end up centered.
+        Vector2 pos = new Vector2(target.x - transform.getSize().x/2, target.y - transform.getSize().y/2);
+        animation.addTargetPosition(pos);
+    }
 }

@@ -6,6 +6,7 @@ import android.graphics.Paint;
 import android.util.Log;
 
 import com.daniel.androidtrivial.Game.GameObjetcs.DirectionIndicator;
+import com.daniel.androidtrivial.Game.GameObjetcs.PopupIcon;
 import com.daniel.androidtrivial.Game.Utils.Vector2;
 import com.daniel.androidtrivial.Model.Board;
 import com.daniel.androidtrivial.Game.GameObjetcs.GameObject;
@@ -62,6 +63,7 @@ public class GameData
     HashMap<Integer, PlayerPiece> playerPieceList;
 
     ArrayList<DirectionIndicator> possibleDirections;
+    PopupIcon icon;
 
 
     int remainingMovs;
@@ -92,6 +94,12 @@ public class GameData
         if(possibleDirections == null)
         {
             possibleDirections = new ArrayList<>();
+        }
+        if(icon == null)
+        {
+            //DEBUG: Test
+            icon = new PopupIcon("playerPiece");
+            icon.transform.setSize(10, 10);
         }
     }
 

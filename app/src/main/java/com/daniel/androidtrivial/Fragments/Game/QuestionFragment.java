@@ -24,6 +24,9 @@ import com.daniel.androidtrivial.Model.Questions.RoomDB.QuestionWithOptions;
 import com.daniel.androidtrivial.Model.WedgesColors;
 import com.daniel.androidtrivial.R;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class QuestionFragment extends Fragment
@@ -75,7 +78,10 @@ public class QuestionFragment extends Fragment
         title.setText(question.question.sentence);
 
         //Add option button for each option.
-        for(QuestionOption option : question.optionList)
+        //Shuffle list so order is random.
+        List<QuestionOption> unorderedOptions = question.optionList;
+        Collections.shuffle(unorderedOptions);
+        for(QuestionOption option : unorderedOptions)
         {
             addOpButton(option);
         }
@@ -111,13 +117,14 @@ public class QuestionFragment extends Fragment
         int correctOpID = q.ID_CorrectAnswer;
         if(opId == correctOpID)
         {
+            viewModel.setStage(GameState.RollDice);
+
             if(viewModel.isCurrentQuestionQuesito())
             {
                 Player p = viewModel.getCurrentPlayer();
                 p.setWedge(viewModel.getCurrentColor(), true);
+                viewModel.setStage(GameState.NextTurn);
             }
-
-            viewModel.setStage(GameState.RollDice);
         }
         else
         {

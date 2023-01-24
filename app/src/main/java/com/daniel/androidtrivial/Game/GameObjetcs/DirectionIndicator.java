@@ -12,6 +12,9 @@ public class DirectionIndicator implements Renderizable
 {
     private static final int STROKE_WIDTH = 5;
 
+    private static final int HORIZONTAL_OFFSET = 15;
+    private static final int VERTICAL_OFFSET = 15;
+
     public int sqID;
 
     public Vector2 initialPos;
