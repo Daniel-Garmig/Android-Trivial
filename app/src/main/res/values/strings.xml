@@ -7,4 +7,17 @@
     <string name="game_info_question_title">Pregunta de %1$s</string>
     <string name="game_info_question_noQuesito">Responde a esta pregunta para conseguir puntos y segur avanzando.</string>
     <string name="game_info_question_quesito">¡En esta pregunta puedes conseguir un quesito!</string>
+
+    <string name="game_info_win_chance_title">Has conseguido todos los quesitos</string>
+    <string name="game_info_win_chance_msg">Estás tocando la victoria. Sólo tienes que llegar al centro y contestar correstamente las preguntas finales</string>
+
+
+    <string name="question_info_error_title">Respuesta incorrecta.</string>
+    <string name="question_info_correct_normal_title">¡Respuesta correcta! Sigues avanzando.</string>
+    <string name="question_info_correct_quesito_title">Has obtenido el quesito de %1$s</string>
+
+
+    <string name="error_matchRoom_error">Error en la sala de partida.</string>
+    <string name="error_dbCreation_error">Error al crear la base de datos de preguntas</string>
+    <string name="error_dbOperation_error">Error al realizar operaciones con la base de datos.</string>
 </resources>

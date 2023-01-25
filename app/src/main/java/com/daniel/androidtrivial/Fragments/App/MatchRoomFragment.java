@@ -132,6 +132,14 @@ public class MatchRoomFragment extends Fragment
             }
         }
 
+        //Set all wedges to false.
+        p.setWedge(WedgesColors.green, false);
+        p.setWedge(WedgesColors.purple, false);
+        p.setWedge(WedgesColors.orange, false);
+        p.setWedge(WedgesColors.yellow, false);
+        p.setWedge(WedgesColors.pink, false);
+        p.setWedge(WedgesColors.blue, false);
+
         //Add player to player list.
         playerList.add(p);
 
@@ -209,8 +217,7 @@ public class MatchRoomFragment extends Fragment
 
     private void returnOnError()
     {
-        //TO STRINGRES:
-        Toast.makeText(getContext(), "Error en la sala de partida.", Toast.LENGTH_LONG).show();
+        Toast.makeText(getContext(), getString(R.string.error_matchRoom_error), Toast.LENGTH_LONG).show();
         returnToMenu();
     }
 

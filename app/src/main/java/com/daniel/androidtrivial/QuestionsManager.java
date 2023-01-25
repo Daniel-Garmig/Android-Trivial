@@ -120,6 +120,7 @@ public class QuestionsManager
                     catch (Exception e)
                     {
                         ThreadOrchestrator.getInstance().sendDBCreationError("");
+                        e.printStackTrace();
                     }
 
                     ThreadOrchestrator.getInstance().sendDBCreationSuccess("");

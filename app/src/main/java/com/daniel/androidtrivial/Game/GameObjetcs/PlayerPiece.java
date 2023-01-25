@@ -5,6 +5,7 @@ import com.daniel.androidtrivial.Game.Animation.MoveAnimation;
 import com.daniel.androidtrivial.Game.Utils.Vector2;
 import com.daniel.androidtrivial.Model.BoardSquare;
 
+//FIXME: If it's on square 0 -> not all pieces should be on the exact same position.
 public class PlayerPiece extends GameObject implements Animated
 {
     private MoveAnimation animation;
@@ -13,7 +14,7 @@ public class PlayerPiece extends GameObject implements Animated
     {
         super("playerPiece");
         animation = new MoveAnimation(transform);
-        animation.velocity = 80;
+        animation.velocity = 150;
     }
 
     public PlayerPiece(BoardSquare startSq)

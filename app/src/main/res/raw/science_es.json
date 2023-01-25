@@ -8,7 +8,8 @@
       "question": {
         "ID": 1,
         "ID_CorrectAnswer": 1,
-        "sentence": "Cual es el satélite de la tierra"
+        "sentence": "Cual es el satélite natural de la tierra",
+        "additionalInformation": "Marte es un dios griego, no un satélite."
       },
       "optionList": [
         {
@@ -25,7 +26,8 @@
       "question": {
         "ID": 2,
         "ID_CorrectAnswer": 2,
-        "sentence": "Cuantos océanos hay"
+        "sentence": "Cuantos océanos hay",
+        "additionalInformation": "Son 6: North blue, West blue, East blue, South blue y la primera y segunda parte del Grand Line."
       },
       "optionList": [
         {
@@ -34,7 +36,7 @@
         },
         {
           "ID": 2,
-          "answer": "2"
+          "answer": "6"
         }
       ]
     }

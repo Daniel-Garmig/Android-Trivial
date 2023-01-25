@@ -19,6 +19,12 @@ public class ScaleAnimation implements Animation
     }
 
 
+    public void addTargetSize(Vector2 newTarget)
+    {
+        targetSizes.addLast(newTarget);
+    }
+
+
     @Override
     public void update(float dt)
     {
@@ -41,6 +47,7 @@ public class ScaleAnimation implements Animation
 
         //Resize
         Vector2 dtVector = director.normalize().multiplyScalar(velocity * dt);
+        transform.moveAmount(-dtVector.x/2, -dtVector.y/2);
         transform.resizeAmount(dtVector.x, dtVector.y);
     }
 

@@ -6,11 +6,11 @@ import androidx.room.RenameColumn;
 import androidx.room.RoomDatabase;
 import androidx.room.migration.AutoMigrationSpec;
 
-@Database(entities = {Category.class, Question.class, QuestionOption.class}, version = 4,
+@Database(entities = {Category.class, Question.class, QuestionOption.class}, version = 5,
         autoMigrations = {
                 @AutoMigration (
-                        from = 3,
-                        to = 4,
+                        from = 4,
+                        to = 5,
                         spec = QuestionDatabase.MyAutoMigration.class
                 )
         }, exportSchema = true)
@@ -20,12 +20,6 @@ public abstract class QuestionDatabase extends RoomDatabase
     public abstract QuestionDAO questionDAO();
     public abstract QuestionOptionDAO optionDAO();
 
-    @RenameColumn.Entries(
-            @RenameColumn(
-                    tableName = "Question",
-                    fromColumnName = "ID_cat",
-                    toColumnName = "ID_Cat"
-            )
-    )
+
     static class MyAutoMigration implements AutoMigrationSpec { }
 }

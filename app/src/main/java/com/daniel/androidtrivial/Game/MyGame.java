@@ -5,11 +5,13 @@ import android.util.Log;
 import android.view.MotionEvent;
 
 import com.daniel.androidtrivial.Game.GameObjetcs.DirectionIndicator;
+import com.daniel.androidtrivial.Game.GameObjetcs.PopupIcon;
 import com.daniel.androidtrivial.Game.Utils.Vector2;
 import com.daniel.androidtrivial.Model.Board;
 import com.daniel.androidtrivial.Model.BoardSquare;
 import com.daniel.androidtrivial.Game.GameObjetcs.PlayerPiece;
 import com.daniel.androidtrivial.Game.Utils.Camera;
+import com.daniel.androidtrivial.Model.GameState;
 import com.daniel.androidtrivial.Model.Player;
 import com.daniel.androidtrivial.ThreadOrchestrator;
 import com.uberelectron.androidrtg.RTG_App;
@@ -21,10 +23,6 @@ import java.util.List;
 public class MyGame implements RTG_App
 {
     private static final String TAG = "GameBoardApp";
-
-    //FIXME: This should be saved somewhere else in case app changes.
-    boolean doingAnimations = false;
-    boolean waitingUserMovement = false;
 
 
     @Override
@@ -57,7 +55,10 @@ public class MyGame implements RTG_App
         }
 
         //data.boardData.debugRender(c, cam);
-        data.icon.Render(c, cam);
+        if(data.icon != null)
+        {
+            data.icon.Render(c, cam);
+        }
 
 
     }
@@ -82,27 +83,37 @@ public class MyGame implements RTG_App
                 animEnded = false;
             }
         }
-        d.icon.updateAnimation(dt);
-        if(!d.icon.isAnimationFinished()) { animEnded = false; }
+        if(d.icon != null)
+        {
+            d.icon.updateAnimation(dt);
+        }
+        //if(!d.icon.isAnimationFinished()) { animEnded = false; }
+
 
         //If we where doing anims and them have ended.
-        if(doingAnimations && animEnded)
+        if(d.doingAnimations && animEnded)
         {
-            doingAnimations = false;
-            //Move all pieces to the correct position.
-            for(PlayerPiece p : d.playerPieceList.values())
-            {
-                p.setToSquare(d.getSquare(p.sqId));
-            }
+            d.doingAnimations = false;
 
-            //No remaining movements.
-            if(d.remainingMovs <= 0)
+            if(d.currentState == GameState.Move)
             {
-                //TODO: End move phase.
-            } else
-            {
-                PlayerPiece currentPlayer = d.getCurrentPlayerPiece();
-                showMovementOptions(d.getSquare(currentPlayer.sqId));
+                //Move all pieces to the correct position.
+                for(PlayerPiece p : d.playerPieceList.values())
+                {
+                    p.setToSquare(d.getSquare(p.sqId));
+                }
+
+                //No remaining movements.
+                if(d.remainingMovs <= 0)
+                {
+                    //TODO: QuestionIcon.
+                    createPopUpIcon("playerPiece");
+
+                } else
+                {
+                    PlayerPiece currentPlayer = d.getCurrentPlayerPiece();
+                    showMovementOptions(d.getSquare(currentPlayer.sqId));
+                }
             }
         }
 
@@ -120,7 +131,6 @@ public class MyGame implements RTG_App
 
     }
 
-
     public void onSurfaceTouch(MotionEvent event)
     {
         Log.i("MyGame", "Touched!!");
@@ -129,11 +139,11 @@ public class MyGame implements RTG_App
         if(event.getActionMasked() != MotionEvent.ACTION_DOWN) { return; }
 
         //TODO: Check event type.
-        if(waitingUserMovement && !doingAnimations)
+        if(d.waitingUserMovement && !d.doingAnimations)
         {
             //TODO: Mb move this into methods or smth.
             //Handle user input.
-            waitingUserMovement = false;
+            d.waitingUserMovement = false;
             Vector2 touchPos = new Vector2(event.getX(), event.getY());
 
             //Calculate closer DirectionPointer.
@@ -188,40 +198,24 @@ public class MyGame implements RTG_App
             }
 
             d.possibleDirections.clear();
-            doingAnimations = true;
+            d.doingAnimations = true;
 
             //TODO: Test if final sq is empty.
         }
 
-        if(d.remainingMovs <= 0 && !doingAnimations)
+        //This is utilized by all interations to return!!
+        if(d.remainingMovs <= 0 && !d.doingAnimations)
         {
+            d.icon = null;
             ThreadOrchestrator.getInstance().sendGameEndsInteraction();
         }
-    }
-
-    //DEBUG: Old Movement method.
-    private void movePlayer(PlayerPiece p)
-    {
-        GameData d = GameData.getInstance();
-
-        //get board data.
-        Board b = d.boardData;
-
-        //Search next square.
-        //TODO: Check if more than 2 -> Ask player.
-        BoardSquare lastSq = b.squares.get(p.sqId);
-        BoardSquare nextSq = b.squares.get(lastSq.continuousSquares.get(1));
-
-        Vector2 nextPos = nextSq.pos;
-        p.addMovementTarget(nextPos);
-        p.sqId = nextSq.id;
     }
 
     private void showMovementOptions(BoardSquare currentSquare)
     {
         GameData d = GameData.getInstance();
-        doingAnimations = false;
-        waitingUserMovement = true;
+        d.doingAnimations = false;
+        d.waitingUserMovement = true;
 
         //Generate Possible directions.
         d.possibleDirections.clear();
@@ -239,6 +233,17 @@ public class MyGame implements RTG_App
 
     }
 
+    private void createPopUpIcon(String assetID)
+    {
+        GameData d = GameData.getInstance();
+
+        d.icon = new PopupIcon(assetID);
+        d.icon.transform.setPosition(d.getSquare(0).pos);
+        d.icon.transform.setSize(0, 0);
+    }
+
+
+
     // Handler / State Methods.
 
     public void createPlayers(List<Player> players)
@@ -252,9 +257,20 @@ public class MyGame implements RTG_App
     }
 
 
+    public void startRollDiceState()
+    {
+        GameData d = GameData.getInstance();
+        d.currentState = GameState.RollDice;
+
+        //TODO: Change Icon.
+        createPopUpIcon("playerPiece");
+    }
+
     public void startMoveState(int movs, Player currentPlayer)
     {
         GameData d = GameData.getInstance();
+        d.currentState = GameState.Move;
+
         d.currentPlayerID = currentPlayer.getId();
         PlayerPiece p = d.getCurrentPlayerPiece();
 

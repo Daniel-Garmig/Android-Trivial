@@ -32,7 +32,8 @@ public class InfoDialogFragment extends DialogFragment
     }
 
     //It can only by instantiated by newInstance();
-    private InfoDialogFragment() {}
+    //But this should be public so android can rebuild it.
+    public InfoDialogFragment() {}
 
 
     /////////////////////////////////////////////
@@ -67,7 +68,6 @@ public class InfoDialogFragment extends DialogFragment
 
         return v;
     }
-
 
     private void initComponents(View v)
     {

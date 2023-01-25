@@ -28,6 +28,8 @@ public class Question
 
     @Expose
     public String sentence;
+    @Expose
+    public String additionalInformation;
 
     public int ID_Cat;
 

@@ -1,0 +1,191 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 5,
+    "identityHash": "fc71d17818d03eba6c896c28d389ef09",
+    "entities": [
+      {
+        "tableName": "Category",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ID` INTEGER NOT NULL, `name` TEXT, PRIMARY KEY(`ID`))",
+        "fields": [
+          {
+            "fieldPath": "ID",
+            "columnName": "ID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "ID"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Question",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ID` INTEGER NOT NULL, `sentence` TEXT, `additionalInformation` TEXT, `ID_Cat` INTEGER NOT NULL, `ID_CorrectAnswer` INTEGER NOT NULL DEFAULT 1, PRIMARY KEY(`ID`, `ID_Cat`), FOREIGN KEY(`ID_Cat`) REFERENCES `Category`(`ID`) ON UPDATE CASCADE ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "ID",
+            "columnName": "ID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sentence",
+            "columnName": "sentence",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "additionalInformation",
+            "columnName": "additionalInformation",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "ID_Cat",
+            "columnName": "ID_Cat",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ID_CorrectAnswer",
+            "columnName": "ID_CorrectAnswer",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "1"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "ID",
+            "ID_Cat"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_Question_ID_CorrectAnswer",
+            "unique": false,
+            "columnNames": [
+              "ID_CorrectAnswer"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_Question_ID_CorrectAnswer` ON `${TABLE_NAME}` (`ID_CorrectAnswer`)"
+          },
+          {
+            "name": "index_Question_ID_Cat",
+            "unique": false,
+            "columnNames": [
+              "ID_Cat"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_Question_ID_Cat` ON `${TABLE_NAME}` (`ID_Cat`)"
+          },
+          {
+            "name": "index_Question_ID",
+            "unique": false,
+            "columnNames": [
+              "ID"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_Question_ID` ON `${TABLE_NAME}` (`ID`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Category",
+            "onDelete": "CASCADE",
+            "onUpdate": "CASCADE",
+            "columns": [
+              "ID_Cat"
+            ],
+            "referencedColumns": [
+              "ID"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "QuestionOption",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ID` INTEGER NOT NULL, `answer` TEXT, `ID_Cat` INTEGER NOT NULL, `ID_Question` INTEGER NOT NULL, PRIMARY KEY(`ID`, `ID_Cat`, `ID_Question`), FOREIGN KEY(`ID_Question`, `ID_Cat`) REFERENCES `Question`(`ID`, `ID_Cat`) ON UPDATE CASCADE ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "ID",
+            "columnName": "ID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "answer",
+            "columnName": "answer",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "ID_Cat",
+            "columnName": "ID_Cat",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ID_Question",
+            "columnName": "ID_Question",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "ID",
+            "ID_Cat",
+            "ID_Question"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_QuestionOption_ID_Question_ID_Cat",
+            "unique": false,
+            "columnNames": [
+              "ID_Question",
+              "ID_Cat"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_QuestionOption_ID_Question_ID_Cat` ON `${TABLE_NAME}` (`ID_Question`, `ID_Cat`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Question",
+            "onDelete": "CASCADE",
+            "onUpdate": "CASCADE",
+            "columns": [
+              "ID_Question",
+              "ID_Cat"
+            ],
+            "referencedColumns": [
+              "ID",
+              "ID_Cat"
+            ]
+          }
+        ]
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'fc71d17818d03eba6c896c28d389ef09')"
+    ]
+  }
+}

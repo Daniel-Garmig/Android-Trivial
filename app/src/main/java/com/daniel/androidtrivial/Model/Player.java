@@ -8,12 +8,17 @@ public class Player
     int id;
 
     String name;
-    int score;
 
     WedgesColors playerColor;
 
     //Store true if player have a given wedge.
     HashMap<WedgesColors, Boolean> wedges;
+    //Player Stats.
+    int score;
+    int squaresTraveled;
+    int questionsAnswered;
+    int correctAnswers;
+    int questionsOutOfTime;
 
 
     //Constructors.
@@ -23,18 +28,25 @@ public class Player
         this.name = name;
         this.playerColor = playerColor;
 
-        this.score = 0;
-        this.wedges = new HashMap<>();
+        initVars();
     }
 
     public Player()
     {
         this.id = -1;
         this.name = "Player";
-
         this.playerColor = WedgesColors.blue;
-        this.score = 0;
+
+        initVars();
+    }
+
+    private void initVars()
+    {
         this.wedges = new HashMap<>();
+        this.score = 0;
+        this.squaresTraveled = 0;
+        this.questionsAnswered = 0;
+        this.correctAnswers = 0;
     }
 
     // Methods.
@@ -53,4 +65,31 @@ public class Player
     {
         wedges.put(color, haveIt);
     }
+    public boolean haveWedge(WedgesColors color) { return wedges.get(color); }
+    public boolean haveALllWedges()
+    {
+        //Check for false values.
+        for(Boolean b : wedges.values())
+        {
+            if(!b) { return false; }
+        }
+        //None of the values was false.
+        return true;
+    }
+
+    public int getScore() { return score; }
+    public void addScorePoints(int pointsToAdd) { score += pointsToAdd; }
+
+    public int getSquaresTraveled() { return squaresTraveled; }
+    public void addSquaresTraveled(int amount) { squaresTraveled += amount; }
+
+    public int getQuestionsAnswered() { return questionsAnswered; }
+    public void addQuestionAnswered() { questionsAnswered++; }
+    public void addQuestionAnswered(int amount) { questionsAnswered += amount; }
+
+    public int getCorrectAnswers() { return correctAnswers; }
+    public void addCorrectAnswer() { correctAnswers++; }
+
+    public int getQuestionsOutOfTime() { return questionsOutOfTime; }
+    public void addQuestionOutOfTime() { questionsOutOfTime++; }
 }

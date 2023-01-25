@@ -13,6 +13,7 @@ import com.daniel.androidtrivial.Game.GameObjetcs.GameObject;
 import com.daniel.androidtrivial.Game.GameObjetcs.PlayerPiece;
 import com.daniel.androidtrivial.Game.Utils.Camera;
 import com.daniel.androidtrivial.Model.BoardSquare;
+import com.daniel.androidtrivial.Model.GameState;
 import com.daniel.androidtrivial.Model.Player;
 import com.daniel.androidtrivial.R;
 import com.google.gson.Gson;
@@ -69,6 +70,10 @@ public class GameData
     int remainingMovs;
     int currentPlayerID;
 
+    GameState currentState;
+
+    boolean doingAnimations = false;
+    boolean waitingUserMovement = false;
 
 
     private GameData()
@@ -95,12 +100,13 @@ public class GameData
         {
             possibleDirections = new ArrayList<>();
         }
-        if(icon == null)
+
+        if(currentState == null)
         {
-            //DEBUG: Test
-            icon = new PopupIcon("playerPiece");
-            icon.transform.setSize(10, 10);
+            currentState = GameState.StartGame;
         }
+
+        icon = null;
     }
 
     public void loadBoardData(Context appContext)

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.daniel.androidtrivial.Fragments.App.InfoDialogFragment;
 import com.daniel.androidtrivial.Game.Utils.AssetManager;
 import com.daniel.androidtrivial.Model.Questions.JSON.QuestionJSON;
 import com.daniel.androidtrivial.Model.Questions.JSON.QuestionListJSON;
@@ -30,16 +31,34 @@ public class MainActivity extends AppCompatActivity
         ThreadOrchestrator.getInstance();
         QuestionsManager.getInstance().init(getApplicationContext());
 
-        //FIXME: Cargar los assets en otro thread podría generar una condición de carrera en la peor de las situaciones. Asegurar eso.
+        //FIXME: Cargar los assets en otro thread podría generar una condición de carrera en la peor de las situaciones al necesitarse nada más crear el GameFragment.
+        // Asegurar eso.
         //AssetManager.getInstance().loadAssets(this);
-        Thread loadAssets = new Thread(new Runnable() {
+        ThreadOrchestrator.getInstance().startThread("loadGameAssets", new Runnable() {
             @Override
             public void run() {
                 AssetManager.getInstance().loadAssets(getApplicationContext());
                 ThreadOrchestrator.getInstance().sendDataLoaded(ThreadOrchestrator.msgAssetsLoaded);
             }
         });
-        loadAssets.start();
+
+        ThreadOrchestrator.getInstance().setOnDBCreationError(new Runnable() {
+            @Override
+            public void run() {
+                InfoDialogFragment infoDg = InfoDialogFragment.newInstance(getString(R.string.error_dbCreation_error), "");
+                infoDg.show(getSupportFragmentManager(), "DBError");
+            }
+        });
+
+        ThreadOrchestrator.getInstance().setOnDBOperationError(new Runnable() {
+            @Override
+            public void run() {
+                InfoDialogFragment infoDg = InfoDialogFragment.newInstance(getString(R.string.error_dbOperation_error), "");
+                infoDg.show(getSupportFragmentManager(), "DBError");
+            }
+        });
+
+
 
 
         //TODO: Comprobar que existe la DB de preguntas y que no hay ninguna nueva versión.
@@ -55,7 +74,7 @@ public class MainActivity extends AppCompatActivity
 
 
     //TODO: REMOVE ALL THIS TESTS!!
-    private void roomTest()
+    /*private void roomTest()
     {
         QuestionsManager.getInstance().init(getApplicationContext());
 
@@ -65,15 +84,15 @@ public class MainActivity extends AppCompatActivity
                 //addCats();
                 //addQuestions();
                 //addOptions();
-                /*QuestionDatabase db = QuestionsManager.getInstance().getDb();
+                QuestionDatabase db = QuestionsManager.getInstance().getDb();
 
-                List<QuestionWithOptions> list = db.questionDAO().getQuestionWithOptionByID(1, 1);
+                //List<QuestionWithOptions> list = db.questionDAO().getQuestionWithOptionByID(1, 1);
 
                 Log.i("DBTEST", "Ahhhhh!");
 
                 Gson json = new Gson();
                 String rs = json.toJson(list);
-                Log.i("DBTEST", "Ahora... A JSON!!!");*/
+                Log.i("DBTEST", "Ahora... A JSON!!!");
 
                 //createTestJSON();
                 //deserializeJSONTest();
@@ -210,6 +229,6 @@ public class MainActivity extends AppCompatActivity
 
         Log.i("TESTJSON", "asdesad");
 
-    }
+    }*/
 
 }

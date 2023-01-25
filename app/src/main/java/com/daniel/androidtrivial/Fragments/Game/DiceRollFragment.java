@@ -17,6 +17,7 @@ import com.daniel.androidtrivial.R;
 
 import java.util.Random;
 
+//TODO: Add intermediate state: Se muestra -> roll click -> stop click -> continue click.
 public class DiceRollFragment extends DialogFragment
 {
 
@@ -34,7 +35,8 @@ public class DiceRollFragment extends DialogFragment
     }
 
     //It can only by instantiated by newInstance();
-    private DiceRollFragment() {}
+    //But this should be public so android can rebuild it.
+    public DiceRollFragment() {}
 
 
     ///////////////////////////////////////////////

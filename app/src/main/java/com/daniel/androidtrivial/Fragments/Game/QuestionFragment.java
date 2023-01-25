@@ -8,11 +8,13 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.daniel.androidtrivial.Fragments.App.InfoDialogFragment;
 import com.daniel.androidtrivial.Fragments.App.LoadingDialogFragment;
 import com.daniel.androidtrivial.Game.GameViewModel;
 import com.daniel.androidtrivial.Model.GameState;
@@ -31,9 +33,8 @@ import java.util.List;
 
 public class QuestionFragment extends Fragment
 {
-    //Used when loading the question (It happens on other thread).
-    //FIXME: ¿Es necesario?
-    LoadingDialogFragment loadingDialog;
+    private static final int POINTS_ON_CORRECT_ANSWER = 5;
+
 
     GameViewModel viewModel;
 
@@ -110,33 +111,58 @@ public class QuestionFragment extends Fragment
 
     private void onOptionClick(int opId)
     {
-        //TODO: Add scores and win stuff...
+        //TODO: Add win stuff...
+        String dialogTitle = "null";
+        String dialogText = "";
+
+        Player p = viewModel.getCurrentPlayer();
+        p.addQuestionAnswered();
 
         Question q = viewModel.getCurrentQuestion().question;
-
         int correctOpID = q.ID_CorrectAnswer;
+        dialogText = q.additionalInformation;
+
         if(opId == correctOpID)
         {
+
+            //Add score.
+            p.addScorePoints(POINTS_ON_CORRECT_ANSWER);
+            p.addCorrectAnswer();
+
+            dialogTitle = getString(R.string.question_info_correct_normal_title);
+
+            //Switch state.
             viewModel.setStage(GameState.RollDice);
 
+            //If is wedge square, give it to the player.
             if(viewModel.isCurrentQuestionQuesito())
             {
-                Player p = viewModel.getCurrentPlayer();
+                dialogTitle = String.format(getString(R.string.question_info_correct_quesito_title), viewModel.getCurrentCategory().name);
+
                 p.setWedge(viewModel.getCurrentColor(), true);
                 viewModel.setStage(GameState.NextTurn);
             }
         }
         else
         {
+            dialogTitle = getString(R.string.question_info_error_title);
             viewModel.setStage(GameState.NextTurn);
         }
 
-        //Return to GameFragment.
-        FragmentManager mng = getParentFragmentManager();
-        mng.beginTransaction()
-                .setReorderingAllowed(true)
-                .replace(R.id.MainFragmentContainer, GameFragment.class, null)
-                .commit();
+        //Show info and return to game fragment.
+        InfoDialogFragment infodg = InfoDialogFragment.newInstance(dialogTitle, dialogText);
+        infodg.setBtActions(new Runnable() {
+            @Override
+            public void run() {
+                //Return to GameFragment.
+                FragmentManager mng = getParentFragmentManager();
+                mng.beginTransaction()
+                        .setReorderingAllowed(true)
+                        .replace(R.id.MainFragmentContainer, GameFragment.class, null)
+                        .commit();
+            }
+        });
+        infodg.show(getParentFragmentManager(), "infoQuestion");
     }
 
 }

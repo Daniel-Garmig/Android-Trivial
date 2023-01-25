@@ -15,6 +15,8 @@ public class MyHandler extends RTG_Handler {
     private static final int MSG_TOUCH = 4;
 
     private static final int MSG_MOVE_STATE = 10;
+    private static final int MSG_ROLL_DICE_STATE = 11;
+
     private static final int MSG_CREATE_PLAYERS = 15;
     private static final int MSG_UPDATE_POSITIONS = 16;
 
@@ -39,6 +41,11 @@ public class MyHandler extends RTG_Handler {
         sendMessage(obtainMessage(MSG_UPDATE_POSITIONS, positions));
     }
 
+    public void sendRollDiceState()
+    {
+        sendMessage(obtainMessage(MSG_ROLL_DICE_STATE));
+    }
+
     @Override
     public boolean sendMessageAtTime(@NonNull Message msg, long uptimeMillis) {
         switch (msg.what) {
@@ -53,6 +60,9 @@ public class MyHandler extends RTG_Handler {
                 break;
             case MSG_UPDATE_POSITIONS:
                 thread.getApp(MyGame.class).updatePositions((HashMap<Integer, Integer>) msg.obj);
+                break;
+            case MSG_ROLL_DICE_STATE:
+                thread.getApp(MyGame.class).startRollDiceState();
                 break;
         }
 

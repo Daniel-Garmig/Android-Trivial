@@ -44,6 +44,7 @@ public class GameFragment extends Fragment
     GameViewModel viewModel;
     RTG_Surface rtg_surface;
 
+    boolean busy = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -186,15 +187,33 @@ public class GameFragment extends Fragment
                 break;
             case RollDice:
                 //We will get here after successful question.
-                rollDiceState();
+                onPlayerAnsweredCorrectly();
+                //rollDiceState(); -> It's done on the method above.
                 break;
             case NextTurn:
                 //We will get here after wrong question answer.
-                //FIXME: This case mb Question instead.
                 nextTurnState();
                 break;
         }
 
+    }
+
+    private void onPlayerAnsweredCorrectly()
+    {
+        Player p = viewModel.getCurrentPlayer();
+        if(p.haveALllWedges())
+        {
+            InfoDialogFragment infodg = InfoDialogFragment.newInstance(getString(R.string.game_info_win_chance_title), getString(R.string.game_info_win_chance_msg));
+            infodg.setBtActions(new Runnable() {
+                @Override
+                public void run() {
+                    rollDiceState();
+                }
+            });
+            infodg.show(getParentFragmentManager(), "InfoWinChance");
+        }
+
+        rollDiceState();
     }
 
 
@@ -255,17 +274,7 @@ public class GameFragment extends Fragment
     {
         viewModel.setStage(GameState.RollDice);
 
-        Player p = viewModel.getPlayer(viewModel.getCurrentPlayerID());
-
-        DiceRollFragment dg = DiceRollFragment.newInstance("Turno: " + p.getName());
-        dg.setBtActions(new Runnable() {
-            @Override
-            public void run() {
-                Log.i(TAG, "Mover mucho: " + viewModel.getDiceRoll());
-                moveState();
-            }
-        });
-        dg.show(getParentFragmentManager(), "DiceRoll");
+        rtg_surface.getThread().getHandler(MyHandler.class).sendRollDiceState();
     }
 
     private void moveState()
@@ -337,7 +346,6 @@ public class GameFragment extends Fragment
         dg.setBtActions(new Runnable() {
             @Override
             public void run() {
-                //TODO: Switch to question fragment.
                 FragmentManager mng = getParentFragmentManager();
                 mng.beginTransaction()
                         .setReorderingAllowed(true)
@@ -353,15 +361,55 @@ public class GameFragment extends Fragment
     {
         GameState state = viewModel.getStage();
 
+        if(busy) { return; }
+
+        if(state == GameState.RollDice)
+        {
+            busy = true;
+            onRollDiceReturn();
+        }
+
         if(state == GameState.Move)
         {
-            //Update viewModelData with movement from GameThread.
-            int playerID = viewModel.getCurrentPlayerID();
-            int updatedPosition = GameData.getInstance().getPlayerSquareID(playerID);
-            viewModel.getPlayerPositions().put(playerID, updatedPosition);
-
-            //Question state.
-            questionState();
+            busy = true;
+            onMovementReturn();
         }
+    }
+
+
+    private void onRollDiceReturn()
+    {
+        Player p = viewModel.getCurrentPlayer();
+
+        DiceRollFragment dg = DiceRollFragment.newInstance("Turno: " + p.getName());
+        dg.setBtActions(new Runnable() {
+            @Override
+            public void run() {
+                viewModel.getCurrentPlayer().addSquaresTraveled(viewModel.getDiceRoll());
+                moveState();
+                busy = false;
+            }
+        });
+        dg.show(getParentFragmentManager(), "DiceRoll");
+    }
+
+    private void onMovementReturn()
+    {
+        //Update viewModelData with movement from GameThread.
+        int playerID = viewModel.getCurrentPlayerID();
+        int updatedPosition = GameData.getInstance().getPlayerSquareID(playerID);
+        viewModel.getPlayerPositions().put(playerID, updatedPosition);
+        busy = false;
+
+        //If player have all wedges and is in square 0 -> finalQuestionsState.
+        Player p = viewModel.getCurrentPlayer();
+        if(p.haveALllWedges() && viewModel.getPlayerPositions().get(playerID) == 0)
+        {
+            //TODO: Go to final questions for win chance.
+        }
+
+
+        //Question state.
+        questionState();
     }
 }
