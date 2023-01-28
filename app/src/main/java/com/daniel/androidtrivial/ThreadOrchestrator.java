@@ -66,6 +66,7 @@ public class ThreadOrchestrator extends Handler
     public static final int msgBoardDataLoaded = 1;
     public static final int msgAssetsLoaded = 2;
     public static final int msgViewModelDataLoaded = 3;
+    public static final int msgMatchSaved = 4;
 
     public static final int MSG_ALL_DATA_LOADED = 10;
     public static final int MSG_RTG_GAME_INTERACTION_ENDED = 11;
@@ -83,6 +84,7 @@ public class ThreadOrchestrator extends Handler
     boolean boardDataLoaded = false;
     boolean assetsLoaded = false;
     boolean viewModelDataLoaded = false;
+    boolean matchSaved = false;
 
 
     /**
@@ -131,6 +133,9 @@ public class ThreadOrchestrator extends Handler
             case msgViewModelDataLoaded:
                 viewModelDataLoaded = true;
                 break;
+            case msgMatchSaved:
+                matchSaved = true;
+                break;
         }
 
         if(gameDataLoaded && boardDataLoaded && assetsLoaded && viewModelDataLoaded)
@@ -138,6 +143,7 @@ public class ThreadOrchestrator extends Handler
             sendMessage(obtainMessage(MSG_ALL_DATA_LOADED));
             gameDataLoaded = false;
             boardDataLoaded = false;
+            matchSaved = false;
             //Assets and viewModel data are only loaded once.
         }
     }

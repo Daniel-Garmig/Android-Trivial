@@ -1,5 +1,6 @@
 package com.daniel.androidtrivial.Fragments.Game;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,13 +13,20 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.room.Room;
 
 import com.daniel.androidtrivial.Fragments.App.InfoDialogFragment;
 import com.daniel.androidtrivial.Fragments.App.LoadingDialogFragment;
 import com.daniel.androidtrivial.Fragments.App.MainMenuFragment;
+import com.daniel.androidtrivial.MatchManager;
+import com.daniel.androidtrivial.Model.MatchRecord.MatchRecordDatabase;
+import com.daniel.androidtrivial.Model.MatchRecord.MatchStats;
+import com.daniel.androidtrivial.Model.MatchRecord.MathStatsDAO;
+import com.daniel.androidtrivial.Model.MatchRecord.PlayerStats;
+import com.daniel.androidtrivial.Model.MatchRecord.PlayerStatsDAO;
 import com.daniel.androidtrivial.Model.Player;
 import com.daniel.androidtrivial.Game.GameData;
-import com.daniel.androidtrivial.Game.GameViewModel;
+import com.daniel.androidtrivial.Model.GameViewModel;
 import com.daniel.androidtrivial.Game.MyGame;
 import com.daniel.androidtrivial.Game.MyHandler;
 import com.daniel.androidtrivial.Model.GameState;
@@ -26,7 +34,7 @@ import com.daniel.androidtrivial.Model.Questions.RoomDB.Category;
 import com.daniel.androidtrivial.Model.Questions.RoomDB.QuestionDAO;
 import com.daniel.androidtrivial.Model.Questions.RoomDB.QuestionDatabase;
 import com.daniel.androidtrivial.Model.Questions.RoomDB.QuestionWithOptions;
-import com.daniel.androidtrivial.Model.WedgesColors;
+import com.daniel.androidtrivial.Model.SavedMatch;
 import com.daniel.androidtrivial.QuestionsManager;
 import com.daniel.androidtrivial.R;
 import com.daniel.androidtrivial.ThreadOrchestrator;
@@ -119,9 +127,37 @@ public class GameFragment extends Fragment
             }
         });
 
+        //Autosave game if not just loaded.
+        if(viewModel.getMatchName() != null &&
+                viewModel.getStage() != GameState.StartGame &&viewModel.getStage() != GameState.LoadedGame)
+        {
+            //TODO: Test it works fine.
+            ThreadOrchestrator.getInstance().startThread("SaveGame", new Runnable() {
+                @Override
+                public void run() {
+                    SavedMatch save = viewModel.generateSave();
+                    MatchManager.getInstance().saveMatchData(save);
+
+                    ThreadOrchestrator.getInstance().sendDataLoaded(ThreadOrchestrator.msgMatchSaved);
+                }
+            });
+        } else
+        {
+            ThreadOrchestrator.getInstance().sendDataLoaded(ThreadOrchestrator.msgMatchSaved);
+        }
+
+        //Load game.
         if(viewModel.getStage() == GameState.LoadedGame)
         {
-            //TODO: Load data from JSON to viewModel.
+            ThreadOrchestrator.getInstance().startThread("LoadGame", new Runnable() {
+                @Override
+                public void run() {
+                    SavedMatch save = MatchManager.getInstance().loadMatchData();
+                    viewModel.loadSave(save);
+
+                    ThreadOrchestrator.getInstance().sendDataLoaded(ThreadOrchestrator.msgViewModelDataLoaded);
+                }
+            });
         }
     }
 
@@ -138,6 +174,14 @@ public class GameFragment extends Fragment
             @Override
             public void onClick(View v) {
                 onReturnButton();
+            }
+        });
+
+        Button btEnd = v.findViewById(R.id.game_bt_endGame);
+        btEnd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onGameEnds();
             }
         });
     }
@@ -232,7 +276,6 @@ public class GameFragment extends Fragment
         });
         dg.show(getParentFragmentManager(), "Info");
 
-        //TODO: This should start a new game on RTG_APP.
         //Enviar movs al gameThread.
         rtg_surface.getThread().getHandler(MyHandler.class).sendCreatePlayers(viewModel.getPlayers());
         rtg_surface.getThread().getHandler(MyHandler.class).sendUpdatePositions(viewModel.getPlayerPositions());
@@ -240,11 +283,36 @@ public class GameFragment extends Fragment
 
     private void loadedGameState()
     {
-        viewModel.setStage(GameState.LoadedGame);
+        viewModel.continueLoadMatch();
 
-        InfoDialogFragment.newInstance("Welcome Back!", "Juego cargado con éxito.");
+        InfoDialogFragment dg = InfoDialogFragment.newInstance("Welcome Back!", "Juego cargado con éxito.");
+        dg.setBtActions(new Runnable() {
+            @Override
+            public void run() {
+                switch (viewModel.getStage())
+                {
+                    case NextTurn:
+                        nextTurnState();
+                        break;
+                    case RollDice:
+                        rollDiceState();
+                        break;
+                    case Move:
+                        moveState();
+                        break;
+                    case Question:
+                        questionState();
+                        break;
+                    default:
+                        onReturnButton();
+                }
+            }
+        });
+        dg.show(getParentFragmentManager(), "LoadInfo");
 
-        //TODO: Pasar los datos cargados al RTG_App.
+        //Enviar movs al gameThread.
+        rtg_surface.getThread().getHandler(MyHandler.class).sendCreatePlayers(viewModel.getPlayers());
+        rtg_surface.getThread().getHandler(MyHandler.class).sendUpdatePositions(viewModel.getPlayerPositions());
     }
 
     private void nextTurnState()
@@ -346,6 +414,7 @@ public class GameFragment extends Fragment
         dg.setBtActions(new Runnable() {
             @Override
             public void run() {
+                busy = false;
                 FragmentManager mng = getParentFragmentManager();
                 mng.beginTransaction()
                         .setReorderingAllowed(true)
@@ -399,7 +468,7 @@ public class GameFragment extends Fragment
         int playerID = viewModel.getCurrentPlayerID();
         int updatedPosition = GameData.getInstance().getPlayerSquareID(playerID);
         viewModel.getPlayerPositions().put(playerID, updatedPosition);
-        busy = false;
+
 
         //If player have all wedges and is in square 0 -> finalQuestionsState.
         Player p = viewModel.getCurrentPlayer();
@@ -411,5 +480,47 @@ public class GameFragment extends Fragment
 
         //Question state.
         questionState();
+    }
+
+
+
+    private void onGameEnds()
+    {
+        Context context = getContext();
+        String matchName = viewModel.getMatchName();
+
+        //TODO: Show error.
+        if(matchName == null) { return; }
+
+        //Remove save file!
+        MatchManager.getInstance().removeSavedMatch(matchName + ".json");
+        Log.i(TAG, "Game Save cleared!");
+
+        //Add Match Stats to DB.
+        ThreadOrchestrator.getInstance().startThread("addMatchStatsToDB", new Runnable() {
+            @Override
+            public void run() {
+                MatchStats matchStats = new MatchStats();
+                matchStats.name = matchName;
+
+                //FIXME: Move this stuff to manager class or smth
+                MatchRecordDatabase db = MatchManager.getInstance().getDb();
+
+                //Add Match
+                MathStatsDAO mathStatsDAO = db.mathStatsDAO();
+                long matchId = mathStatsDAO.insertMatchStats(matchStats);
+
+                //Add Players.
+                PlayerStatsDAO playerStatsDAO = db.playerStatsDAO();
+                for(Player p : viewModel.getPlayers())
+                {
+                    PlayerStats ps = PlayerStats.createFromPlayer(p);
+                    ps.ID_Match = (int) matchId;
+                    playerStatsDAO.insertPlayerStats(ps);
+                }
+            }
+        });
+
+        //TODO: Move to match summary fragment.
     }
 }

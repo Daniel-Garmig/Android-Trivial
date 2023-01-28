@@ -1,8 +1,10 @@
-package com.daniel.androidtrivial.Game;
+package com.daniel.androidtrivial.Model;
 
 import androidx.lifecycle.ViewModel;
 
+import com.daniel.androidtrivial.Game.GameData;
 import com.daniel.androidtrivial.Model.BoardSquare;
+import com.daniel.androidtrivial.Model.MatchRecord.MatchStats;
 import com.daniel.androidtrivial.Model.Player;
 import com.daniel.androidtrivial.Model.GameState;
 import com.daniel.androidtrivial.Model.Questions.RoomDB.Category;
@@ -10,8 +12,12 @@ import com.daniel.androidtrivial.Model.Questions.RoomDB.QuestionWithOptions;
 import com.daniel.androidtrivial.Model.WedgesColors;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 
+/**
+ * Contains data related to game state and status.
+ */
 public class GameViewModel extends ViewModel
 {
     //List of players.
@@ -38,7 +44,13 @@ public class GameViewModel extends ViewModel
     private QuestionWithOptions currentQuestion;
     private boolean isCurrentQuestionQuesito;
 
+    //Used as ID for saving match every time GameFragment Loads.
+    private String matchName = null;
+    private GameState loadedState = null;
 
+
+    public String getMatchName() { return matchName; }
+    public void setMatchName(String matchName) { this.matchName = matchName; }
 
     public void setDiceRoll(int rs) { this.diceRoll = rs; }
     public int getDiceRoll() { return diceRoll; }
@@ -111,4 +123,40 @@ public class GameViewModel extends ViewModel
         isCurrentQuestionQuesito = squareData.isQuesito;
     }
 
+
+    public SavedMatch generateSave()
+    {
+        SavedMatch save = new SavedMatch();
+        save.name = matchName;
+        save.playerList = players;
+        save.playerOrder = playerOrder;
+        save.playerPositions = playerPositions;
+        save.stage = stage;
+        save.gameTurnPosition = gameTurnPosition;
+        save.colorsCategories = colorsCategories;
+
+        return save;
+    }
+
+    public void loadSave(SavedMatch save)
+    {
+        this.matchName = save.name;
+        this.players = (ArrayList<Player>) save.playerList;
+        this.playerOrder = save.playerOrder;
+        this.playerPositions  = save.playerPositions;
+        this.loadedState  = save.stage;
+        this.stage = GameState.LoadedGame;
+        this.gameTurnPosition  = save.gameTurnPosition;
+        this.colorsCategories  = save.colorsCategories;
+
+        //Load other vars.
+        if(gameTurnPosition != -1) {
+            this.currentPlayerID = playerOrder[gameTurnPosition];
+        }
+    }
+    
+    public void continueLoadMatch()
+    {
+        this.stage = this.loadedState;
+    }
 }

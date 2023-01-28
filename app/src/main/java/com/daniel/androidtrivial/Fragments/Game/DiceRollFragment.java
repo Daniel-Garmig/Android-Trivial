@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.daniel.androidtrivial.Game.GameViewModel;
+import com.daniel.androidtrivial.Model.GameViewModel;
 import com.daniel.androidtrivial.R;
 
 import java.util.Random;

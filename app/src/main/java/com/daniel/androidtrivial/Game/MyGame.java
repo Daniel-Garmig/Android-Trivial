@@ -238,8 +238,9 @@ public class MyGame implements RTG_App
         GameData d = GameData.getInstance();
 
         d.icon = new PopupIcon(assetID);
-        d.icon.transform.setPosition(d.getSquare(0).pos);
+        d.icon.transform.setPosition(600, 600);
         d.icon.transform.setSize(0, 0);
+        d.icon.addTargetSize(new Vector2(300, 300));
     }
 
 

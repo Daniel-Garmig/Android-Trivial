@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity
         //Init ThreadOrchestrator.
         ThreadOrchestrator.getInstance();
         QuestionsManager.getInstance().init(getApplicationContext());
+        MatchManager.getInstance().init(getApplicationContext());
 
         //FIXME: Cargar los assets en otro thread podría generar una condición de carrera en la peor de las situaciones al necesitarse nada más crear el GameFragment.
         // Asegurar eso.

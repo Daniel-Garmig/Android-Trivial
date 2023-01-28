@@ -19,7 +19,7 @@ public class PopupIcon extends GameObject implements Animated
         animation = new ScaleAnimation(transform);
         animation.velocity = 200;
 
-        animation.addTargetSize(new Vector2(300, 300));
+        //animation.addTargetSize(new Vector2(300, 300));
     }
 
 

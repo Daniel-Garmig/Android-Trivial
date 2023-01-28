@@ -1,33 +1,29 @@
 package com.daniel.androidtrivial.Fragments.Game;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.daniel.androidtrivial.Fragments.App.InfoDialogFragment;
-import com.daniel.androidtrivial.Fragments.App.LoadingDialogFragment;
-import com.daniel.androidtrivial.Game.GameViewModel;
+import com.daniel.androidtrivial.Model.GameViewModel;
 import com.daniel.androidtrivial.Model.GameState;
 import com.daniel.androidtrivial.Model.Player;
-import com.daniel.androidtrivial.Model.Questions.RoomDB.Category;
 import com.daniel.androidtrivial.Model.Questions.RoomDB.Question;
 import com.daniel.androidtrivial.Model.Questions.RoomDB.QuestionOption;
 import com.daniel.androidtrivial.Model.Questions.RoomDB.QuestionWithOptions;
-import com.daniel.androidtrivial.Model.WedgesColors;
 import com.daniel.androidtrivial.R;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -35,11 +31,18 @@ public class QuestionFragment extends Fragment
 {
     private static final int POINTS_ON_CORRECT_ANSWER = 5;
 
+    private static final long QUESTION_TIME_MS = 10 * 1000;
+    private static final long TIME_BETWEEN_UPDATES = 50;
+
 
     GameViewModel viewModel;
 
+    CountDownTimer timer = null;
 
     LinearLayout layoutOptions;
+    ProgressBar timeBar;
+
+    private boolean timerFinished = false;
 
 
     public void onCreate(Bundle savedInstanceState)
@@ -67,6 +70,12 @@ public class QuestionFragment extends Fragment
         return frag;
     }
 
+    @Override
+    public void onDestroyView() {
+        if(timer != null) { timer.cancel(); }
+        super.onDestroyView();
+    }
+
     private void initComponents(View v)
     {
 
@@ -78,6 +87,10 @@ public class QuestionFragment extends Fragment
         TextView title = v.findViewById(R.id.quest_text_title);
         title.setText(question.question.sentence);
 
+        timeBar = v.findViewById(R.id.quest_timeBar);
+        timeBar.setProgress(100);
+        startTimer();
+
         //Add option button for each option.
         //Shuffle list so order is random.
         List<QuestionOption> unorderedOptions = question.optionList;
@@ -87,12 +100,28 @@ public class QuestionFragment extends Fragment
             addOpButton(option);
         }
 
-        //TODO:
-        //  Timer!!
-        //  Result feedback.
-
     }
 
+    private void startTimer()
+    {
+        timer = new CountDownTimer(QUESTION_TIME_MS, TIME_BETWEEN_UPDATES) {
+            @Override
+            public void onTick(long millisUntilFinished)
+            {
+                //Calculate percentage.
+                float progress = (float)millisUntilFinished / (float)QUESTION_TIME_MS * 100;
+                timeBar.setProgress(Math.round(progress));
+            }
+
+            @Override
+            public void onFinish() {
+                timeBar.setProgress(0);
+                timerFinished = true;
+                onTimeEnds();
+            }
+        };
+        timer.start();
+    }
 
     private void addOpButton(QuestionOption option)
     {
@@ -111,6 +140,9 @@ public class QuestionFragment extends Fragment
 
     private void onOptionClick(int opId)
     {
+        if(timerFinished) { return; }
+        timer.cancel();
+
         //TODO: Add win stuff...
         String dialogTitle = "null";
         String dialogText = "";
@@ -150,7 +182,30 @@ public class QuestionFragment extends Fragment
         }
 
         //Show info and return to game fragment.
-        InfoDialogFragment infodg = InfoDialogFragment.newInstance(dialogTitle, dialogText);
+        infoAndReturn(dialogTitle, dialogText);
+    }
+
+
+    private void onTimeEnds()
+    {
+        String dialogTitle = "null";
+        String dialogText = "";
+
+        Player p = viewModel.getCurrentPlayer();
+        //FIXME: Mb addQuestionAnswered as well?
+        p.addQuestionOutOfTime();
+        viewModel.setStage(GameState.NextTurn);
+
+        dialogTitle = getString(R.string.question_info_outOfTIme_title);
+        dialogText = viewModel.getCurrentQuestion().question.additionalInformation;
+
+        infoAndReturn(dialogTitle, dialogText);
+    }
+
+    private void infoAndReturn(String title, String text)
+    {
+        //Show info and return to game fragment.
+        InfoDialogFragment infodg = InfoDialogFragment.newInstance(title, text);
         infodg.setBtActions(new Runnable() {
             @Override
             public void run() {

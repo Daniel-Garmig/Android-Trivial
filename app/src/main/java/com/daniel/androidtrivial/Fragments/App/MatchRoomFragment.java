@@ -1,6 +1,8 @@
 package com.daniel.androidtrivial.Fragments.App;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,18 +17,32 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.daniel.androidtrivial.Fragments.Game.GameFragment;
+import com.daniel.androidtrivial.Game.GameData;
+import com.daniel.androidtrivial.MatchManager;
+import com.daniel.androidtrivial.Model.MatchRecord.MatchStats;
 import com.daniel.androidtrivial.Model.Player;
+import com.daniel.androidtrivial.Model.SavedMatch;
 import com.daniel.androidtrivial.Model.WedgesColors;
-import com.daniel.androidtrivial.Game.GameViewModel;
+import com.daniel.androidtrivial.Model.GameViewModel;
 import com.daniel.androidtrivial.Model.GameState;
+import com.daniel.androidtrivial.QuestionsManager;
 import com.daniel.androidtrivial.R;
 import com.daniel.androidtrivial.ThreadOrchestrator;
+import com.google.gson.Gson;
 
+import java.io.File;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
+import java.util.TimeZone;
 
 public class MatchRoomFragment extends Fragment
 {
@@ -133,12 +149,10 @@ public class MatchRoomFragment extends Fragment
         }
 
         //Set all wedges to false.
-        p.setWedge(WedgesColors.green, false);
-        p.setWedge(WedgesColors.purple, false);
-        p.setWedge(WedgesColors.orange, false);
-        p.setWedge(WedgesColors.yellow, false);
-        p.setWedge(WedgesColors.pink, false);
-        p.setWedge(WedgesColors.blue, false);
+        for(WedgesColors c : WedgesColors.values())
+        {
+            p.setWedge(c, false);
+        }
 
         //Add player to player list.
         playerList.add(p);
@@ -205,6 +219,12 @@ public class MatchRoomFragment extends Fragment
         //TODO: Create color-category relation for the given match and story it on viewModel.
         useDefaultColorCategories();
 
+        //Create Save File.
+        saveNewMatch();
+
+        //Reset gameData vars
+        GameData.getInstance().gameDataResets();
+        //Send ViewModel loaded.
         ThreadOrchestrator.getInstance().sendDataLoaded(ThreadOrchestrator.msgViewModelDataLoaded);
 
         FragmentManager mng = getParentFragmentManager();
@@ -212,6 +232,19 @@ public class MatchRoomFragment extends Fragment
                 .setReorderingAllowed(true)
                 .replace(R.id.MainFragmentContainer, GameFragment.class, null)
                 .commit();
+    }
+
+
+    private void saveNewMatch()
+    {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd_HH_mm", Locale.US);
+        String name = format.format(Calendar.getInstance().getTime());
+        viewModel.setMatchName(name);
+
+        //SavedMatch save = viewModel.generateSave();
+        //MatchManager.getInstance().saveMatchData(save);
+
+        Log.i("MatchRoom", "Create new save");
     }
 
 

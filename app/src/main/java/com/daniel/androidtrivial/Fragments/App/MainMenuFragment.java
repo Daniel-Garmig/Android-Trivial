@@ -82,15 +82,18 @@ public class MainMenuFragment extends Fragment
         FragmentManager mng = getParentFragmentManager();
         mng.beginTransaction()
                 .setReorderingAllowed(true)
-                .replace(R.id.MainFragmentContainer, GameFragment.class, null)
+                .replace(R.id.MainFragmentContainer, MatchSaveListFragment.class, null)
                 .commit();
     }
 
     //DEBUG: Used for testing roll dice dialog.
     private void debugRollDice()
     {
-        DiceRollFragment diceRoll = DiceRollFragment.newInstance("Turno DEBUG!");
-        diceRoll.show(getParentFragmentManager(), "diceRoll");
+        FragmentManager mng = getParentFragmentManager();
+        mng.beginTransaction()
+                .setReorderingAllowed(true)
+                .replace(R.id.MainFragmentContainer, MatchRecordListFragment.class, null)
+                .commit();
     }
 
     //DEBUG

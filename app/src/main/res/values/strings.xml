@@ -16,6 +16,8 @@
     <string name="question_info_correct_normal_title">¡Respuesta correcta! Sigues avanzando.</string>
     <string name="question_info_correct_quesito_title">Has obtenido el quesito de %1$s</string>
 
+    <string name="question_info_outOfTIme_title">¡Se acabó el tiempo!</string>
+
 
     <string name="error_matchRoom_error">Error en la sala de partida.</string>
     <string name="error_dbCreation_error">Error al crear la base de datos de preguntas</string>

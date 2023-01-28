@@ -109,6 +109,19 @@ public class GameData
         icon = null;
     }
 
+    public void gameDataResets()
+    {
+        playerPieceList = null;
+        possibleDirections = null;
+        currentState = null;
+
+        doingAnimations = false;
+        waitingUserMovement = false;
+        remainingMovs = 0;
+        currentPlayerID = -1;
+        icon = null;
+    }
+
     public void loadBoardData(Context appContext)
     {
         if(boardData != null) { return; }
@@ -148,6 +161,10 @@ public class GameData
 
     public void createPlayers(List<Player> players)
     {
+        //Clear previous data.
+        playerPieceList.clear();
+        icon = null;
+
         for(Player p : players)
         {
             PlayerPiece piece = new PlayerPiece();
