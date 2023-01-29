@@ -17,6 +17,7 @@ import com.daniel.androidtrivial.MatchManager;
 import com.daniel.androidtrivial.Model.MatchRecord.MatchRecordDatabase;
 import com.daniel.androidtrivial.Model.MatchRecord.MatchStats;
 import com.daniel.androidtrivial.R;
+import com.daniel.androidtrivial.ThreadOrchestrator;
 import com.daniel.androidtrivial.Views.MatchRecordAdapter;
 
 import java.util.List;
@@ -27,9 +28,19 @@ public class MatchRecordListFragment extends Fragment
 
     List<MatchStats> recordData;
 
+    LoadingDialogFragment ld;
+
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+
+        ThreadOrchestrator.getInstance().setOnMatchRecordQueryEnded(new Runnable() {
+            @Override
+            public void run() {
+                ld.dismiss();
+                createRecordList();
+            }
+        });
     }
 
     @Override
@@ -46,6 +57,9 @@ public class MatchRecordListFragment extends Fragment
 
     private void initComponents(View v)
     {
+        ld = LoadingDialogFragment.newInstance(getString(R.string.record_loading_title));
+        ld.show(getParentFragmentManager(), "loadingRecord");
+
         recordList = v.findViewById(R.id.fg_recordList_RecyclerView);
         loadRecyclerView();
 
@@ -64,20 +78,24 @@ public class MatchRecordListFragment extends Fragment
 
     private void loadRecyclerView()
     {
-        //TODO: Do properly.
-        Thread t = new Thread(new Runnable() {
+        ThreadOrchestrator.getInstance().startThread("LoadMatchRecord", new Runnable() {
             @Override
             public void run() {
                 MatchRecordDatabase db = MatchManager.getInstance().getDb();
                 setData(db.mathStatsDAO().getAll());
+                ThreadOrchestrator.getInstance().sendMatchRecordQueryEnded();
             }
         });
-        t.start();
-        try {
-            t.join();
-        } catch (Exception e)
+    }
+
+    private void setData(List<MatchStats> data) { this.recordData = data; }
+
+    private void createRecordList()
+    {
+        //TODO: Empty msg.
+        if(recordData == null)
         {
-            Log.e("asd", e.toString());
+            return;
         }
 
         MatchRecordAdapter adapter = new MatchRecordAdapter(recordData);
@@ -96,10 +114,5 @@ public class MatchRecordListFragment extends Fragment
 
         recordList.setLayoutManager(layoutManager);
         recordList.setAdapter(adapter);
-    }
-
-    private void setData(List<MatchStats> data)
-    {
-        this.recordData = data;
     }
 }

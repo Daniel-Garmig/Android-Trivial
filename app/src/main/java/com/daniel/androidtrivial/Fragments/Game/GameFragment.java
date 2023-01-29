@@ -18,6 +18,7 @@ import androidx.room.Room;
 import com.daniel.androidtrivial.Fragments.App.InfoDialogFragment;
 import com.daniel.androidtrivial.Fragments.App.LoadingDialogFragment;
 import com.daniel.androidtrivial.Fragments.App.MainMenuFragment;
+import com.daniel.androidtrivial.Fragments.App.MatchSummaryFragment;
 import com.daniel.androidtrivial.MatchManager;
 import com.daniel.androidtrivial.Model.MatchRecord.MatchRecordDatabase;
 import com.daniel.androidtrivial.Model.MatchRecord.MatchStats;
@@ -63,6 +64,14 @@ public class GameFragment extends Fragment
 
         //FIXME: Quizás esto no va aquí...
         loadingDialog = LoadingDialogFragment.newInstance("Loading Game!");
+
+        //Set event if match ends after match stats go into db.
+        ThreadOrchestrator.getInstance().setOnMatchRecordQueryEnded(new Runnable() {
+            @Override
+            public void run() {
+                onGameFinished();
+            }
+        });
     }
 
 
@@ -95,7 +104,6 @@ public class GameFragment extends Fragment
         ThreadOrchestrator.getInstance().setOnAllDataLoaded(new Runnable() {
             @Override
             public void run() {
-                loadingDialog.onFinishLoad();
                 loadingDialog.dismiss();
                 startGameLoop();
             }
@@ -256,8 +264,10 @@ public class GameFragment extends Fragment
             });
             infodg.show(getParentFragmentManager(), "InfoWinChance");
         }
-
-        rollDiceState();
+        else
+        {
+            rollDiceState();
+        }
     }
 
 
@@ -496,6 +506,7 @@ public class GameFragment extends Fragment
         MatchManager.getInstance().removeSavedMatch(matchName + ".json");
         Log.i(TAG, "Game Save cleared!");
 
+
         //Add Match Stats to DB.
         ThreadOrchestrator.getInstance().startThread("addMatchStatsToDB", new Runnable() {
             @Override
@@ -518,9 +529,19 @@ public class GameFragment extends Fragment
                     ps.ID_Match = (int) matchId;
                     playerStatsDAO.insertPlayerStats(ps);
                 }
+                MatchManager.getInstance().matchStatsIDToLoad = (int) matchId;
+
+                ThreadOrchestrator.getInstance().sendMatchRecordQueryEnded();
             }
         });
+    }
 
-        //TODO: Move to match summary fragment.
+    private void onGameFinished()
+    {
+        FragmentManager mng = getParentFragmentManager();
+        mng.beginTransaction()
+                .setReorderingAllowed(true)
+                .replace(R.id.MainFragmentContainer, MatchSummaryFragment.class, null)
+                .commit();
     }
 }

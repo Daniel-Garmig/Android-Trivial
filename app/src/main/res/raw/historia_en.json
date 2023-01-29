@@ -1,0 +1,381 @@
+{
+  "category": {
+    "ID": 1,
+    "name": "History"
+  },
+  "questions": [
+    {
+      "question": {
+        "ID": 1,
+        "ID_CorrectAnswer": 1,
+        "sentence": "Who was the first president of Spanish democracy after the Franco regime?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Adolfo Suarez."
+        },
+        {
+          "ID": 2,
+          "answer": "Leopoldo Calvo-Sotelo."
+        },
+        {
+          "ID": 3,
+          "answer": "Felipe González."
+        },
+        {
+          "ID": 4,
+          "answer": "Carlos Arias Navarro."
+        },
+        {
+          "ID": 5,
+          "answer": "José María Aznar."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 2,
+        "ID_CorrectAnswer": 2,
+        "sentence": "The invasion of which fortress by revolutionaries is considered the starting point of the French Revolution?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Citadel of Carcassonne."
+        },
+        {
+          "ID": 2,
+          "answer": "Fortress of the Bastille."
+        },
+        {
+          "ID": 3,
+          "answer": "Castle du Haut-Koenigsbourg."
+        },
+        {
+          "ID": 4,
+          "answer": "The Castle of the Dukes of Brittany."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 3,
+        "ID_CorrectAnswer": 4,
+        "sentence": "In what year did man step on the Moon for the first time?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "1966."
+        },
+        {
+          "ID": 2,
+          "answer": "1968.."
+        },
+        {
+          "ID": 3,
+          "answer": "1970."
+        },
+        {
+          "ID": 4,
+          "answer": "1969."
+        },
+        {
+          "ID": 5,
+          "answer": "1972."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 4,
+        "ID_CorrectAnswer": 1,
+        "sentence": "What event is considered to have triggered World War I?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "The murder of Austrian archduke Francisco Fernando."
+        },
+        {
+          "ID": 2,
+          "answer": "A trade dispute between France and Germany."
+        },
+        {
+          "ID": 3,
+          "answer": "A conspiracy of European countries to conquer colonial territories."
+        },
+        {
+          "ID": 4,
+          "answer": "An internal conflict in the Austro-Hungarian Empire."
+        },
+        {
+          "ID": 5,
+          "answer": "An internal conflict in the Austro-Hungarian Empire."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 5,
+        "ID_CorrectAnswer": 2,
+        "sentence": " From what event do we consider that the Ancient Age ends and the Middle Ages begins?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "The discovery of America by Columbus."
+        },
+        {
+          "ID": 2,
+          "answer": "The fall of the Western Roman Empire in 476 AD."
+        },
+        {
+          "ID": 3,
+          "answer": "Charlemagne's coronation as emperor in AD 800."
+        },
+        {
+          "ID": 4,
+          "answer": "The start of construction of Chartres Cathedral in 1020 AD."
+        },
+        {
+          "ID": 5,
+          "answer": "The fall of Constantinople in 1453 AD."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 6,
+        "ID_CorrectAnswer": 1,
+        "sentence": "Who was the first president of the United States?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": " George Washington."
+        },
+        {
+          "ID": 2,
+          "answer": "Thomas Jefferson."
+        },
+        {
+          "ID": 3,
+          "answer": "Abraham Lincoln."
+        },
+        {
+          "ID": 4,
+          "answer": "Theodore Roosevelt."
+        },
+        {
+          "ID": 5,
+          "answer": "John F. Kennedy."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 7,
+        "ID_CorrectAnswer": 1,
+        "sentence": "How long was the Hundred Years War?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "116 years."
+        },
+        {
+          "ID": 2,
+          "answer": "75 years."
+        },
+        {
+          "ID": 3,
+          "answer": "100 years."
+        },
+        {
+          "ID": 4,
+          "answer": "120 years."
+        },
+        {
+          "ID": 5,
+          "answer": "150 years."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 8,
+        "ID_CorrectAnswer": 1,
+        "sentence": "In which year was the United Nations created?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "1945."
+        },
+        {
+          "ID": 2,
+          "answer": "1948."
+        },
+        {
+          "ID": 3,
+          "answer": "1950."
+        },
+        {
+          "ID": 4,
+          "answer": "1955."
+        },
+        {
+          "ID": 5,
+          "answer": "1960."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 9,
+        "ID_CorrectAnswer": 3,
+        "sentence": "What caravel did not return from the voyage on which Columbus first arrived in America?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "The Niña."
+        },
+        {
+          "ID": 2,
+          "answer": "The Pinta."
+        },
+        {
+          "ID": 3,
+          "answer": "The Santa María."
+        },
+        {
+          "ID": 4,
+          "answer": "The Gallega."
+        },
+        {
+          "ID": 5,
+          "answer": "The Carabela Real."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 10,
+        "ID_CorrectAnswer": 5,
+        "sentence": "What is the oldest epic narrative in history, found on clay tablets on which cuneiform writing was used?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "The Iliad of Homer."
+        },
+        {
+          "ID": 2,
+          "answer": "The Genesis of the Bible."
+        },
+        {
+          "ID": 3,
+          "answer": "The Ramayana of Valmiki."
+        },
+        {
+          "ID": 4,
+          "answer": "The Popol Vuh of the Mayans."
+        },
+        {
+          "ID": 5,
+          "answer": "The Epic of Gilgamesh."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 11,
+        "ID_CorrectAnswer": 4,
+        "sentence": "What is the name of the Spanish philosopher known for his development of categorical closure theory?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Francisco de Vitoria."
+        },
+        {
+          "ID": 2,
+          "answer": "Juan de la Cruz."
+        },
+        {
+          "ID": 3,
+          "answer": "José Ortega y Gasset."
+        },
+        {
+          "ID": 4,
+          "answer": "Gustavo Bueno Martínez."
+        },
+        {
+          "ID": 5,
+          "answer": "Eduardo Mendieta."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 12,
+        "ID_CorrectAnswer": 1,
+        "sentence": "What were the last names of the two explorers who completed the first trip around the world?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Magallanes y Elcano."
+        },
+        {
+          "ID": 2,
+          "answer": "Colón y Pizarro."
+        },
+        {
+          "ID": 3,
+          "answer": "Cook y Drake."
+        },
+        {
+          "ID": 4,
+          "answer": "Polo y Marco."
+        },
+        {
+          "ID": 5,
+          "answer": "Vasco de Gama y Cabral."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 13,
+        "ID_CorrectAnswer": 3,
+        "sentence": "In what language are the oldest manuscripts belonging to the part of the Bible we now know as the New Testament written?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Hebrew."
+        },
+        {
+          "ID": 2,
+          "answer": "Aramaic."
+        },
+        {
+          "ID": 3,
+          "answer": "Greek."
+        },
+        {
+          "ID": 4,
+          "answer": "Latin."
+        },
+        {
+          "ID": 5,
+          "answer": "Coptic."
+        }
+      ]
+    }
+  ]
+}

@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.Log;
 
+import com.daniel.androidtrivial.Game.GameObjetcs.AnimatedCamera;
 import com.daniel.androidtrivial.Game.GameObjetcs.DirectionIndicator;
 import com.daniel.androidtrivial.Game.GameObjetcs.PopupIcon;
 import com.daniel.androidtrivial.Game.Utils.Vector2;
@@ -52,7 +53,7 @@ public class GameData
     int screenWidth;
     int screenHeight;
 
-    Camera mainCam;
+    AnimatedCamera mainCam;
 
     int bgColor;
     Paint mainPaint;
@@ -79,7 +80,8 @@ public class GameData
     private GameData()
     {
         //Camera may be accessed before initGameData as it need to be updated on SurfaceCreated and surfaceChanged.
-        mainCam = new Camera(0, 0, 1200, 1200);
+        mainCam = new AnimatedCamera(0, 0, 1200, 1200);
+        mainCam.initAnimation();
     }
 
     public void initGameData()
@@ -184,6 +186,14 @@ public class GameData
         }
     }
 
+    public boolean isSquareOccupied(int sqID)
+    {
+        for(PlayerPiece p : playerPieceList.values())
+        {
+            if(p.sqId == sqID) { return true; }
+        }
+        return false;
+    }
 
     public int getPlayerSquareID(int playerID)
     {

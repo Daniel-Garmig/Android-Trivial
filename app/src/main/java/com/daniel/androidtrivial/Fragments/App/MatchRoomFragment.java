@@ -1,12 +1,12 @@
 package com.daniel.androidtrivial.Fragments.App;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,23 +18,16 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.daniel.androidtrivial.Fragments.Game.GameFragment;
 import com.daniel.androidtrivial.Game.GameData;
-import com.daniel.androidtrivial.MatchManager;
-import com.daniel.androidtrivial.Model.MatchRecord.MatchStats;
 import com.daniel.androidtrivial.Model.Player;
-import com.daniel.androidtrivial.Model.SavedMatch;
 import com.daniel.androidtrivial.Model.WedgesColors;
 import com.daniel.androidtrivial.Model.GameViewModel;
 import com.daniel.androidtrivial.Model.GameState;
-import com.daniel.androidtrivial.QuestionsManager;
 import com.daniel.androidtrivial.R;
 import com.daniel.androidtrivial.ThreadOrchestrator;
-import com.google.gson.Gson;
+import com.daniel.androidtrivial.Views.RoomPlayerItem;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.io.File;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -42,23 +35,25 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
-import java.util.TimeZone;
 
 public class MatchRoomFragment extends Fragment
 {
     GameViewModel viewModel;
 
-    ArrayList<Player> playerList;
     HashMap<WedgesColors, Boolean> colorAvailable;
 
     Button btPlay;
-    Button btGenPlayer;
+    FloatingActionButton btAddPlayer;
+
+    LinearLayout playerListLayout;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
         View v = LayoutInflater.from(getContext()).inflate(R.layout.fragment_match_room, container, false);
+
+        playerListLayout = v.findViewById(R.id.fg_romm_layout_playerList);
 
         initData();
         initComponents(v);
@@ -86,7 +81,7 @@ public class MatchRoomFragment extends Fragment
         colorAvailable.put(WedgesColors.purple, true);
 
         //Create player.
-        playerList = new ArrayList<>();
+        viewModel.setPlayers(new ArrayList<>());
 
         //Generate default player.
         generatePlayer();
@@ -112,8 +107,8 @@ public class MatchRoomFragment extends Fragment
         });
 
         //TODO: BT add Player -> Generate new player and add card.
-        btGenPlayer = v.findViewById(R.id.fg_room_bt_genPlayers);
-        btGenPlayer.setOnClickListener(new View.OnClickListener() {
+        btAddPlayer = v.findViewById(R.id.fg_room_bt_genPlayers);
+        btAddPlayer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 generatePlayer();
@@ -125,6 +120,8 @@ public class MatchRoomFragment extends Fragment
 
     private void generatePlayer()
     {
+        ArrayList<Player> playerList = viewModel.getPlayers();
+
         //Limit 6 players.
         if(playerList.size() >= 6)
         {
@@ -132,7 +129,11 @@ public class MatchRoomFragment extends Fragment
         }
 
         //NOTE: Player ID starts at 0.
-        int nextID = playerList.size();
+        int nextID = 0;
+        if(playerList.size() != 0)
+        {
+            nextID = playerList.get(playerList.size()-1).getId() + 1;
+        }
         Player p = new Player();
         p.setId(nextID);
         p.setName("Player " + nextID);
@@ -158,10 +159,26 @@ public class MatchRoomFragment extends Fragment
         playerList.add(p);
 
         //TODO: Instantiate player card.
+        RoomPlayerItem playerListItem = new RoomPlayerItem(getContext(), null);
+        playerListLayout.addView(playerListItem);
+
+        playerListItem.playerID = p.getId();
+        playerListItem.playerName.setText(p.getName());
+        playerListItem.setIconFromWedges(p.getPlayerColor());
+
+        playerListItem.btRemovePlayer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                playerList.remove(p);
+                playerListLayout.removeView(playerListItem);
+            }
+        });
     }
 
     private void generateRandomOrder()
     {
+        ArrayList<Player> playerList = viewModel.getPlayers();
+
         //Shuffle a list of player ids.
 
         ArrayList<Integer> playerOrder = new ArrayList<>();
@@ -199,8 +216,7 @@ public class MatchRoomFragment extends Fragment
 
     private void initGame()
     {
-        //Create Match and set data.
-        viewModel.setPlayers(playerList);
+        ArrayList<Player> playerList = viewModel.getPlayers();
 
         generateRandomOrder();
 

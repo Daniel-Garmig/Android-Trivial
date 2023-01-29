@@ -87,6 +87,7 @@ public class MyGame implements RTG_App
         {
             d.icon.updateAnimation(dt);
         }
+        d.mainCam.updateAnimation(dt);
         //if(!d.icon.isAnimationFinished()) { animEnded = false; }
 
 
@@ -102,10 +103,12 @@ public class MyGame implements RTG_App
                 {
                     p.setToSquare(d.getSquare(p.sqId));
                 }
+                //TODO: Move cam to default pos.
 
                 //No remaining movements.
                 if(d.remainingMovs <= 0)
                 {
+                    d.mainCam.animation.removeTarget();
                     //TODO: QuestionIcon.
                     createPopUpIcon("playerPiece");
 
@@ -203,7 +206,7 @@ public class MyGame implements RTG_App
             //TODO: Test if final sq is empty.
         }
 
-        //This is utilized by all interations to return!!
+        //This is utilized by all interactions to return!!
         if(d.remainingMovs <= 0 && !d.doingAnimations)
         {
             d.icon = null;
@@ -222,7 +225,31 @@ public class MyGame implements RTG_App
 
         for(int sqID : currentSquare.continuousSquares)
         {
-            //TODO: Check route is possible.
+            //Check Route if possible -> Final position it's not occupied.
+            //Get final square.
+            int lastCheckedSqID = currentSquare.id;
+            int checkSqID = sqID;
+            boolean valid = true;
+            //TODO: If it's sqID == 0 -> Various players can be on the center at the same time.
+            for(int i = d.remainingMovs-1; i >= 0; i--)
+            {
+                //Get square.
+                BoardSquare sq = d.getSquare(checkSqID);
+                //If it's the final one, check is not occupied.
+                if(i == 0)
+                {
+                    if(d.isSquareOccupied(checkSqID)) { valid = false; break;}
+                }
+                //It's valid. We will get into a intersection before ending.
+                if(sq.continuousSquares.size() > 2) { break; }
+                int thisSqID = checkSqID;
+                //Next.
+                if(sq.continuousSquares.get(0) == lastCheckedSqID) { checkSqID = sq.continuousSquares.get(1); }
+                else { checkSqID = sq.continuousSquares.get(0); }
+                lastCheckedSqID = thisSqID;
+            }
+            //Don't give that direction if is not valid.
+            if(!valid) { continue; }
 
             //Get ContinuousSquare position.
             Vector2 initPos = currentSquare.pos;
@@ -271,7 +298,7 @@ public class MyGame implements RTG_App
     {
         GameData d = GameData.getInstance();
         d.currentState = GameState.Move;
-
+        d.remainingMovs = movs;
         d.currentPlayerID = currentPlayer.getId();
         PlayerPiece p = d.getCurrentPlayerPiece();
 
@@ -279,6 +306,8 @@ public class MyGame implements RTG_App
         BoardSquare currentSquare = d.getSquare(p.sqId);
         showMovementOptions(currentSquare);
 
-        d.remainingMovs = movs;
+        //TODO: Set current player as targer for the camera.
+        d.mainCam.animation.setTarget(p.transform);
+
     }
 }

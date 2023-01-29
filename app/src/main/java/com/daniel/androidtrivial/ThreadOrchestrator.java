@@ -79,6 +79,8 @@ public class ThreadOrchestrator extends Handler
 
     public static final int MSG_QUESTION_QUERY_ENDED = 30;
 
+    public static final int MSG_MATCH_RECORD_QUERY_ENDED = 40;
+
 
     boolean gameDataLoaded = false;
     boolean boardDataLoaded = false;
@@ -103,6 +105,8 @@ public class ThreadOrchestrator extends Handler
 
     private Runnable onQuestionQueryEnded;
 
+    private Runnable onMatchRecordQueryEnded;
+
 
     public void setOnAllDataLoaded(Runnable onAllDataLoaded) { this.onAllDataLoaded = onAllDataLoaded; }
     public void setOnRTG_GameEndsInteraction(Runnable onRTG_GameEndsInteraction) { this.onRTG_GameEndsInteraction = onRTG_GameEndsInteraction; }
@@ -115,7 +119,7 @@ public class ThreadOrchestrator extends Handler
 
     public void setOnQuestionQueryEnded(Runnable onQuestionQueryEnded) { this.onQuestionQueryEnded = onQuestionQueryEnded; }
 
-
+    public void setOnMatchRecordQueryEnded(Runnable onMatchRecordQueryEnded) { this.onMatchRecordQueryEnded = onMatchRecordQueryEnded; }
 
     public synchronized void sendDataLoaded(int msgId)
     {
@@ -174,6 +178,14 @@ public class ThreadOrchestrator extends Handler
         sendMessage(obtainMessage(MSG_QUESTION_QUERY_ENDED));
     }
 
+    public void sendMatchRecordQueryEnded()
+    {
+        sendMessage(obtainMessage(MSG_MATCH_RECORD_QUERY_ENDED));
+    }
+
+
+
+
     @Override
     public void handleMessage(@NonNull Message msg)
     {
@@ -198,6 +210,9 @@ public class ThreadOrchestrator extends Handler
                 break;
             case MSG_QUESTION_QUERY_ENDED:
                 onQuestionQueryEnded.run();
+                break;
+            case MSG_MATCH_RECORD_QUERY_ENDED:
+                onMatchRecordQueryEnded.run();
                 break;
         }
     }

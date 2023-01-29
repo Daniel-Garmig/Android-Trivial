@@ -1,9 +1,15 @@
 <resources>
     <string name="app_name">AndroidTrivial</string>
 
+    <!-- Main Menu -->
+    <string name="menu_bt_newMatch">Nueva Partida</string>
+    <string name="menu_bt_loadMatch">Continuar</string>
+    <string name="menu_bt_match_record">Historial de Partidas</string>
+    <string name="menu_bt_create_questions">Cargar preguntas</string>
 
-    
+    <!-- Game Fragment -->
     <string name="game_loading_question">Cargando pregunta...</string>
+    <string name="game_loading_game">Cargando partida</string>
     <string name="game_info_question_title">Pregunta de %1$s</string>
     <string name="game_info_question_noQuesito">Responde a esta pregunta para conseguir puntos y segur avanzando.</string>
     <string name="game_info_question_quesito">¡En esta pregunta puedes conseguir un quesito!</string>
@@ -11,15 +17,36 @@
     <string name="game_info_win_chance_title">Has conseguido todos los quesitos</string>
     <string name="game_info_win_chance_msg">Estás tocando la victoria. Sólo tienes que llegar al centro y contestar correstamente las preguntas finales</string>
 
-
+    <!-- Question Fragment -->
     <string name="question_info_error_title">Respuesta incorrecta.</string>
     <string name="question_info_correct_normal_title">¡Respuesta correcta! Sigues avanzando.</string>
     <string name="question_info_correct_quesito_title">Has obtenido el quesito de %1$s</string>
-
     <string name="question_info_outOfTIme_title">¡Se acabó el tiempo!</string>
 
+    <!-- DB Creation -->
+    <string name="dialog_createdb_title">Selecciona el idioma de las preguntas</string>
+    <string name="dialog_createdb_op_es">Español</string>
+    <string name="dialog_createdb_op_en">Inglés</string>
+    <string name="dialog_createdb_bt">Continuar</string>
 
+    <!-- Error messages -->
     <string name="error_matchRoom_error">Error en la sala de partida.</string>
     <string name="error_dbCreation_error">Error al crear la base de datos de preguntas</string>
     <string name="error_dbOperation_error">Error al realizar operaciones con la base de datos.</string>
+
+    <!-- New Match room -->
+    <string name="view_room_player_bt_edit">Editar</string>
+    <string name="view_room_player_bt_remove">Eliminar</string>
+    <string name="room_bt_play">¡Jugar!</string>
+
+    <!-- Match Record Fragment -->
+    <string name="record_loading_title">Cargando historial...</string>
+    <string name="record_bt_view_details">Detalles</string>
+
+    <!-- Match Summary Fragment -->
+    <string name="summary_loading_title">Cargando datos...</string>
+
+    <!-- Generics -->
+    <string name="gen_bt_return">Volver</string>
+
 </resources>

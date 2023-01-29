@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Android Trivial"
+        android:text="@string/app_name"
         android:textAlignment="center"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,7 +21,7 @@
         android:id="@+id/menu_bt_Play"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Continue"
+        android:text="@string/menu_bt_loadMatch"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -30,35 +30,34 @@
         app:layout_constraintVertical_bias="0.5" />
 
     <Button
-        android:id="@+id/menu_bt_rollDice"
+        android:id="@+id/menu_bt_matchRecord"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="Match Record"
+        android:layout_marginTop="30dp"
+        android:text="@string/menu_bt_match_record"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menu_bt_Play" />
+        app:layout_constraintTop_toBottomOf="@+id/menu_bt_room" />
 
     <Button
         android:id="@+id/menu_bt_room"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:text="New Game"
+        android:text="@string/menu_bt_newMatch"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menu_bt_rollDice" />
+        app:layout_constraintTop_toBottomOf="@+id/menu_bt_Play" />
 
     <Button
         android:id="@+id/menu_bt_createDB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:text="Create DB"
+        android:text="@string/menu_bt_create_questions"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menu_bt_room" />
+        app:layout_constraintTop_toBottomOf="@+id/menu_bt_matchRecord" />
 </androidx.constraintlayout.widget.ConstraintLayout>

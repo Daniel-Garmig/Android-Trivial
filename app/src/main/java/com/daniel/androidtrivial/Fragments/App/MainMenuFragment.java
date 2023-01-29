@@ -6,12 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import com.daniel.androidtrivial.Fragments.Game.DiceRollFragment;
-import com.daniel.androidtrivial.Fragments.Game.GameFragment;
 import com.daniel.androidtrivial.QuestionsManager;
 import com.daniel.androidtrivial.R;
 import com.daniel.androidtrivial.ThreadOrchestrator;
@@ -51,7 +48,7 @@ public class MainMenuFragment extends Fragment
         });
 
         //DEBUG: Used for testing roll dice dialog.
-        Button btRollDice = v.findViewById(R.id.menu_bt_rollDice);
+        Button btRollDice = v.findViewById(R.id.menu_bt_matchRecord);
         btRollDice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,6 +106,19 @@ public class MainMenuFragment extends Fragment
 
     private void debugCreateDB()
     {
+        CreateDBDialogFragment df = new CreateDBDialogFragment();
+        df.onBtContinue = new Runnable() {
+            @Override
+            public void run() {
+                createDB(df.languageGroup.getCheckedRadioButtonId());
+                df.dismiss();
+            }
+        };
+        df.show(getParentFragmentManager(), "CreateDB");
+    }
+
+    private void createDB(int languageOp)
+    {
         //STRINGRES
         loadingDialog = LoadingDialogFragment.newInstance("Creating Questions DB");
         loadingDialog.show(getParentFragmentManager(), "LoadingDialog");
@@ -121,7 +131,11 @@ public class MainMenuFragment extends Fragment
         });
 
         int[] categories = { R.raw.science_es };
-        QuestionsManager.getInstance().createDefaultDB(categories);
+        if(languageOp == R.id.fg_createdb_op_en)
+        {
+            categories = new int[] { R.raw.historia_en };
+        }
 
+        QuestionsManager.getInstance().createDefaultDB(categories);
     }
 }

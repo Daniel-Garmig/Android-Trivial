@@ -17,10 +17,6 @@ public interface PlayerStatsDAO
     @Query("select * from playerstats where ID_Match = :id_Match")
     List<PlayerStats> getPlayersByMatch(int id_Match);
 
-    @Transaction
-    @Query("select * from playerstats where ID_Match = :idMatch")
-    List<MatchStatsWithPlayersStats> getMatchWithPlayers(int idMatch);
-
 
     @Insert
     void insertPlayerStats(PlayerStats playerStats);
