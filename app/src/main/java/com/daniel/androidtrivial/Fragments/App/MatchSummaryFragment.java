@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -14,9 +15,12 @@ import androidx.fragment.app.FragmentManager;
 import com.daniel.androidtrivial.MatchManager;
 import com.daniel.androidtrivial.Model.MatchRecord.MatchStatsWithPlayersStats;
 import com.daniel.androidtrivial.Model.MatchRecord.MathStatsDAO;
+import com.daniel.androidtrivial.Model.MatchRecord.PlayerStats;
 import com.daniel.androidtrivial.Model.MatchRecord.PlayerStatsDAO;
+import com.daniel.androidtrivial.Model.WedgesColors;
 import com.daniel.androidtrivial.R;
 import com.daniel.androidtrivial.ThreadOrchestrator;
+import com.daniel.androidtrivial.Views.StatsPlayerItem;
 
 import java.util.List;
 
@@ -25,6 +29,8 @@ public class MatchSummaryFragment extends Fragment
     LoadingDialogFragment loadingDialog;
 
     MatchStatsWithPlayersStats statsData;
+
+    LinearLayout playerListLayout;
 
     TextView text1;
 
@@ -62,6 +68,7 @@ public class MatchSummaryFragment extends Fragment
         //TODO: Debería mostrar un loading mientras hace la consulta. Este fragment debería operar con el ID de match proveniente del list o del recien creado.
         //  Al terminar le query, ya muestra los datos.
 
+        playerListLayout = v.findViewById(R.id.fg_summary_playerList_layout);
         text1 = v.findViewById(R.id.fg_summary_text1);
 
         Button btReturn = v.findViewById(R.id.fg_summary_bt_return);
@@ -101,6 +108,15 @@ public class MatchSummaryFragment extends Fragment
 
         String debugText = "Loading ID: " + statsData.matchStats.ID + "";
         text1.setText(debugText);
+
+        List<PlayerStats> players = statsData.playerList;
+        for(PlayerStats p : players)
+        {
+            StatsPlayerItem pItem = new StatsPlayerItem(getContext(), null);
+            playerListLayout.addView(pItem);
+
+            pItem.updateUIFromPlayer(p);
+        }
 
         Log.i("asd", "asd");
     }

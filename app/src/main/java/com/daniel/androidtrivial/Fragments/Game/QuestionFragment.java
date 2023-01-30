@@ -32,7 +32,7 @@ public class QuestionFragment extends Fragment
     private static final int POINTS_ON_CORRECT_ANSWER = 5;
 
     private static final long QUESTION_TIME_MS = 10 * 1000;
-    private static final long TIME_BETWEEN_UPDATES = 50;
+    private static final long TIME_BETWEEN_UPDATES = 30;
 
 
     GameViewModel viewModel;

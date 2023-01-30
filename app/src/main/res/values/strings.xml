@@ -29,6 +29,10 @@
     <string name="question_info_correct_normal_title">¡Respuesta correcta! Sigues avanzando.</string>
     <string name="question_info_correct_quesito_title">Has obtenido el quesito de %1$s</string>
     <string name="question_info_outOfTIme_title">¡Se acabó el tiempo!</string>
+    <!-- Final Question Fragment -->
+    <string name="question_loading_final_questions">Generando preguntas...</string>
+    <string name="question_final_nextcat_title">Pregunta de %1$s</string>
+    <string name="question_final_nextcat_text"></string>
 
     <!-- DB Creation -->
     <string name="dialog_createdb_title">Selecciona el idioma de las preguntas</string>
@@ -52,6 +56,11 @@
 
     <!-- Match Summary Fragment -->
     <string name="summary_loading_title">Cargando datos...</string>
+    <string name="summary_placeholder_playerName">Playername</string>
+    <string name="summary_stats_score">Puntuación: %1$d</string>
+    <string name="summary_stats_squares">Casillas Recorridas: %1$d</string>
+    <string name="summary_stats_questions">Preguntas Respondidas: %1$d</string>
+    <string name="summary_stats_correctAnswers">Respuestas correctas: %1$d</string>
 
     <!-- Generics -->
     <string name="gen_bt_return">Volver</string>

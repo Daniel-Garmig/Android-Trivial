@@ -1,0 +1,368 @@
+{
+  "category": {
+    "ID": 2,
+    "name": "Arte y literatura"
+  },
+  "questions": [
+    {
+      "question": {
+        "ID": 1,
+        "ID_CorrectAnswer": 2,
+        "sentence": "¿Quién escribió la Ilíada y la Odisea?",
+        "additionalInformation": "Si bien se discute si fue realmente un ser humano real, ambas obras son atribuidas a Homero."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Hesíodo."
+        },
+        {
+          "ID": 2,
+          "answer": "Homero."
+        },
+        {
+          "ID": 3,
+          "answer": "Plutarco."
+        },
+        {
+          "ID": 4,
+          "answer": "Cicerón."
+        },
+        {
+          "ID": 5,
+          "answer": "Platón."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 2,
+        "ID_CorrectAnswer": 1,
+        "sentence": "¿Qué novela escribió Miguel de Cervantes y es considerada como uno de los máximos exponentes de la literatura española y universal?",
+        "additionalInformation": "El ingenioso hidalgo Don Quijote de la Mancha se publica en 1605, es una de las obras más destacadas de la literatura española y la literatura universal, y una de las más traducida."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "El ingenioso hidalgo Don Quijote de la Mancha."
+        },
+        {
+          "ID": 2,
+          "answer": "Nada."
+        },
+        {
+          "ID": 3,
+          "answer": "El lazarillo de Tormes."
+        },
+        {
+          "ID": 4,
+          "answer": "La vida es sueño. "
+        },
+        {
+          "ID": 5,
+          "answer": "La casa de Bernarda Alba."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 3,
+        "ID_CorrectAnswer": 5,
+        "sentence": "¿Qué gran artista es conocido por haber pintado la Capilla Sixtina?",
+        "additionalInformation": "Pintado por Miguel Ángel alrededor del año 1511. Ilustra el episodio bíblico del Génesis en el cual Dios le da vida a Adán, el primer hombre."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Rafael Sanzio."
+        },
+        {
+          "ID": 2,
+          "answer": "Leonardo da Vinci."
+        },
+        {
+          "ID": 3,
+          "answer": "Francisco de Goya."
+        },
+        {
+          "ID": 4,
+          "answer": "Sandro Botticelli."
+        },
+        {
+          "ID": 5,
+          "answer": "Miguel Ángel."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 4,
+        "ID_CorrectAnswer": 3,
+        "sentence": ". ¿Quién pintó el Guernica?",
+        "additionalInformation": "Esta obra, que expresa el caos que conllevó la vivencia del bombardeo de la ciudad de Guernica durante la Guerra Civil Española, fue pintada por Pablo Picasso."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Diego Rivera."
+        },
+        {
+          "ID": 2,
+          "answer": "Francisco de Goya."
+        },
+        {
+          "ID": 3,
+          "answer": "Pablo Picasso."
+        },
+        {
+          "ID": 4,
+          "answer": "Salvador Dalí."
+        },
+        {
+          "ID": 5,
+          "answer": "Rembrandt."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 5,
+        "ID_CorrectAnswer": 1,
+        "sentence": ". ¿De qué estilo arquitectónico es la catedral de Notre Dame?",
+        "additionalInformation": "La catedral de Notre Dame es probablemente uno de los exponentes más conocidos del estilo gótico."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Gótico."
+        },
+        {
+          "ID": 2,
+          "answer": "Renacentista."
+        },
+        {
+          "ID": 3,
+          "answer": "Barroco."
+        },
+        {
+          "ID": 4,
+          "answer": "Art Nouveau."
+        },
+        {
+          "ID": 5,
+          "answer": "Art decó."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 6,
+        "ID_CorrectAnswer": 2,
+        "sentence": "¿De qué obra de Shakespeare forma parte el soliloquio ¿Ser o no ser, esa es la cuestión?",
+        "additionalInformation": "Este soliloquio, uno de los más conocidos del dramaturgo inglés, forma parte de la obra Hamlet."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Matar a un ruiseñor."
+        },
+        {
+          "ID": 2,
+          "answer": "Hamlet."
+        },
+        {
+          "ID": 3,
+          "answer": "Romeo y Julieta."
+        },
+        {
+          "ID": 4,
+          "answer": "El rey Lear."
+        },
+        {
+          "ID": 5,
+          "answer": "El mercader de Venecia."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 7,
+        "ID_CorrectAnswer": 4,
+        "sentence": "¿Quién escribió La colmena?",
+        "additionalInformation": "La colmena es un testimonio fiel de la vida cotidiana en las calles, cafés y alcobas de aquel Madrid de 1943, pero es también una amarga crónica existencial."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Gabriel García Márquez."
+        },
+        {
+          "ID": 2,
+          "answer": "J.D. Salinger."
+        },
+        {
+          "ID": 3,
+          "answer": "Ernest Hemingway."
+        },
+        {
+          "ID": 4,
+          "answer": "Camilo José Cela."
+        },
+        {
+          "ID": 5,
+          "answer": "Alejandro Casona."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 8,
+        "ID_CorrectAnswer": 3,
+        "sentence": "¿Qué nombre tenía el caballo de Don Quijote de la Mancha?",
+        "additionalInformation": "Le puso este nombre porque le parecía el más adecuado para un caballero. Cervantes le describe como rocín flaco y dice “aunque tenía más cuartos que un real y más tachas que el caballo de Gonela, le pareció que ni el Bucéfalo de Alejandro ni Babieca el del Cid con él se igualaban.”"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Pegaso."
+        },
+        {
+          "ID": 2,
+          "answer": "César."
+        },
+        {
+          "ID": 3,
+          "answer": "Rocinante."
+        },
+        {
+          "ID": 4,
+          "answer": "Viento."
+        },
+        {
+          "ID": 5,
+          "answer": "Caballero."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 9,
+        "ID_CorrectAnswer": 4,
+        "sentence": "¿En qué país fue considerado Gulliver un gigante durante sus viajes?",
+        "additionalInformation": "Aunque a lo largo de sus viajes Gulliver llegaría a visitar una gran cantidad de naciones con diferentes tipos de ciudadanos, una de las partes más conocidas de su historia y en la que Gulliver fue considerado un gigante es la que transcurre en el país de Lilliput."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "En el país de los Enanos."
+        },
+        {
+          "ID": 2,
+          "answer": "En el país de los Gigantes."
+        },
+        {
+          "ID": 3,
+          "answer": "En el país de las Criaturas marinas."
+        },
+        {
+          "ID": 4,
+          "answer": "En el país de Lilliput."
+        },
+        {
+          "ID": 5,
+          "answer": "In the country of the Marine creatures."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 10,
+        "ID_CorrectAnswer": 2,
+        "sentence": "¿De qué país es originario el tipo de poesía conocido como Haiku?",
+        "additionalInformation": "Los haikus son poemas muy cortos, tienen solo tres versos y normalmente hablan de temas relacionados con la naturaleza o la vida cotidiana que pasa en un lugar y un momento muy concreto."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Inglatera."
+        },
+        {
+          "ID": 2,
+          "answer": "Japón."
+        },
+        {
+          "ID": 3,
+          "answer": "China."
+        },
+        {
+          "ID": 4,
+          "answer": "Australia."
+        },
+        {
+          "ID": 5,
+          "answer": "Corea."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 11,
+        "ID_CorrectAnswer": 5,
+        "sentence": "¿Qué escritor hispanoparlante recibió el apodo de el manco de Lepanto?",
+        "additionalInformation": "Fue nada más y nada menos que Miguel de Cervantes, posiblemente el escritor español más famoso de la historia."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Gabriel García Márquez."
+        },
+        {
+          "ID": 2,
+          "answer": "Jorge Luis Borges."
+        },
+        {
+          "ID": 3,
+          "answer": "Mario Vargas Llosa."
+        },
+        {
+          "ID": 4,
+          "answer": "Juan Ramón Jiménez."
+        },
+        {
+          "ID": 5,
+          "answer": "Miguel de Cervantes."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 12,
+        "ID_CorrectAnswer": 2,
+        "sentence": "¿Qué animal mitológico da nombre a uno de los libros más conocidos de Thomas Hobbes?",
+        "additionalInformation": "La bestia marina Leviatán da pie a una de las metáforas que este filósofo usó para referirse a un tipo de soberanía absoluta."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "El unicornio."
+        },
+        {
+          "ID": 2,
+          "answer": "El leviatán."
+        },
+        {
+          "ID": 3,
+          "answer": "El grifo."
+        },
+        {
+          "ID": 4,
+          "answer": "El ave fénix."
+        },
+        {
+          "ID": 5,
+          "answer": "El minotauro."
+        }
+      ]
+    }
+  ]
+}

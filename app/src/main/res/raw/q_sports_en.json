@@ -1,0 +1,327 @@
+{
+  "category": {
+    "ID": 3,
+    "name": "Sports"
+  },
+  "questions": [
+    {
+      "question": {
+        "ID": 1,
+        "ID_CorrectAnswer": 3,
+        "sentence": "When was the first World Cup Football held?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "In the year 2000."
+        },
+        {
+          "ID": 2,
+          "answer": "In the year 1950."
+        },
+        {
+          "ID": 3,
+          "answer": "In the year 1930."
+        },
+        {
+          "ID": 4,
+          "answer": "In the year 1910."
+        },
+        {
+          "ID": 5,
+          "answer": "In the year 1945."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 2,
+        "ID_CorrectAnswer": 5,
+        "sentence": "Who was the World Chess Champion between 1972 and 1974, and the winner of the match of the century against Soviet champion Boris Vasilievich Spassky?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Garry Kasparov."
+        },
+        {
+          "ID": 2,
+          "answer": "Magnus Carlsen."
+        },
+        {
+          "ID": 3,
+          "answer": "José Raul Capablanca."
+        },
+        {
+          "ID": 4,
+          "answer": "Anatoly Karpov."
+        },
+        {
+          "ID": 5,
+          "answer": "Bobby Fischer."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 3,
+        "ID_CorrectAnswer": 4,
+        "sentence": "Who is considered the best basketball player of all time?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Kareem Abdul-Jabbar."
+        },
+        {
+          "ID": 2,
+          "answer": "LeBron James."
+        },
+        {
+          "ID": 3,
+          "answer": "Kobe Bryant."
+        },
+        {
+          "ID": 4,
+          "answer": "Michael Jordan."
+        },
+        {
+          "ID": 5,
+          "answer": "Wilt Chamberlain."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 4,
+        "ID_CorrectAnswer": 2,
+        "sentence": "Who was the first woman to win an Olympic medal?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Hedy Lamarr."
+        },
+        {
+          "ID": 2,
+          "answer": "Charlotte Cooper."
+        },
+        {
+          "ID": 3,
+          "answer": "Oprah Winfrey."
+        },
+        {
+          "ID": 4,
+          "answer": "Billie Jean King."
+        },
+        {
+          "ID": 5,
+          "answer": "Florence Griffith-Joyner."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 5,
+        "ID_CorrectAnswer": 3,
+        "sentence": "What athlete holds the world record for speed in the 100 meters?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Christian Coleman."
+        },
+        {
+          "ID": 2,
+          "answer": "Jesse Owens."
+        },
+        {
+          "ID": 3,
+          "answer": "Usain Bolt."
+        },
+        {
+          "ID": 4,
+          "answer": "Marcell Jacobs"
+        },
+        {
+          "ID": 5,
+          "answer": "Trayvon Bromell."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 6,
+        "ID_CorrectAnswer": 5,
+        "sentence": "How often are the Olympic Games celebrated?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Every 10 years."
+        },
+        {
+          "ID": 2,
+          "answer": "Every 5 years."
+        },
+        {
+          "ID": 3,
+          "answer": "Every 3 years."
+        },
+        {
+          "ID": 4,
+          "answer": "Every year."
+        },
+        {
+          "ID": 5,
+          "answer": "Every 4 years."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 7,
+        "ID_CorrectAnswer": 4,
+        "sentence": "What soccer team has won the most World Cups to date?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "The US soccer team."
+        },
+        {
+          "ID": 2,
+          "answer": "The Japan soccer team."
+        },
+        {
+          "ID": 3,
+          "answer": "The China soccer team."
+        },
+        {
+          "ID": 4,
+          "answer": "The Brazil soccer team."
+        },
+        {
+          "ID": 5,
+          "answer": "The Russia soccer team."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 8,
+        "ID_CorrectAnswer": 3,
+        "sentence": "Who was Cobi?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "A character from the movie The Lion King."
+        },
+        {
+          "ID": 2,
+          "answer": "A famous spanish chef."
+        },
+        {
+          "ID": 3,
+          "answer": "The mascot of the 1992 Olympics."
+        },
+        {
+          "ID": 4,
+          "answer": "An Olympic swimmer."
+        },
+        {
+          "ID": 5,
+          "answer": "A character from the television series The Simpsons."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 9,
+        "ID_CorrectAnswer": 2,
+        "sentence": "What Cuban chess player was World Champion of this discipline between 1921 and 1927?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "José Capablanca."
+        },
+        {
+          "ID": 2,
+          "answer": "José Raul Capablanca."
+        },
+        {
+          "ID": 3,
+          "answer": "Rafael Capablanca."
+        },
+        {
+          "ID": 4,
+          "answer": "Francisco Capablanca."
+        },
+        {
+          "ID": 5,
+          "answer": "Luis Capablanca."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 10,
+        "ID_CorrectAnswer": 2,
+        "sentence": "In what Spanish city is the Mestalla football stadium located?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Madrid"
+        },
+        {
+          "ID": 2,
+          "answer": "Valencia"
+        },
+        {
+          "ID": 3,
+          "answer": "Barcelona"
+        },
+        {
+          "ID": 4,
+          "answer": "Bilbao"
+        },
+        {
+          "ID": 5,
+          "answer": "Sevilla"
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 11,
+        "ID_CorrectAnswer": 3,
+        "sentence": "What tennis player born in 1956 won 18 Grand Slam titles?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Pete Sampras."
+        },
+        {
+          "ID": 2,
+          "answer": "Rafael Nadal."
+        },
+        {
+          "ID": 3,
+          "answer": "Martina Navrátilová."
+        },
+        {
+          "ID": 4,
+          "answer": "Novak Djokovic."
+        },
+        {
+          "ID": 5,
+          "answer": "John McEnroe."
+        }
+      ]
+    }
+  ]
+}

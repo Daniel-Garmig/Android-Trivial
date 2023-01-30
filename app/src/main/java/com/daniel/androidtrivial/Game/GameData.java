@@ -8,6 +8,7 @@ import android.util.Log;
 import com.daniel.androidtrivial.Game.GameObjetcs.AnimatedCamera;
 import com.daniel.androidtrivial.Game.GameObjetcs.DirectionIndicator;
 import com.daniel.androidtrivial.Game.GameObjetcs.PopupIcon;
+import com.daniel.androidtrivial.Game.Utils.AssetManager;
 import com.daniel.androidtrivial.Game.Utils.Vector2;
 import com.daniel.androidtrivial.Model.Board;
 import com.daniel.androidtrivial.Game.GameObjetcs.GameObject;
@@ -16,6 +17,7 @@ import com.daniel.androidtrivial.Game.Utils.Camera;
 import com.daniel.androidtrivial.Model.BoardSquare;
 import com.daniel.androidtrivial.Model.GameState;
 import com.daniel.androidtrivial.Model.Player;
+import com.daniel.androidtrivial.Model.WedgesColors;
 import com.daniel.androidtrivial.R;
 import com.google.gson.Gson;
 
@@ -86,7 +88,7 @@ public class GameData
 
     public void initGameData()
     {
-        bgColor = Color.BLACK;
+        bgColor = Color.DKGRAY;
 
         mainPaint = new Paint();
         mainPaint.setColor(Color.CYAN);
@@ -169,8 +171,32 @@ public class GameData
 
         for(Player p : players)
         {
-            PlayerPiece piece = new PlayerPiece();
-            //TODO: Custom Color.
+            PlayerPiece piece;
+            switch (p.getPlayerColor())
+            {
+                case green:
+                    piece = new PlayerPiece("player_green");
+                    break;
+                case purple:
+                    piece = new PlayerPiece("player_purple");
+                    break;
+                case orange:
+                    piece = new PlayerPiece("player_orange");
+                    break;
+                case yellow:
+                    piece = new PlayerPiece("player_yellow");
+                    break;
+                case pink:
+                    piece = new PlayerPiece("player_pink");
+                    break;
+                case blue:
+                    piece = new PlayerPiece("player_blue");
+                    break;
+                default:
+                    piece = new PlayerPiece();
+                    break;
+            }
+
             piece.sqId = 1;
             piece.transform.setSize(100,100);
             playerPieceList.put(p.getId(), piece);

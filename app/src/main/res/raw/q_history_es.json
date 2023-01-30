@@ -1,14 +1,15 @@
 {
   "category": {
-    "ID": 1,
-    "name": "History"
+    "ID": 4,
+    "name": "Historia"
   },
   "questions": [
     {
       "question": {
         "ID": 1,
         "ID_CorrectAnswer": 1,
-        "sentence": "Who was the first president of Spanish democracy after the Franco regime?"
+        "sentence": "¿Quién fue el primer presidente de la democracia española tras el franquismo?",
+        "additionalInformation": "Fue presidente del Gobierno de España entre 1976 y 1981."
       },
       "optionList": [
         {
@@ -37,24 +38,25 @@
       "question": {
         "ID": 2,
         "ID_CorrectAnswer": 2,
-        "sentence": "The invasion of which fortress by revolutionaries is considered the starting point of the French Revolution?"
+        "sentence": "¿La invasión de qué fortaleza por parte de los revolucionarios es considerada como el punto de inicio de la Revolución Francesa?",
+        "additionalInformation": "La respuesta de esta pregunta es la toma de la Bastilla."
       },
       "optionList": [
         {
           "ID": 1,
-          "answer": "Citadel of Carcassonne."
+          "answer": "La ciudadela de Carcassonne."
         },
         {
           "ID": 2,
-          "answer": "Fortress of the Bastille."
+          "answer": "La fortaleza de la Bastille."
         },
         {
           "ID": 3,
-          "answer": "Castle du Haut-Koenigsbourg."
+          "answer": "El castillo de Haut-Koenigsbourg."
         },
         {
           "ID": 4,
-          "answer": "The Castle of the Dukes of Brittany."
+          "answer": "El castillo de los Duques de Bretaña."
         }
       ]
     },
@@ -62,7 +64,8 @@
       "question": {
         "ID": 3,
         "ID_CorrectAnswer": 4,
-        "sentence": "In what year did man step on the Moon for the first time?"
+        "sentence": "¿En qué año el hombre pisó la Luna por primera vez?",
+        "additionalInformation": "La nave Apolo 11 llegó a la Luna en el año 1969, siendo ese año cuando Neil Armstrong dio un pequeño paso para el hombre, un gran paso para la humanidad."
       },
       "optionList": [
         {
@@ -91,28 +94,29 @@
       "question": {
         "ID": 4,
         "ID_CorrectAnswer": 1,
-        "sentence": "What event is considered to have triggered World War I?"
+        "sentence": "¿Qué evento se considera que desencadenó la Primera Guerra Mundial?",
+        "additionalInformation": "El asesinato del archiduque Francisco Fernando de Habsburgo por parte de un activista serbio fue el detonante de las hostilidades, si bien las causas finales son mucho más profundas."
       },
       "optionList": [
         {
           "ID": 1,
-          "answer": "The murder of Austrian archduke Francisco Fernando."
+          "answer": "El asesinato del presidente austriaco Francisco Fernando."
         },
         {
           "ID": 2,
-          "answer": "A trade dispute between France and Germany."
+          "answer": "Una disputa comercial entre Francia y Alemania."
         },
         {
           "ID": 3,
-          "answer": "A conspiracy of European countries to conquer colonial territories."
+          "answer": "Una conspiración de países europeos para conquistar territorios coloniales."
         },
         {
           "ID": 4,
-          "answer": "An internal conflict in the Austro-Hungarian Empire."
+          "answer": "Un conflicto interno en el Imperio Austrohúngaro."
         },
         {
           "ID": 5,
-          "answer": "An internal conflict in the Austro-Hungarian Empire."
+          "answer": "Una competencia entre las potencias europeas para ver quien tenía el ejército más poderoso."
         }
       ]
     },
@@ -120,28 +124,29 @@
       "question": {
         "ID": 5,
         "ID_CorrectAnswer": 2,
-        "sentence": " From what event do we consider that the Ancient Age ends and the Middle Ages begins?"
+        "sentence": "¿A partir de qué suceso consideramos que termina la Edad Antigua y empieza la Edad Media?",
+        "additionalInformation": "El momento histórico a partir del cual se considera que empieza la edad Media es la caída del Imperio Romano de Occidente, en el 476 d.C."
       },
       "optionList": [
         {
           "ID": 1,
-          "answer": "The discovery of America by Columbus."
+          "answer": "El descubrimiento de América por Colón."
         },
         {
           "ID": 2,
-          "answer": "The fall of the Western Roman Empire in 476 AD."
+          "answer": "La caída del Imperio Romano de Occidente en 476 d.C."
         },
         {
           "ID": 3,
-          "answer": "Charlemagne's coronation as emperor in AD 800."
+          "answer": "La coronación de Carlomagno como emperador en 800 d.C."
         },
         {
           "ID": 4,
-          "answer": "The start of construction of Chartres Cathedral in 1020 AD."
+          "answer": "El inicio de la construcción de la Catedral de Chartres en 1020 d.C."
         },
         {
           "ID": 5,
-          "answer": "The fall of Constantinople in 1453 AD."
+          "answer": "La caída de Constantinopla en 1453 d.C."
         }
       ]
     },
@@ -149,12 +154,13 @@
       "question": {
         "ID": 6,
         "ID_CorrectAnswer": 1,
-        "sentence": "Who was the first president of the United States?"
+        "sentence": "¿Quién fue el primer presidente de Estados Unidos?",
+        "additionalInformation": "En 1787, presidió la Convención de Filadelfia que esbozó la Constitución de los Estados Unidos de América y en 1789, fue elegido de manera unánime como el primer presidente de los Estados Unidos."
       },
       "optionList": [
         {
           "ID": 1,
-          "answer": " George Washington."
+          "answer": "George Washington."
         },
         {
           "ID": 2,
@@ -178,28 +184,29 @@
       "question": {
         "ID": 7,
         "ID_CorrectAnswer": 1,
-        "sentence": "How long was the Hundred Years War?"
+        "sentence": "¿Cuánto duró la Guerra de los Cien Años?",
+        "additionalInformation": "A pesar de que el nombre de esta guerra parece indicar que ocurrió un siglo entre su inicio y su final, en realidad tuvo una duración de 116 años."
       },
       "optionList": [
         {
           "ID": 1,
-          "answer": "116 years."
+          "answer": "116 años."
         },
         {
           "ID": 2,
-          "answer": "75 years."
+          "answer": "75 años."
         },
         {
           "ID": 3,
-          "answer": "100 years."
+          "answer": "100 años."
         },
         {
           "ID": 4,
-          "answer": "120 years."
+          "answer": "120 años."
         },
         {
           "ID": 5,
-          "answer": "150 years."
+          "answer": "150 años."
         }
       ]
     },
@@ -207,7 +214,8 @@
       "question": {
         "ID": 8,
         "ID_CorrectAnswer": 1,
-        "sentence": "In which year was the United Nations created?"
+        "sentence": "¿En qué año se creó la Organización de las Naciones Unidas?",
+        "additionalInformation": "Esta organización fue creada en 1945, mismo año del fin de la Segunda Guerra Mundial, si bien en 1942 ya empezó a acuñarse y utilizarse el término."
       },
       "optionList": [
         {
@@ -236,7 +244,8 @@
       "question": {
         "ID": 9,
         "ID_CorrectAnswer": 3,
-        "sentence": "What caravel did not return from the voyage on which Columbus first arrived in America?"
+        "sentence": "¿Qué carabela no volvió del viaje en el que Colón arribó a América por primera vez?",
+        "additionalInformation": "La Santa María no retornó a España al embarrancar en la isla Española en diciembre de 1492 ya que sus restos sirvieron para construir el Fuerte Navidad, el primer asentamiento castellano en el Nuevo Mundo."
       },
       "optionList": [
         {
@@ -265,28 +274,29 @@
       "question": {
         "ID": 10,
         "ID_CorrectAnswer": 5,
-        "sentence": "What is the oldest epic narrative in history, found on clay tablets on which cuneiform writing was used?"
+        "sentence": "¿Cuál es la narración épica más antigua de la historia, encontrada en tablillas de arcilla sobre las que se usó escritura cuneiforme?",
+        "additionalInformation": ""
       },
       "optionList": [
         {
           "ID": 1,
-          "answer": "The Iliad of Homer."
+          "answer": "La Ilíada de Homero."
         },
         {
           "ID": 2,
-          "answer": "The Genesis of the Bible."
+          "answer": "El Génesis de la Biblia."
         },
         {
           "ID": 3,
-          "answer": "The Ramayana of Valmiki."
+          "answer": "El Ramayana de Valmiki."
         },
         {
           "ID": 4,
-          "answer": "The Popol Vuh of the Mayans."
+          "answer": "El Popol Vuh de los mayas."
         },
         {
           "ID": 5,
-          "answer": "The Epic of Gilgamesh."
+          "answer": "El Poema de Gilgamesh."
         }
       ]
     },
@@ -294,7 +304,8 @@
       "question": {
         "ID": 11,
         "ID_CorrectAnswer": 4,
-        "sentence": "What is the name of the Spanish philosopher known for his development of categorical closure theory?"
+        "sentence": "¿Cómo se llama el filósofo español conocido por su desarrollo de la teoría del cierre categorial?",
+        "additionalInformation": "Se trata de la Epopeya de Gilgamesh, perteneciente a las historias creadas por los sumerios y escrita por los acadios aproximadamente en el siglo XVIII a. C."
       },
       "optionList": [
         {
@@ -323,7 +334,8 @@
       "question": {
         "ID": 12,
         "ID_CorrectAnswer": 1,
-        "sentence": "What were the last names of the two explorers who completed the first trip around the world?"
+        "sentence": "¿Cómo se apellidaban los dos exploradores que dieron la primera vuelta al mundo?",
+        "additionalInformation": "Se trata de Gustavo Bueno Martínez, conocido por sus trabajos sobre el materialismo filosófico."
       },
       "optionList": [
         {
@@ -352,28 +364,29 @@
       "question": {
         "ID": 13,
         "ID_CorrectAnswer": 3,
-        "sentence": "In what language are the oldest manuscripts belonging to the part of the Bible we now know as the New Testament written?"
+        "sentence": "¿En qué idioma están escritos los manuscritos más antiguos pertenecientes a la parte de la Biblia que hoy conocemos como Nuevo Testamento?",
+        "additionalInformation": "El nombre de la conocida como expedición Magallanes-Elcano da la respuesta a esta pregunta."
       },
       "optionList": [
         {
           "ID": 1,
-          "answer": "Hebrew."
+          "answer": "Hebreo"
         },
         {
           "ID": 2,
-          "answer": "Aramaic."
+          "answer": "Arameo."
         },
         {
           "ID": 3,
-          "answer": "Greek."
+          "answer": "Griego."
         },
         {
           "ID": 4,
-          "answer": "Latin."
+          "answer": "Latín."
         },
         {
           "ID": 5,
-          "answer": "Coptic."
+          "answer": "Copto."
         }
       ]
     }

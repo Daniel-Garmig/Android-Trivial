@@ -152,7 +152,7 @@ public class MatchManager
                 Toast.makeText(appContext, "Error al eliminar!", Toast.LENGTH_LONG).show();
                 return;
             }
-            Toast.makeText(appContext, "Eliminado!", Toast.LENGTH_LONG).show();
+            Toast.makeText(appContext, "Game Ended!", Toast.LENGTH_LONG).show();
         }
         catch (Exception e) {
             Log.e(TAG, e.toString());

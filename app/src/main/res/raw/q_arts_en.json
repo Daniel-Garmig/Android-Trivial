@@ -1,0 +1,356 @@
+{
+  "category": {
+    "ID": 2,
+    "name": "Art and literature"
+  },
+  "questions": [
+    {
+      "question": {
+        "ID": 1,
+        "ID_CorrectAnswer": 2,
+        "sentence": "Who wrote the Iliad and the Odyssey?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Hesíodo."
+        },
+        {
+          "ID": 2,
+          "answer": "Homero."
+        },
+        {
+          "ID": 3,
+          "answer": "Plutarco."
+        },
+        {
+          "ID": 4,
+          "answer": "Cicerón."
+        },
+        {
+          "ID": 5,
+          "answer": "Platón."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 2,
+        "ID_CorrectAnswer": 1,
+        "sentence": "What novel did Miguel de Cervantes write and is considered one of the greatest examples of Spanish and universal literature?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "The ingenious nobleman Don Quixote de la Mancha."
+        },
+        {
+          "ID": 2,
+          "answer": "Nothing."
+        },
+        {
+          "ID": 3,
+          "answer": "The Lazarillo of Tormes."
+        },
+        {
+          "ID": 4,
+          "answer": "Life is a dream."
+        },
+        {
+          "ID": 5,
+          "answer": "The house of Bernarda Alba."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 3,
+        "ID_CorrectAnswer": 5,
+        "sentence": "What great artist is known for painting the Sistine Chapel?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Rafael Sanzio."
+        },
+        {
+          "ID": 2,
+          "answer": "Leonardo da Vinci."
+        },
+        {
+          "ID": 3,
+          "answer": "Francisco de Goya."
+        },
+        {
+          "ID": 4,
+          "answer": "Sandro Botticelli."
+        },
+        {
+          "ID": 5,
+          "answer": "Miguel Ángel."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 4,
+        "ID_CorrectAnswer": 3,
+        "sentence": "Who painted the Guernica?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Diego Rivera."
+        },
+        {
+          "ID": 2,
+          "answer": "Francisco de Goya."
+        },
+        {
+          "ID": 3,
+          "answer": "Pablo Picasso."
+        },
+        {
+          "ID": 4,
+          "answer": "Salvador Dalí."
+        },
+        {
+          "ID": 5,
+          "answer": "Rembrandt."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 5,
+        "ID_CorrectAnswer": 1,
+        "sentence": "What architectural style is the Notre Dame cathedral?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Gothic."
+        },
+        {
+          "ID": 2,
+          "answer": "Renaissance."
+        },
+        {
+          "ID": 3,
+          "answer": "Baroque."
+        },
+        {
+          "ID": 4,
+          "answer": "Art Nouveau."
+        },
+        {
+          "ID": 5,
+          "answer": "Art decó."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 6,
+        "ID_CorrectAnswer": 2,
+        "sentence": "What Shakespeare play includes the soliloquy To be or not to be, that is the question?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Kill a Mockingbird"
+        },
+        {
+          "ID": 2,
+          "answer": "Hamlet."
+        },
+        {
+          "ID": 3,
+          "answer": "Romeo and Juliet."
+        },
+        {
+          "ID": 4,
+          "answer": "King Lear."
+        },
+        {
+          "ID": 5,
+          "answer": "The Merchant of Venice."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 7,
+        "ID_CorrectAnswer": 4,
+        "sentence": " Who wrote The Hive? "
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Gabriel García Márquez."
+        },
+        {
+          "ID": 2,
+          "answer": "J.D. Salinger."
+        },
+        {
+          "ID": 3,
+          "answer": "Ernest Hemingway."
+        },
+        {
+          "ID": 4,
+          "answer": "Camilo José Cela."
+        },
+        {
+          "ID": 5,
+          "answer": "Alejandro Casona."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 8,
+        "ID_CorrectAnswer": 3,
+        "sentence": "What was the name of Don Quixote's horse?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Pegaso."
+        },
+        {
+          "ID": 2,
+          "answer": "César."
+        },
+        {
+          "ID": 3,
+          "answer": "Rocinante."
+        },
+        {
+          "ID": 4,
+          "answer": "Viento."
+        },
+        {
+          "ID": 5,
+          "answer": "Caballero."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 9,
+        "ID_CorrectAnswer": 4,
+        "sentence": "In what country was Gulliver considered a giant during his travels?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "In the country of the Dwarves."
+        },
+        {
+          "ID": 2,
+          "answer": "In the country of the Giants."
+        },
+        {
+          "ID": 3,
+          "answer": "In the country of the Animals."
+        },
+        {
+          "ID": 4,
+          "answer": "In the country of the Lilliput."
+        },
+        {
+          "ID": 5,
+          "answer": "In the country of the Marine creatures."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 10,
+        "ID_CorrectAnswer": 2,
+        "sentence": "What country is the origin of the type of poetry known as Haiku?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "England."
+        },
+        {
+          "ID": 2,
+          "answer": "Japan."
+        },
+        {
+          "ID": 3,
+          "answer": "China."
+        },
+        {
+          "ID": 4,
+          "answer": "Australia."
+        },
+        {
+          "ID": 5,
+          "answer": "Korea."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 11,
+        "ID_CorrectAnswer": 5,
+        "sentence": "What Spanish-speaking writer received the nickname the one-armed man of Lepanto?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Gabriel García Márquez."
+        },
+        {
+          "ID": 2,
+          "answer": "Jorge Luis Borges."
+        },
+        {
+          "ID": 3,
+          "answer": "Mario Vargas Llosa."
+        },
+        {
+          "ID": 4,
+          "answer": "Juan Ramón Jiménez."
+        },
+        {
+          "ID": 5,
+          "answer": "Miguel de Cervantes."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 12,
+        "ID_CorrectAnswer": 2,
+        "sentence": "What mythical animal gives its name to one of Thomas Hobbes most well-known books?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "The unicorn."
+        },
+        {
+          "ID": 2,
+          "answer": "The leviathan."
+        },
+        {
+          "ID": 3,
+          "answer": "The griffin."
+        },
+        {
+          "ID": 4,
+          "answer": "The phoenix."
+        },
+        {
+          "ID": 5,
+          "answer": "The minotaur."
+        }
+      ]
+    }
+  ]
+}

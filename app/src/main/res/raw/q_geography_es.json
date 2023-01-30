@@ -1,0 +1,398 @@
+{
+  "category": {
+    "ID": 6,
+    "name": "Geografía"
+  },
+  "questions": [
+    {
+      "question": {
+        "ID": 1,
+        "ID_CorrectAnswer": 4,
+        "sentence": "¿Cuál es el río más caudaloso del mundo?",
+        "additionalInformation": "Si bien muchas personas lo confunden a veces con el más largo, el río más caudaloso del mundo es el Amazonas."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "El río Níger."
+        },
+        {
+          "ID": 2,
+          "answer": "El río Volga."
+        },
+        {
+          "ID": 3,
+          "answer": "El río Yangtze."
+        },
+        {
+          "ID": 4,
+          "answer": "El río Amazonas."
+        },
+        {
+          "ID": 5,
+          "answer": "El río Misisipi."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 2,
+        "ID_CorrectAnswer": 5,
+        "sentence": "¿Cuál es el monte más alto del mundo?",
+        "additionalInformation": "El monte Everest es la montaña más alta de la superficie del planeta Tierra,​ con una altitud de 8848 metros sobre el nivel del mar."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "El monte Kilimanjaro."
+        },
+        {
+          "ID": 2,
+          "answer": "El monte Denali."
+        },
+        {
+          "ID": 3,
+          "answer": "El monte Aconcagua."
+        },
+        {
+          "ID": 4,
+          "answer": "El monte Mont Blanc."
+        },
+        {
+          "ID": 5,
+          "answer": "El monte Everest."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 3,
+        "ID_CorrectAnswer": 3,
+        "sentence": "¿Cuál es la lengua más hablada del mundo?",
+        "additionalInformation": "El chino mandarín es el conjunto de dialectos del chino que se habla en el norte, centro y suroeste de China."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Español."
+        },
+        {
+          "ID": 2,
+          "answer": "Inglés."
+        },
+        {
+          "ID": 3,
+          "answer": "Chino mandarín."
+        },
+        {
+          "ID": 4,
+          "answer": "Francés."
+        },
+        {
+          "ID": 5,
+          "answer": "Árabe."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 4,
+        "ID_CorrectAnswer": 4,
+        "sentence": "¿Cómo se llama la línea vertical imaginaria a partir del cual se miden las longitudes y que divide el mundo en dos mitades?",
+        "additionalInformation": "Estamos hablando del meridiano de Greenwich."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "La línea de los meridianos."
+        },
+        {
+          "ID": 2,
+          "answer": "La línea de los paralelos.."
+        },
+        {
+          "ID": 3,
+          "answer": "El ecuador."
+        },
+        {
+          "ID": 4,
+          "answer": "El meridiano de Greenwich."
+        },
+        {
+          "ID": 5,
+          "answer": "La línea de los círculos polares."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 5,
+        "ID_CorrectAnswer": 1,
+        "sentence": "¿Dónde podemos encontrar la Casa Rosada?",
+        "additionalInformation": "La Casa Rosada, de manera semejante a la Casa Blanca en Estados Unidos, es el edificio desde donde ejerce el presidente del Gobierno de Argentina y la sede del poder ejecutivo del país."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "En Buenos Aires, Argentina."
+        },
+        {
+          "ID": 2,
+          "answer": "En Lima, Peru."
+        },
+        {
+          "ID": 3,
+          "answer": "En Mexico D.F, Mexico."
+        },
+        {
+          "ID": 4,
+          "answer": "En Santiago, Chile."
+        },
+        {
+          "ID": 5,
+          "answer": "En Montevideo, Uruguay."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 6,
+        "ID_CorrectAnswer": 1,
+        "sentence": "¿Entre qué países podemos encontrar el Estrecho de Bering?",
+        "additionalInformation": "El estrecho de Bering es conocido entre otras cosas por separar el continente americano del asiático, concretamente separa los territorios de Estados Unidos y Rusia."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Entre Rusia y Estados Unidos."
+        },
+        {
+          "ID": 2,
+          "answer": "Entre Alaska y Canadá."
+        },
+        {
+          "ID": 3,
+          "answer": "Entre Rusia y Japón."
+        },
+        {
+          "ID": 4,
+          "answer": "Entre Rusia y China."
+        },
+        {
+          "ID": 5,
+          "answer": "Entre Estados Unidos y México."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 7,
+        "ID_CorrectAnswer": 1,
+        "sentence": "¿Cuál es la capital de Brasil?",
+        "additionalInformation": "La actual capital de Brasil es Brasilia, si bien anteriormente fue Río de Janeiro."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Brasilia."
+        },
+        {
+          "ID": 2,
+          "answer": "Rio de Janeiro."
+        },
+        {
+          "ID": 3,
+          "answer": "São Paulo."
+        },
+        {
+          "ID": 4,
+          "answer": "Salvador."
+        },
+        {
+          "ID": 5,
+          "answer": "Recife."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 8,
+        "ID_CorrectAnswer": 4,
+        "sentence": " ¿Cuál es el país de mayor tamaño del mundo?",
+        "additionalInformation": "Rusia es el país de mayor tamaño del mundo, con un territorio de más de diecisiete millones de kilómetros cuadrados."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Estados Unidos."
+        },
+        {
+          "ID": 2,
+          "answer": "China."
+        },
+        {
+          "ID": 3,
+          "answer": "Canadá."
+        },
+        {
+          "ID": 4,
+          "answer": "Rusia."
+        },
+        {
+          "ID": 5,
+          "answer": "Australia."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 9,
+        "ID_CorrectAnswer": 3,
+        "sentence": "¿Cuál es la capital de Nueva Zelanda?",
+        "additionalInformation": "Wellington, la capital de Nueva Zelanda, se ubica cerca del punto más austral de la Isla Norte en el estrecho de Cook. "
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Melbourne"
+        },
+        {
+          "ID": 2,
+          "answer": "Sydney."
+        },
+        {
+          "ID": 3,
+          "answer": "Wellington."
+        },
+        {
+          "ID": 4,
+          "answer": "Adelaide."
+        },
+        {
+          "ID": 5,
+          "answer": "Perth."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 10,
+        "ID_CorrectAnswer": 2,
+        "sentence": "¿Qué cordillera separa Europa de Asia?",
+        "additionalInformation": "Los montes Urales son considerados la frontera natural entre Europa y Asia."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Los Alpes"
+        },
+        {
+          "ID": 2,
+          "answer": "Los montes Urales."
+        },
+        {
+          "ID": 3,
+          "answer": "Los Andes."
+        },
+        {
+          "ID": 4,
+          "answer": "El Himalaya."
+        },
+        {
+          "ID": 5,
+          "answer": "Los Cárpatos."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 11,
+        "ID_CorrectAnswer": 1,
+        "sentence": "¿Cuál es el nombre de la isla en la que vive la tribu no contactada menos conocida del mundo?",
+        "additionalInformation": "Esta isla es Sentinel del Norte, parte del archipiélago de las islas Andamán y perteneciente a la República de la India."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "North Sentinel."
+        },
+        {
+          "ID": 2,
+          "answer": "Tanna."
+        },
+        {
+          "ID": 3,
+          "answer": "Bougainville."
+        },
+        {
+          "ID": 4,
+          "answer": "Nuku Hiva."
+        },
+        {
+          "ID": 5,
+          "answer": "Mangaiano."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 12,
+        "ID_CorrectAnswer": 1,
+        "sentence": " ¿Cuál es la capital de Filipinas?",
+        "additionalInformation": "Es Manila, ciudad situada en la isla de Luzón."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Manila"
+        },
+        {
+          "ID": 2,
+          "answer": "Cebu."
+        },
+        {
+          "ID": 3,
+          "answer": "Quezon ."
+        },
+        {
+          "ID": 4,
+          "answer": "Davao."
+        },
+        {
+          "ID": 5,
+          "answer": "Makati."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 13,
+        "ID_CorrectAnswer": 2,
+        "sentence": "¿Qué grupo étnico ha desarrollado una mitología en la que tiene mucha importancia el concepto de Tiempo del Sueño?",
+        "additionalInformation": "Los aborígenes australianos consideran que en el pasado existió una época a la que se refieren con este nombre, en la que entidades divinas crearon la realidad."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Los indios americanos."
+        },
+        {
+          "ID": 2,
+          "answer": "Los aborígenes australianos."
+        },
+        {
+          "ID": 3,
+          "answer": "Los pueblos indígenas de América del Sur."
+        },
+        {
+          "ID": 4,
+          "answer": "Los pueblos de la cultura nórdica."
+        },
+        {
+          "ID": 5,
+          "answer": "Los pueblos de la cultura celta."
+        }
+      ]
+    }
+  ]
+}

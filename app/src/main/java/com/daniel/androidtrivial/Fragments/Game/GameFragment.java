@@ -32,8 +32,10 @@ import com.daniel.androidtrivial.Game.MyGame;
 import com.daniel.androidtrivial.Game.MyHandler;
 import com.daniel.androidtrivial.Model.GameState;
 import com.daniel.androidtrivial.Model.Questions.RoomDB.Category;
+import com.daniel.androidtrivial.Model.Questions.RoomDB.Question;
 import com.daniel.androidtrivial.Model.Questions.RoomDB.QuestionDAO;
 import com.daniel.androidtrivial.Model.Questions.RoomDB.QuestionDatabase;
+import com.daniel.androidtrivial.Model.Questions.RoomDB.QuestionOption;
 import com.daniel.androidtrivial.Model.Questions.RoomDB.QuestionWithOptions;
 import com.daniel.androidtrivial.Model.SavedMatch;
 import com.daniel.androidtrivial.QuestionsManager;
@@ -388,14 +390,21 @@ public class GameFragment extends Fragment
                     //  Teniendo en cuenta que los IDs no tienen porqué ser continuos.
                     //  Puedes tener 10 preguntas, pero la que está en posición 5 tener ID 8.
 
+                    //Get Question List.
                     QuestionDAO qDAO = db.questionDAO();
-                    List<QuestionWithOptions> questions = qDAO.getQuestionsWithOptionsByCategory(categoryID);
+                    List<Question> questions = qDAO.getQuestionsByCategory(categoryID);
 
                     //Select random question.
                     Random gen = new Random();
                     int pos = gen.nextInt(questions.size());
 
-                    viewModel.setCurrentQuestion(questions.get(pos));
+                    //Get Question.
+                    QuestionWithOptions myQuestion = new QuestionWithOptions();
+                    myQuestion.question = questions.get(pos);
+                    //Get Options.
+                    myQuestion.optionList = db.optionDAO().getOptionsByQuestion(cat.ID, questions.get(pos).ID);
+
+                    viewModel.setCurrentQuestion(myQuestion);
 
                     ThreadOrchestrator.getInstance().sendQuestionQueryEnded();
                 }
@@ -486,7 +495,7 @@ public class GameFragment extends Fragment
         Player p = viewModel.getCurrentPlayer();
         if(p.haveALllWedges() && viewModel.getPlayerPositions().get(playerID) == 0)
         {
-            //TODO: Go to final questions for win chance.
+            onGameEnds();
         }
 
 
@@ -498,44 +507,11 @@ public class GameFragment extends Fragment
 
     private void onGameEnds()
     {
-        Context context = getContext();
-        String matchName = viewModel.getMatchName();
-
-        //TODO: Show error.
-        if(matchName == null) { return; }
-
-        //Remove save file!
-        MatchManager.getInstance().removeSavedMatch(matchName + ".json");
-        Log.i(TAG, "Game Save cleared!");
-
-
-        //Add Match Stats to DB.
-        ThreadOrchestrator.getInstance().startThread("addMatchStatsToDB", new Runnable() {
-            @Override
-            public void run() {
-                MatchStats matchStats = new MatchStats();
-                matchStats.name = matchName;
-
-                //FIXME: Move this stuff to manager class or smth
-                MatchRecordDatabase db = MatchManager.getInstance().getDb();
-
-                //Add Match
-                MathStatsDAO mathStatsDAO = db.mathStatsDAO();
-                long matchId = mathStatsDAO.insertMatchStats(matchStats);
-
-                //Add Players.
-                PlayerStatsDAO playerStatsDAO = db.playerStatsDAO();
-                for(Player p : viewModel.getPlayers())
-                {
-                    PlayerStats ps = PlayerStats.createFromPlayer(p);
-                    ps.ID_Match = (int) matchId;
-                    playerStatsDAO.insertPlayerStats(ps);
-                }
-                MatchManager.getInstance().matchStatsIDToLoad = (int) matchId;
-
-                ThreadOrchestrator.getInstance().sendMatchRecordQueryEnded();
-            }
-        });
+        FragmentManager mng = getParentFragmentManager();
+        mng.beginTransaction()
+                .setReorderingAllowed(true)
+                .replace(R.id.MainFragmentContainer, FinalQuestionFragment.class, null)
+                .commit();
     }
 
     private void onGameFinished()

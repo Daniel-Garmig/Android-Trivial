@@ -1,0 +1,414 @@
+{
+  "category": {
+    "ID": 6,
+    "name": "Geography"
+  },
+  "questions": [
+    {
+      "question": {
+        "ID": 1,
+        "ID_CorrectAnswer": 4,
+        "sentence": "What is the most voluminous river in the world?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Níger river."
+        },
+        {
+          "ID": 2,
+          "answer": "Volga river."
+        },
+        {
+          "ID": 3,
+          "answer": "Yangtze river."
+        },
+        {
+          "ID": 4,
+          "answer": "Amazonas river."
+        },
+        {
+          "ID": 5,
+          "answer": "Misisipi river."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 2,
+        "ID_CorrectAnswer": 5,
+        "sentence": "What is the highest mountain in the world?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "The mount Kilimanjaro."
+        },
+        {
+          "ID": 2,
+          "answer": "The mount Denali."
+        },
+        {
+          "ID": 3,
+          "answer": "The mount Aconcagua."
+        },
+        {
+          "ID": 4,
+          "answer": "The mount Mont Blanc."
+        },
+        {
+          "ID": 5,
+          "answer": "The mount Everest."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 3,
+        "ID_CorrectAnswer": 3,
+        "sentence": "What is the most widely spoken language in the world?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Spanish."
+        },
+        {
+          "ID": 2,
+          "answer": "English."
+        },
+        {
+          "ID": 3,
+          "answer": "Mandarin chinese."
+        },
+        {
+          "ID": 4,
+          "answer": "French."
+        },
+        {
+          "ID": 5,
+          "answer": "Arabic"
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 4,
+        "ID_CorrectAnswer": 4,
+        "sentence": "What is the name of the imaginary vertical line used as a reference point for measuring longitudes and that divides the world into two halves?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "The meridian line."
+        },
+        {
+          "ID": 2,
+          "answer": "The parallel line."
+        },
+        {
+          "ID": 3,
+          "answer": "The equator."
+        },
+        {
+          "ID": 4,
+          "answer": "The Greenwich line."
+        },
+        {
+          "ID": 5,
+          "answer": "The polar circles line."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 5,
+        "ID_CorrectAnswer": 1,
+        "sentence": "Where can we find the Casa Rosada?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "In Buenos Aires, Argentina.x"
+        },
+        {
+          "ID": 2,
+          "answer": "In Lima, Peru."
+        },
+        {
+          "ID": 3,
+          "answer": "In Mexico City, Mexico."
+        },
+        {
+          "ID": 4,
+          "answer": "In Santiago, Chile."
+        },
+        {
+          "ID": 5,
+          "answer": "In Montevideo, Uruguay."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 6,
+        "ID_CorrectAnswer": 1,
+        "sentence": "What countries can we find the Bering Strait between?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Between Russia and the United States."
+        },
+        {
+          "ID": 2,
+          "answer": "Between Alaska and Canada."
+        },
+        {
+          "ID": 3,
+          "answer": "Between Russia and Japan."
+        },
+        {
+          "ID": 4,
+          "answer": "Between Russia and China."
+        },
+        {
+          "ID": 5,
+          "answer": "Between the United States and Mexico."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 7,
+        "ID_CorrectAnswer": 1,
+        "sentence": "What is the capital of Brazil?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Brasilia."
+        },
+        {
+          "ID": 2,
+          "answer": "Rio de Janeiro."
+        },
+        {
+          "ID": 3,
+          "answer": "São Paulo."
+        },
+        {
+          "ID": 4,
+          "answer": "Salvador."
+        },
+        {
+          "ID": 5,
+          "answer": "Recife."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 8,
+        "ID_CorrectAnswer": 4,
+        "sentence": "What is the largest country in the world?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "USA."
+        },
+        {
+          "ID": 2,
+          "answer": "China."
+        },
+        {
+          "ID": 3,
+          "answer": "Canada."
+        },
+        {
+          "ID": 4,
+          "answer": "Rusia."
+        },
+        {
+          "ID": 5,
+          "answer": "Australia."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 9,
+        "ID_CorrectAnswer": 3,
+        "sentence": "What is the capital of New Zealand?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Melbourne"
+        },
+        {
+          "ID": 2,
+          "answer": "Sydney."
+        },
+        {
+          "ID": 3,
+          "answer": "Wellington."
+        },
+        {
+          "ID": 4,
+          "answer": "Adelaide."
+        },
+        {
+          "ID": 5,
+          "answer": "Perth."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 10,
+        "ID_CorrectAnswer": 2,
+        "sentence": "Which mountain range separates Europe from Asia?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "The Alps"
+        },
+        {
+          "ID": 2,
+          "answer": "The Ural Mountains."
+        },
+        {
+          "ID": 3,
+          "answer": "The Andes."
+        },
+        {
+          "ID": 4,
+          "answer": "The Himalayas."
+        },
+        {
+          "ID": 5,
+          "answer": "The Carpathians."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 11,
+        "ID_CorrectAnswer": 1,
+        "sentence": "What is the name of the island where the least known uncontacted tribe lives?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "North Sentinel."
+        },
+        {
+          "ID": 2,
+          "answer": "Tanna."
+        },
+        {
+          "ID": 3,
+          "answer": "Bougainville."
+        },
+        {
+          "ID": 4,
+          "answer": "Nuku Hiva."
+        },
+        {
+          "ID": 5,
+          "answer": "Mangaiano."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 12,
+        "ID_CorrectAnswer": 1,
+        "sentence": "What is the capital of the Philippines?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Manila"
+        },
+        {
+          "ID": 2,
+          "answer": "Cebu."
+        },
+        {
+          "ID": 3,
+          "answer": "Quezon City."
+        },
+        {
+          "ID": 4,
+          "answer": "Davao City."
+        },
+        {
+          "ID": 5,
+          "answer": "Makati City."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 13,
+        "ID_CorrectAnswer": 2,
+        "sentence": "Which ethnic group has developed a mythology in which the concept of 'Dream Time' is very important?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Native American Indians."
+        },
+        {
+          "ID": 2,
+          "answer": "Australian Aborigines."
+        },
+        {
+          "ID": 3,
+          "answer": "Indigenous peoples of South America."
+        },
+        {
+          "ID": 4,
+          "answer": "Peoples of the Nordic culture."
+        },
+        {
+          "ID": 5,
+          "answer": "Peoples of the Celtic culture."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 14,
+        "ID_CorrectAnswer": 4,
+        "sentence": ""
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": ""
+        },
+        {
+          "ID": 2,
+          "answer": "."
+        },
+        {
+          "ID": 3,
+          "answer": "."
+        },
+        {
+          "ID": 4,
+          "answer": "."
+        },
+        {
+          "ID": 5,
+          "answer": "."
+        }
+      ]
+    }
+  ]
+}

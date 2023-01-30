@@ -1,0 +1,385 @@
+{
+  "category": {
+    "ID": 5,
+    "name": "Entertaiment"
+  },
+  "questions": [
+    {
+      "question": {
+        "ID": 1,
+        "ID_CorrectAnswer": 2,
+        "sentence": "Who did John Travolta play in Grease?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Kenickie."
+        },
+        {
+          "ID": 2,
+          "answer": "Danny Zuko."
+        },
+        {
+          "ID": 3,
+          "answer": "Rydell."
+        },
+        {
+          "ID": 4,
+          "answer": "Frenchy."
+        },
+        {
+          "ID": 5,
+          "answer": "Sandy Olsson."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 2,
+        "ID_CorrectAnswer": 1,
+        "sentence": "Who was the well-known comedian who imitated Hitler in the movie The Great Dictator? "
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Charlie Chaplin."
+        },
+        {
+          "ID": 2,
+          "answer": "Mel Brooks."
+        },
+        {
+          "ID": 3,
+          "answer": "Larry David."
+        },
+        {
+          "ID": 4,
+          "answer": "Jerry Lewis."
+        },
+        {
+          "ID": 5,
+          "answer": "Woody Allen."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 3,
+        "ID_CorrectAnswer": 5,
+        "sentence": "Who was the director and star of the movie Citizen Kane?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Martin Scorsese."
+        },
+        {
+          "ID": 2,
+          "answer": "Alfred Hitchcock."
+        },
+        {
+          "ID": 3,
+          "answer": "Stanley Kubrick."
+        },
+        {
+          "ID": 4,
+          "answer": "Francis Ford Coppola."
+        },
+        {
+          "ID": 5,
+          "answer": "Orson Welles."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 4,
+        "ID_CorrectAnswer": 1,
+        "sentence": "Who was the famous singer of the musical group Queen?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Freddie Mercury."
+        },
+        {
+          "ID": 2,
+          "answer": "Brian May."
+        },
+        {
+          "ID": 3,
+          "answer": "Roger Taylor."
+        },
+        {
+          "ID": 4,
+          "answer": "John Deacon."
+        },
+        {
+          "ID": 5,
+          "answer": "Paul Rodgers."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 5,
+        "ID_CorrectAnswer": 3,
+        "sentence": "What is the name of Simba's mother in the Disney movie The Lion King?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Mufasa"
+        },
+        {
+          "ID": 2,
+          "answer": "Nala."
+        },
+        {
+          "ID": 3,
+          "answer": "Sarabi."
+        },
+        {
+          "ID": 4,
+          "answer": "Rafiki."
+        },
+        {
+          "ID": 5,
+          "answer": "Zazu."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 6,
+        "ID_CorrectAnswer": 4,
+        "sentence": "What is the name of the city where the Wizard of Oz is located?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Oz"
+        },
+        {
+          "ID": 2,
+          "answer": "Kansas."
+        },
+        {
+          "ID": 3,
+          "answer": "Munchkinland."
+        },
+        {
+          "ID": 4,
+          "answer": "Emerald City."
+        },
+        {
+          "ID": 5,
+          "answer": "Land of Oz."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 7,
+        "ID_CorrectAnswer": 2,
+        "sentence": "What were the first three members of Los Payasos de la Tele?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Belén Esteban, María Teresa Campos, Tita Cervera."
+        },
+        {
+          "ID": 2,
+          "answer": "Gaby, Fofó and Miliki."
+        },
+        {
+          "ID": 3,
+          "answer": "Miliki, Rody and Milikito."
+        },
+        {
+          "ID": 4,
+          "answer": "Gaby, Fofó and Milikito."
+        },
+        {
+          "ID": 5,
+          "answer": "Rody, Fofó and Miliki."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 8,
+        "ID_CorrectAnswer": 1,
+        "sentence": "What group is the song Smells like Teen Spirit by?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Nirvana."
+        },
+        {
+          "ID": 2,
+          "answer": "Pearl Jam."
+        },
+        {
+          "ID": 3,
+          "answer": "Soundgarden."
+        },
+        {
+          "ID": 4,
+          "answer": "Foo Fighters."
+        },
+        {
+          "ID": 5,
+          "answer": "Green Day."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 9,
+        "ID_CorrectAnswer": 4,
+        "sentence": "What metal band is the album Master of Puppets by?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Anthrax."
+        },
+        {
+          "ID": 2,
+          "answer": "Megadeth."
+        },
+        {
+          "ID": 3,
+          "answer": "Slayer."
+        },
+        {
+          "ID": 4,
+          "answer": "Metallica."
+        },
+        {
+          "ID": 5,
+          "answer": "Iron Maiden."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 10,
+        "ID_CorrectAnswer": 1,
+        "sentence": "For which 90s blockbuster is director and producer James Cameron known?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Titanic."
+        },
+        {
+          "ID": 2,
+          "answer": "Avatar."
+        },
+        {
+          "ID": 3,
+          "answer": "Terminator 2: Judgment Day.."
+        },
+        {
+          "ID": 4,
+          "answer": "Alien."
+        },
+        {
+          "ID": 5,
+          "answer": "The Abyss."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 11,
+        "ID_CorrectAnswer": 2,
+        "sentence": "What Christopher Nolan movie tells the story of a man with anterograde amnesia, who can't create new memories from what's happening to him?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "The Prestige."
+        },
+        {
+          "ID": 2,
+          "answer": "Memento."
+        },
+        {
+          "ID": 3,
+          "answer": "Inception."
+        },
+        {
+          "ID": 4,
+          "answer": "The Dark Knight."
+        },
+        {
+          "ID": 5,
+          "answer": "Interstellar."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 12,
+        "ID_CorrectAnswer": 2,
+        "sentence": "What is the protagonist of the video game series The Legend of Zelda called?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Zelda."
+        },
+        {
+          "ID": 2,
+          "answer": "Link."
+        },
+        {
+          "ID": 3,
+          "answer": "Farore."
+        },
+        {
+          "ID": 4,
+          "answer": "Tetra."
+        },
+        {
+          "ID": 5,
+          "answer": "Malon."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 13,
+        "ID_CorrectAnswer": 4,
+        "sentence": "What is the protagonist of the comic book series The Sandman by Neil Gaiman called?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Dream."
+        },
+        {
+          "ID": 2,
+          "answer": "The Sandman."
+        },
+        {
+          "ID": 3,
+          "answer": "Daniel."
+        },
+        {
+          "ID": 4,
+          "answer": "Morpheus."
+        },
+        {
+          "ID": 5,
+          "answer": "Lord of Dreams."
+        }
+      ]
+    }
+  ]
+}

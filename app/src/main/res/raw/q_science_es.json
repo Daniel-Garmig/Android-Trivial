@@ -1,0 +1,368 @@
+{
+  "category": {
+    "ID": 1,
+    "name": "Ciencias y naturaleza"
+  },
+  "questions": [
+    {
+      "question": {
+        "ID": 1,
+        "ID_CorrectAnswer": 5,
+        "sentence": "¿Cuál es la velocidad de la luz?",
+        "additionalInformation": ""
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "10 metros por segundo."
+        },
+        {
+          "ID": 2,
+          "answer": "100 kilómetros por hora."
+        },
+        {
+          "ID": 3,
+          "answer": "La velocidad de la luz no es medible."
+        },
+        {
+          "ID": 4,
+          "answer": "La velocidad de la luz varía según el medio a través del cual se propaga."
+        },
+        {
+          "ID": 5,
+          "answer": "La luz viaja aproximadamente a 300.000.000 km/s."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 2,
+        "ID_CorrectAnswer": 2,
+        "sentence": "¿Qué gas nos protege de la radiación solar, concretamente de la radiación ultravioleta, formando una capa en la atmósfera?",
+        "additionalInformation": "La respuesta a esta pregunta es el ozono."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "El gas que nos protege de la radiación solar es el oxígeno."
+        },
+        {
+          "ID": 2,
+          "answer": "El gas que forma la capa es ozono."
+        },
+        {
+          "ID": 3,
+          "answer": "El gas que forma la capa protectora es el helio."
+        },
+        {
+          "ID": 4,
+          "answer": "El gas es el nitrógeno."
+        },
+        {
+          "ID": 5,
+          "answer": "El gas es el hidrógeno."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 3,
+        "ID_CorrectAnswer": 1,
+        "sentence": "¿Cuál es el nombre técnico del miedo o fobia a las alturas?",
+        "additionalInformation": "Una de las fobias más comunes, este miedo recibe el nombre de acrofobia."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Acrofobia."
+        },
+        {
+          "ID": 2,
+          "answer": "Aquafobia."
+        },
+        {
+          "ID": 3,
+          "answer": "Aracnofobia."
+        },
+        {
+          "ID": 4,
+          "answer": " Agorafobia."
+        },
+        {
+          "ID": 5,
+          "answer": "Aviofobia."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 4,
+        "ID_CorrectAnswer": 1,
+        "sentence": "¿La fórmula E=mc2, ¿en qué teoría científica aparece?",
+        "additionalInformation": "Esta fórmula es una de las más conocidas y básicas de Albert Einstein, y forma parte de su teoría de la relatividad general. Explica la equivalencia entre masa y energía."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Teoría de la relatividad."
+        },
+        {
+          "ID": 2,
+          "answer": "Teoría del Big Bang."
+        },
+        {
+          "ID": 3,
+          "answer": "Teoría de la gravedad."
+        },
+        {
+          "ID": 4,
+          "answer": "Teoría del electromagnetismo."
+        },
+        {
+          "ID": 5,
+          "answer": "La teoría de Cuerdas."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 5,
+        "ID_CorrectAnswer": 4,
+        "sentence": "¿Cuál es el ave de mayor envergadura que sigue viva actualmente?",
+        "additionalInformation": "El albatros es el ave voladora de mayor tamaño del mundo. Sus medidas son 1,30 m de altura, 20 cm de pico y 3,5 metros de envergadura, desde la punta de un ala a la otra."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "El águila calva."
+        },
+        {
+          "ID": 2,
+          "answer": "El avestruz."
+        },
+        {
+          "ID": 3,
+          "answer": "El cóndor de los Andes."
+        },
+        {
+          "ID": 4,
+          "answer": "El albatros."
+        },
+        {
+          "ID": 5,
+          "answer": "El pelícano común."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 6,
+        "ID_CorrectAnswer": 5,
+        "sentence": "¿Por qué fue famosa Marie Curie?",
+        "additionalInformation": "Marie Curie es especialmente conocida por el descubrimiento de la radiactividad, un mérito por el que consiguió un Premio Nobel de Física en 1903 (compartido con su marido y Henri Becquerel)."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Por ser una gran atleta."
+        },
+        {
+          "ID": 2,
+          "answer": "Por ser una famosa chef."
+        },
+        {
+          "ID": 3,
+          "answer": "Por ser una gran bailarina."
+        },
+        {
+          "ID": 4,
+          "answer": "Por ser una gran diseñadora de moda."
+        },
+        {
+          "ID": 5,
+          "answer": "Por ser una científica brillante."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 7,
+        "ID_CorrectAnswer": 2,
+        "sentence": "¿Cómo se llama el ave rapaz que se alimenta fundamentalmente de huesos?",
+        "additionalInformation": "Se trata de un tipo de buitre conocido como quebrantahuesos, el cual puede ser visto en algunas regiones montañosas de Europa, Asia y África."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "El pájaro carroñero."
+        },
+        {
+          "ID": 2,
+          "answer": "El quebrantahuesos."
+        },
+        {
+          "ID": 3,
+          "answer": "El buitre ossívoro."
+        },
+        {
+          "ID": 4,
+          "answer": "El águila huesera."
+        },
+        {
+          "ID": 5,
+          "answer": "Rapaz esqueleto."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 8,
+        "ID_CorrectAnswer": 5,
+        "sentence": "¿Qué especie de anfibio es conocida por su increíble capacidad para regenerar partes de su cuerpo que han sido dañadas o amputadas?",
+        "additionalInformation": "Es el ajolote, anfibio originario de México en grave peligro de extinción."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "El sapo."
+        },
+        {
+          "ID": 2,
+          "answer": "La rana arbórea."
+        },
+        {
+          "ID": 3,
+          "answer": "El pez betta."
+        },
+        {
+          "ID": 4,
+          "answer": "La salamandra"
+        },
+        {
+          "ID": 5,
+          "answer": "El ajolote."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 9,
+        "ID_CorrectAnswer": 1,
+        "sentence": "¿Qué especie de árbol de uso frecuente en la llamada medicina tradicional china es un ejemplo de fósil viviente por sus antiquísimos orígenes?",
+        "additionalInformation": "El Gingko Biloba cuenta con fósiles muy parecidos a su especie actual pertenecientes a la época de los dinosaurios. Durante muchos millones de años, la línea de ancestros de esta planta apenas ha sufrido cambios."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "El gingko."
+        },
+        {
+          "ID": 2,
+          "answer": "El laurel."
+        },
+        {
+          "ID": 3,
+          "answer": "La acacia."
+        },
+        {
+          "ID": 4,
+          "answer": "El abedul."
+        },
+        {
+          "ID": 5,
+          "answer": "El eucalipto."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 10,
+        "ID_CorrectAnswer": 2,
+        "sentence": "¿Alrededor de qué planeta orbitan los satélites Ganímedes, Calisto, Ío y Europa?",
+        "additionalInformation": "Estos cuerpos celestes giran alrededor de Júpiter, el gran planeta gaseoso."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Saturno."
+        },
+        {
+          "ID": 2,
+          "answer": "Jupiter."
+        },
+        {
+          "ID": 3,
+          "answer": "Marte."
+        },
+        {
+          "ID": 4,
+          "answer": "Venus."
+        },
+        {
+          "ID": 5,
+          "answer": "Plutón."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 11,
+        "ID_CorrectAnswer": 1,
+        "sentence": "¿En qué archipiélago vive la única especie de cormorán que no es capaz de volar?",
+        "additionalInformation": "El cormorán de las Galápagos vive en el archipiélago que le da nombre, y depende de sus patas traseras tanto para andar como para nadar."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Archipiélago de las Islas Galápagos."
+        },
+        {
+          "ID": 2,
+          "answer": "Archipiélago de las Islas Malvinas."
+        },
+        {
+          "ID": 3,
+          "answer": "Archipiélago de las Islas Canarias."
+        },
+        {
+          "ID": 4,
+          "answer": "Archipiélago de las Islas Azores."
+        },
+        {
+          "ID": 5,
+          "answer": "Archipiélago de las Islas Chatham."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 12,
+        "ID_CorrectAnswer": 4,
+        "sentence": "¿Cómo se llama la planta a partir de la cual suele ser elaborado el tequila?",
+        "additionalInformation": "La planta crasa a partir de la cual se hace el tequila es el agave."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "El trigo."
+        },
+        {
+          "ID": 2,
+          "answer": "La vid."
+        },
+        {
+          "ID": 3,
+          "answer": "La cebada."
+        },
+        {
+          "ID": 4,
+          "answer": "El agave."
+        },
+        {
+          "ID": 5,
+          "answer": "El maíz."
+        }
+      ]
+    }
+  ]
+}

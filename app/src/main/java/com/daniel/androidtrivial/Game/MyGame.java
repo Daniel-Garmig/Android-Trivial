@@ -109,8 +109,7 @@ public class MyGame implements RTG_App
                 if(d.remainingMovs <= 0)
                 {
                     d.mainCam.animation.removeTarget();
-                    //TODO: QuestionIcon.
-                    createPopUpIcon("playerPiece");
+                    createPopUpIcon("icon_question");
 
                 } else
                 {
@@ -148,6 +147,7 @@ public class MyGame implements RTG_App
             //Handle user input.
             d.waitingUserMovement = false;
             Vector2 touchPos = new Vector2(event.getX(), event.getY());
+            Vector2 worldTouchPos = d.mainCam.screenToWorldCoords(touchPos);
 
             //Calculate closer DirectionPointer.
             int closestIndex = -1;
@@ -156,7 +156,7 @@ public class MyGame implements RTG_App
             {
                 DirectionIndicator di = d.possibleDirections.get(i);
                 //Calculate vector length.
-                double length = Vector2.getDirector(touchPos, di.endPos).getLength();
+                double length = Vector2.getDirector(worldTouchPos, di.endPos).getLength();
                 //If closer, update closest one.
                 if(length < closestDistance)
                 {
@@ -290,8 +290,7 @@ public class MyGame implements RTG_App
         GameData d = GameData.getInstance();
         d.currentState = GameState.RollDice;
 
-        //TODO: Change Icon.
-        createPopUpIcon("playerPiece");
+        createPopUpIcon("icon_dice");
     }
 
     public void startMoveState(int movs, Player currentPlayer)

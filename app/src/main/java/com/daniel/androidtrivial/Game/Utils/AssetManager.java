@@ -51,8 +51,19 @@ public class AssetManager
     {
         this.appContext = appContext;
 
-        loadBitmap("board", R.drawable.trivialboard);
+        loadBitmap("board", R.drawable.trivial_board_final);
+
         loadBitmap("playerPiece", R.drawable.piece_green_png);
+        loadBitmap("player_green", R.drawable.piece_green_png);
+        loadBitmap("player_purple", R.drawable.piece_purple_png);
+        loadBitmap("player_orange", R.drawable.piece_orange_png);
+        loadBitmap("player_yellow", R.drawable.piece_yellow_png);
+        loadBitmap("player_pink", R.drawable.piece_pink_png);
+        loadBitmap("player_blue", R.drawable.piece_blue_png);
+
+
+        loadBitmap("icon_question", R.drawable.question_popup_icon);
+        loadBitmap("icon_dice", R.drawable.dice_default);
 
     }
 

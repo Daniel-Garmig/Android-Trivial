@@ -1,0 +1,356 @@
+{
+  "category": {
+    "ID": 1,
+    "name": "Science and nature"
+  },
+  "questions": [
+    {
+      "question": {
+        "ID": 1,
+        "ID_CorrectAnswer": 5,
+        "sentence": "What is the speed of light?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "10 meters per second."
+        },
+        {
+          "ID": 2,
+          "answer": "100 kilometers per hour."
+        },
+        {
+          "ID": 3,
+          "answer": "The speed of light is not measurable."
+        },
+        {
+          "ID": 4,
+          "answer": "The speed of light varies according to the medium through which it propagates."
+        },
+        {
+          "ID": 5,
+          "answer": "Light travels at approximately 300,000,000 km/s."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 2,
+        "ID_CorrectAnswer": 2,
+        "sentence": "What gas protects us from solar radiation, specifically from ultraviolet radiation, forming a layer in the atmosphere?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "The gas that protects us from solar radiation is oxygen."
+        },
+        {
+          "ID": 2,
+          "answer": "The gas that forms the layer is ozone."
+        },
+        {
+          "ID": 3,
+          "answer": "The gas that forms the layer is ozone."
+        },
+        {
+          "ID": 4,
+          "answer": "The gas is nitrogen."
+        },
+        {
+          "ID": 5,
+          "answer": "The gas is hydrogen."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 3,
+        "ID_CorrectAnswer": 1,
+        "sentence": "What is the technical name for fear or phobia of heights?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Acrophobia."
+        },
+        {
+          "ID": 2,
+          "answer": "Aquaphobia."
+        },
+        {
+          "ID": 3,
+          "answer": "Arachnophobia."
+        },
+        {
+          "ID": 4,
+          "answer": " Agoraphobia."
+        },
+        {
+          "ID": 5,
+          "answer": "Aviophobia."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 4,
+        "ID_CorrectAnswer": 1,
+        "sentence": "The formula E=mc2, in which scientific theory appears?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Theory of relativity."
+        },
+        {
+          "ID": 2,
+          "answer": "Big Bang theory."
+        },
+        {
+          "ID": 3,
+          "answer": "Theory of gravity."
+        },
+        {
+          "ID": 4,
+          "answer": "Electromagnetic theory."
+        },
+        {
+          "ID": 5,
+          "answer": "String theory."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 5,
+        "ID_CorrectAnswer": 4,
+        "sentence": "What is the bird of greatest wingspan that is still alive today?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Bald eagle."
+        },
+        {
+          "ID": 2,
+          "answer": "Ostrich."
+        },
+        {
+          "ID": 3,
+          "answer": "Andean condor."
+        },
+        {
+          "ID": 4,
+          "answer": "Albatross."
+        },
+        {
+          "ID": 5,
+          "answer": "Common pelican."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 6,
+        "ID_CorrectAnswer": 5,
+        "sentence": "Why was Marie Curie famous?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "For being a great athlete."
+        },
+        {
+          "ID": 2,
+          "answer": "For being a famous chef."
+        },
+        {
+          "ID": 3,
+          "answer": "For being a great dancer."
+        },
+        {
+          "ID": 4,
+          "answer": "For being a great fashion designer."
+        },
+        {
+          "ID": 5,
+          "answer": "For being a scientist."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 7,
+        "ID_CorrectAnswer": 2,
+        "sentence": "What is the name of the bird of prey that feeds primarily on bones?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Carrion bird."
+        },
+        {
+          "ID": 2,
+          "answer": "Bonebreaker."
+        },
+        {
+          "ID": 3,
+          "answer": "Vulture."
+        },
+        {
+          "ID": 4,
+          "answer": "Bone eagle."
+        },
+        {
+          "ID": 5,
+          "answer": "Skeletal raptor."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 8,
+        "ID_CorrectAnswer": 5,
+        "sentence": "What species of amphibian is known for its incredible ability to regenerate parts of its body that have been damaged or amputated?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": " Toad."
+        },
+        {
+          "ID": 2,
+          "answer": "Tree frog."
+        },
+        {
+          "ID": 3,
+          "answer": "Betta fish."
+        },
+        {
+          "ID": 4,
+          "answer": "Salamander."
+        },
+        {
+          "ID": 5,
+          "answer": " Axolotl."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 9,
+        "ID_CorrectAnswer": 1,
+        "sentence": "What species of tree frequently used in traditional Chinese medicine is an example of a living fossil due to its ancient origins?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Ginkgo."
+        },
+        {
+          "ID": 2,
+          "answer": "Laurel."
+        },
+        {
+          "ID": 3,
+          "answer": "Acacia."
+        },
+        {
+          "ID": 4,
+          "answer": "Birch."
+        },
+        {
+          "ID": 5,
+          "answer": "Eucalyptus."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 10,
+        "ID_CorrectAnswer": 2,
+        "sentence": "Around which planet do the satellites Ganymede, Callisto, Io, and Europa orbit?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Saturn."
+        },
+        {
+          "ID": 2,
+          "answer": "Jupiter."
+        },
+        {
+          "ID": 3,
+          "answer": "Mars."
+        },
+        {
+          "ID": 4,
+          "answer": "Venus."
+        },
+        {
+          "ID": 5,
+          "answer": "Pluto."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 11,
+        "ID_CorrectAnswer": 1,
+        "sentence": "In what archipelago does the only species of cormorant that is unable to fly live?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Galapagos Islands archipelago."
+        },
+        {
+          "ID": 2,
+          "answer": "Falkland Islands archipelago."
+        },
+        {
+          "ID": 3,
+          "answer": "Canary Islands archipelago."
+        },
+        {
+          "ID": 4,
+          "answer": "Azores archipelago."
+        },
+        {
+          "ID": 5,
+          "answer": "Chatham Islands archipelago."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 12,
+        "ID_CorrectAnswer": 4,
+        "sentence": "What is the name of the plant from which tequila is often made?"
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Wheat."
+        },
+        {
+          "ID": 2,
+          "answer": "Grapevine."
+        },
+        {
+          "ID": 3,
+          "answer": "Barley."
+        },
+        {
+          "ID": 4,
+          "answer": "Agave."
+        },
+        {
+          "ID": 5,
+          "answer": "Corn."
+        }
+      ]
+    }
+  ]
+}

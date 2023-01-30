@@ -30,7 +30,7 @@ public interface QuestionDAO
 
     @Transaction
     @Query("select * from question where ID = :idQuestion AND ID_Cat = :idCat")
-    List<QuestionWithOptions> getQuestionWithOptionByID(int idCat, int idQuestion);
+    QuestionWithOptions getQuestionWithOptionByID(int idCat, int idQuestion);
 
 
     @Insert

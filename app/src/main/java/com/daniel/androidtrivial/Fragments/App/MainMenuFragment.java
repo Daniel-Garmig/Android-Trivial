@@ -130,10 +130,10 @@ public class MainMenuFragment extends Fragment
             }
         });
 
-        int[] categories = { R.raw.science_es };
+        int[] categories = { R.raw.q_arts_es, R.raw.q_entertainment_es, R.raw.q_geography_es, R.raw.q_history_es, R.raw.q_science_es, R.raw.q_sports_es };
         if(languageOp == R.id.fg_createdb_op_en)
         {
-            categories = new int[] { R.raw.historia_en };
+            categories = new int[] { R.raw.q_arts_en, R.raw.q_entertainment_en, R.raw.q_geography_en, R.raw.q_history_en, R.raw.q_science_en, R.raw.q_sports_en };
         }
 
         QuestionsManager.getInstance().createDefaultDB(categories);

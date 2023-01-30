@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10sp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/view_summary_image_player_color"
+                android:layout_width="40sp"
+                android:layout_height="40sp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/piece_green_svg" />
+
+            <TextView
+                android:id="@+id/view_summary_text_playerName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="10dp"
+                android:ellipsize="marquee"
+                android:text="@string/summary_placeholder_playerName"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/view_summary_ibt_expand"
+                app:layout_constraintStart_toEndOf="@+id/view_summary_image_player_color"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/view_summary_ibt_expand"
+                android:layout_width="55sp"
+                android:layout_height="55sp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/icon_arrow_down" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/view_summary_expanded_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/view_summary_image_wedges_back"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/wedges_empty" />
+
+            <ImageView
+                android:id="@+id/view_summary_img_wedge_blue"
+                android:layout_width="52sp"
+                android:layout_height="52sp"
+                app:layout_constraintStart_toStartOf="@+id/view_summary_image_wedges_back"
+                app:layout_constraintTop_toTopOf="@+id/view_summary_image_wedges_back"
+                app:srcCompat="@drawable/wedge_blue" />
+
+            <ImageView
+                android:id="@+id/view_summary_img_wedge_yellow"
+                android:layout_width="52sp"
+                android:layout_height="52sp"
+                android:layout_marginEnd="2dp"
+                app:layout_constraintEnd_toEndOf="@+id/view_summary_image_wedges_back"
+                app:layout_constraintTop_toTopOf="@+id/view_summary_image_wedges_back"
+                app:srcCompat="@drawable/wedge_yellow" />
+
+            <ImageView
+                android:id="@+id/view_summary_img_wedge_purple"
+                android:layout_width="52sp"
+                android:layout_height="52sp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="-1dp"
+                app:layout_constraintEnd_toEndOf="@+id/view_summary_image_wedges_back"
+                app:layout_constraintTop_toTopOf="@+id/view_summary_image_wedges_back"
+                app:srcCompat="@drawable/wedge_purple" />
+
+            <ImageView
+                android:id="@+id/view_summary_img_wedge_pink"
+                android:layout_width="46sp"
+                android:layout_height="46sp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/view_summary_image_wedges_back"
+                app:layout_constraintEnd_toEndOf="@+id/view_summary_image_wedges_back"
+                app:srcCompat="@drawable/wedge_pink" />
+
+            <ImageView
+                android:id="@+id/view_summary_img_wedge_orange"
+                android:layout_width="46sp"
+                android:layout_height="46sp"
+                android:layout_marginStart="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/view_summary_image_wedges_back"
+                app:layout_constraintStart_toStartOf="@+id/view_summary_image_wedges_back"
+                app:srcCompat="@drawable/wedge_orange" />
+
+            <ImageView
+                android:id="@+id/view_summary_img_wedge_green"
+                android:layout_width="49sp"
+                android:layout_height="49sp"
+                android:layout_marginStart="-2dp"
+                android:layout_marginTop="27dp"
+                app:layout_constraintStart_toStartOf="@+id/view_summary_image_wedges_back"
+                app:layout_constraintTop_toTopOf="@+id/view_summary_image_wedges_back"
+                app:srcCompat="@drawable/wedge_green" />
+
+            <TextView
+                android:id="@+id/view_summary_text_score"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20sp"
+                android:layout_marginTop="20sp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="5sp"
+                android:text="@string/summary_stats_score"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/view_summary_text_squares"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/view_summary_image_wedges_back"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.5" />
+
+            <TextView
+                android:id="@+id/view_summary_text_squares"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20sp"
+                android:layout_marginTop="5sp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="5sp"
+                android:text="@string/summary_stats_squares"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/view_summary_text_questions"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/view_summary_image_wedges_back"
+                app:layout_constraintTop_toBottomOf="@+id/view_summary_text_score"
+                app:layout_constraintVertical_bias="0.5" />
+
+            <TextView
+                android:id="@+id/view_summary_text_questions"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20sp"
+                android:layout_marginTop="5sp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="5sp"
+                android:text="@string/summary_stats_questions"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/view_summary_text_correctAnswers"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/view_summary_image_wedges_back"
+                app:layout_constraintTop_toBottomOf="@+id/view_summary_text_squares"
+                app:layout_constraintVertical_bias="0.5" />
+
+            <TextView
+                android:id="@+id/view_summary_text_correctAnswers"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20sp"
+                android:layout_marginTop="5sp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20sp"
+                android:text="@string/summary_stats_correctAnswers"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/view_summary_image_wedges_back"
+                app:layout_constraintTop_toBottomOf="@+id/view_summary_text_questions"
+                app:layout_constraintVertical_bias="0.5" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>

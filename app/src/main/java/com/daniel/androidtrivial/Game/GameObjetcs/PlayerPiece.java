@@ -17,6 +17,13 @@ public class PlayerPiece extends GameObject implements Animated
         animation.velocity = 150;
     }
 
+    public PlayerPiece(String spriteID)
+    {
+        super(spriteID);
+        animation = new MoveAnimation(transform);
+        animation.velocity = 150;
+    }
+
     public PlayerPiece(BoardSquare startSq)
     {
         super("playerPiece");

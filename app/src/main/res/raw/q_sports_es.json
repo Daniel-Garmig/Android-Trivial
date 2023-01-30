@@ -1,0 +1,338 @@
+{
+  "category": {
+    "ID": 3,
+    "name": "Deportes"
+  },
+  "questions": [
+    {
+      "question": {
+        "ID": 1,
+        "ID_CorrectAnswer": 3,
+        "sentence": "¿Cuándo se celebró la primera Copa Mundial de Fútbol?",
+        "additionalInformation": "La primera Copa Mundial se celebró en 1930, siendo Uruguay el primer país en ser campeón del Mundo."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "En el año 2000."
+        },
+        {
+          "ID": 2,
+          "answer": "En el año 1950."
+        },
+        {
+          "ID": 3,
+          "answer": "En el año 1930."
+        },
+        {
+          "ID": 4,
+          "answer": "En el año 1910."
+        },
+        {
+          "ID": 5,
+          "answer": "En el año 1945."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 2,
+        "ID_CorrectAnswer": 5,
+        "sentence": "¿Quién fue el campeón mundial de ajedrez entre los años 1972 y 1974, y el vencedor del encuentro del siglo contra el campeón soviético Boris Vasilievich Spassky?",
+        "additionalInformation": "Bobby Fischer, cuyo nombre real era Robert James Fischer."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Garry Kasparov."
+        },
+        {
+          "ID": 2,
+          "answer": "Magnus Carlsen."
+        },
+        {
+          "ID": 3,
+          "answer": "José Raul Capablanca."
+        },
+        {
+          "ID": 4,
+          "answer": "Anatoly Karpov."
+        },
+        {
+          "ID": 5,
+          "answer": "Bobby Fischer."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 3,
+        "ID_CorrectAnswer": 4,
+        "sentence": "¿Quién es considerado el mejor jugador de baloncesto de todos los tiempos?",
+        "additionalInformation": "Aunque las preferencias personales pueden variar la respuesta, la mayor parte de profesionales y aficionados van a coincidir en una misma persona: Michael Jordan."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Kareem Abdul-Jabbar."
+        },
+        {
+          "ID": 2,
+          "answer": "LeBron James."
+        },
+        {
+          "ID": 3,
+          "answer": "Kobe Bryant."
+        },
+        {
+          "ID": 4,
+          "answer": "Michael Jordan."
+        },
+        {
+          "ID": 5,
+          "answer": "Wilt Chamberlain."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 4,
+        "ID_CorrectAnswer": 2,
+        "sentence": "¿Quién fue la primera mujer en ganar una medalla olímpica?",
+        "additionalInformation": "Dentro de las olimpiadas modernas, la primera mujer en ser campeona olímpica y ganar una medalla fue Charlotte Cooper, quien se hizo con el oro en tenis femenino y en tenis mixto (junto a Reginald Doherty) en los juegos olímpicos de París de 1900."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Hedy Lamarr."
+        },
+        {
+          "ID": 2,
+          "answer": "Charlotte Cooper."
+        },
+        {
+          "ID": 3,
+          "answer": "Oprah Winfrey."
+        },
+        {
+          "ID": 4,
+          "answer": "Billie Jean King."
+        },
+        {
+          "ID": 5,
+          "answer": "Florence Griffith-Joyner."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 5,
+        "ID_CorrectAnswer": 3,
+        "sentence": "¿Qué atleta tiene el récord plusmarca de velocidad en los 100 metros lisos?",
+        "additionalInformation": "El ser humano que tiene este récord, además del propio en los 200 metros lisos, es el jamaicano Usain Bolt."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Christian Coleman."
+        },
+        {
+          "ID": 2,
+          "answer": "Jesse Owens."
+        },
+        {
+          "ID": 3,
+          "answer": "Usain Bolt."
+        },
+        {
+          "ID": 4,
+          "answer": "Marcell Jacobs"
+        },
+        {
+          "ID": 5,
+          "answer": "Trayvon Bromell."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 6,
+        "ID_CorrectAnswer": 5,
+        "sentence": "¿Cada cuántos años se celebran los Juegos Olímpicos?",
+        "additionalInformation": "Si bien técnicamente los Juegos Olímpicos se celebran cada cuatro años, hay que tener en cuenta que existen no solo unos Juegos sino dos: los Juegos Olímpicos de Verano y los Juegos Olímpicos de Invierno. Ambos se alternan de tal modo que en realidad existen Juegos Olímpicos cada dos años."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Cada 10 años."
+        },
+        {
+          "ID": 2,
+          "answer": "Cada 5 años."
+        },
+        {
+          "ID": 3,
+          "answer": "Cada 3 años."
+        },
+        {
+          "ID": 4,
+          "answer": "Cada año."
+        },
+        {
+          "ID": 5,
+          "answer": "Cada 4 años."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 7,
+        "ID_CorrectAnswer": 4,
+        "sentence": "¿Qué equipo de fútbol ha ganado más Mundiales hasta el momento?",
+        "additionalInformation": "El equipo de fútbol con mayor número de mundiales en su haber es la selección de Brasil, la cual ha alzada la Copa Mundial hasta en cinco ocasiones."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "El equipo de fútbol de Estados Unidos."
+        },
+        {
+          "ID": 2,
+          "answer": "El equipo de fútbol de Japón."
+        },
+        {
+          "ID": 3,
+          "answer": "El equipo de fútbol de China."
+        },
+        {
+          "ID": 4,
+          "answer": "El equipo de fútbol de Brasil."
+        },
+        {
+          "ID": 5,
+          "answer": "El equipo de fútbol de Rusia."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 8,
+        "ID_CorrectAnswer": 3,
+        "sentence": "¿Quién fue Cobi?",
+        "additionalInformation": "Cobi fue la mascota de las Juegos Olímpicos de 1992, los cuales se celebraron en Barcelona, España. Fue creado por Javier Mariscal."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Un personaje de la película El rey león."
+        },
+        {
+          "ID": 2,
+          "answer": "Un famoso chef español."
+        },
+        {
+          "ID": 3,
+          "answer": "La mascota de los Juegos Olímpicos de 1992."
+        },
+        {
+          "ID": 4,
+          "answer": "Un atleta olímpico de natación."
+        },
+        {
+          "ID": 5,
+          "answer": "Un personaje de la serie de televisión The Simpsons."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 9,
+        "ID_CorrectAnswer": 2,
+        "sentence": "¿Qué ajedrecista cubano fue campeón mundial de esta disciplina entre 1921 y 1927?",
+        "additionalInformation": "Fue José Raúl Capablanca, apodado “el Mozart del ajedrez”."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "José Capablanca."
+        },
+        {
+          "ID": 2,
+          "answer": "José Raul Capablanca."
+        },
+        {
+          "ID": 3,
+          "answer": "Rafael Capablanca."
+        },
+        {
+          "ID": 4,
+          "answer": "Francisco Capablanca."
+        },
+        {
+          "ID": 5,
+          "answer": "Luis Capablanca."
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 10,
+        "ID_CorrectAnswer": 2,
+        "sentence": "¿En qué ciudad española está el estadio de fútbol de Mestalla?",
+        "additionalInformation": "Es el estadio del Valencia Club de Fútbol, y está en Valencia."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Madrid"
+        },
+        {
+          "ID": 2,
+          "answer": "Valencia"
+        },
+        {
+          "ID": 3,
+          "answer": "Barcelona"
+        },
+        {
+          "ID": 4,
+          "answer": "Bilbao"
+        },
+        {
+          "ID": 5,
+          "answer": "Sevilla"
+        }
+      ]
+    },
+    {
+      "question": {
+        "ID": 11,
+        "ID_CorrectAnswer": 3,
+        "sentence": "¿Qué tenista nacida en 1956 ganó 18 títulos de Grand Slam?",
+        "additionalInformation": "Fue la tenista checa Martina Navrátilová, una de las grandes representantes de este deporte."
+      },
+      "optionList": [
+        {
+          "ID": 1,
+          "answer": "Pete Sampras."
+        },
+        {
+          "ID": 2,
+          "answer": "Rafael Nadal."
+        },
+        {
+          "ID": 3,
+          "answer": "Martina Navrátilová."
+        },
+        {
+          "ID": 4,
+          "answer": "Novak Djokovic."
+        },
+        {
+          "ID": 5,
+          "answer": "John McEnroe."
+        }
+      ]
+    }
+  ]
+}
