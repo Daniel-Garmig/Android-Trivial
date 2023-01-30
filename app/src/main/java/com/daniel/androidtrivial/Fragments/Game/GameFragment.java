@@ -1,6 +1,5 @@
 package com.daniel.androidtrivial.Fragments.Game;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -8,23 +7,18 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.room.Room;
 
 import com.daniel.androidtrivial.Fragments.App.InfoDialogFragment;
 import com.daniel.androidtrivial.Fragments.App.LoadingDialogFragment;
 import com.daniel.androidtrivial.Fragments.App.MainMenuFragment;
 import com.daniel.androidtrivial.Fragments.App.MatchSummaryFragment;
 import com.daniel.androidtrivial.MatchManager;
-import com.daniel.androidtrivial.Model.MatchRecord.MatchRecordDatabase;
-import com.daniel.androidtrivial.Model.MatchRecord.MatchStats;
-import com.daniel.androidtrivial.Model.MatchRecord.MathStatsDAO;
-import com.daniel.androidtrivial.Model.MatchRecord.PlayerStats;
-import com.daniel.androidtrivial.Model.MatchRecord.PlayerStatsDAO;
 import com.daniel.androidtrivial.Model.Player;
 import com.daniel.androidtrivial.Game.GameData;
 import com.daniel.androidtrivial.Model.GameViewModel;
@@ -35,12 +29,12 @@ import com.daniel.androidtrivial.Model.Questions.RoomDB.Category;
 import com.daniel.androidtrivial.Model.Questions.RoomDB.Question;
 import com.daniel.androidtrivial.Model.Questions.RoomDB.QuestionDAO;
 import com.daniel.androidtrivial.Model.Questions.RoomDB.QuestionDatabase;
-import com.daniel.androidtrivial.Model.Questions.RoomDB.QuestionOption;
 import com.daniel.androidtrivial.Model.Questions.RoomDB.QuestionWithOptions;
 import com.daniel.androidtrivial.Model.SavedMatch;
 import com.daniel.androidtrivial.QuestionsManager;
 import com.daniel.androidtrivial.R;
 import com.daniel.androidtrivial.ThreadOrchestrator;
+import com.daniel.androidtrivial.Views.StatsPlayerItem;
 import com.uberelectron.androidrtg.RTG_Surface;
 
 import java.util.List;
@@ -54,6 +48,8 @@ public class GameFragment extends Fragment
 
     GameViewModel viewModel;
     RTG_Surface rtg_surface;
+    FrameLayout currentPlayerFrame;
+    StatsPlayerItem currentPlayerStatsItem;
 
     boolean busy = false;
 
@@ -177,6 +173,8 @@ public class GameFragment extends Fragment
         rtg_surface = v.findViewById(R.id.BoardSurface);
         initRTGApp(rtg_surface);
 
+        currentPlayerFrame = v.findViewById(R.id.game_currentPlayer_frame_layout);
+
 
         //Init other views.
         Button btBack = v.findViewById(R.id.game_bt_Back);
@@ -192,6 +190,16 @@ public class GameFragment extends Fragment
             @Override
             public void onClick(View v) {
                 onGameEnds();
+            }
+        });
+
+        Button btStats = v.findViewById(R.id.game_bt_stats);
+        btStats.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GameStatsDialog dg = new GameStatsDialog();
+                dg.setPlayers(viewModel.getPlayers());
+                dg.show(getParentFragmentManager(), "gameStats");
             }
         });
     }
@@ -226,8 +234,7 @@ public class GameFragment extends Fragment
 
     private void startGameLoop()
     {
-
-        //TODO: Obtener datos del ViewModel para actualizar el UI.
+        updateStatsUI();
 
         //State Logic.
         GameState state = viewModel.getStage();
@@ -334,6 +341,7 @@ public class GameFragment extends Fragment
 
         viewModel.nextTurn();
         int currentPlayerID = viewModel.getCurrentPlayerID();
+        updateStatsUI();
 
         //GetPlayer
         Player p = viewModel.getPlayer(currentPlayerID);
@@ -521,5 +529,19 @@ public class GameFragment extends Fragment
                 .setReorderingAllowed(true)
                 .replace(R.id.MainFragmentContainer, MatchSummaryFragment.class, null)
                 .commit();
+    }
+
+
+    private void updateStatsUI()
+    {
+        Player p = viewModel.getCurrentPlayer();
+        if(p == null) { return; }
+        if(currentPlayerStatsItem == null)
+        {
+            currentPlayerStatsItem = new StatsPlayerItem(getContext(), null);
+            currentPlayerFrame.addView(currentPlayerStatsItem);
+        }
+
+        currentPlayerStatsItem.updateUIFromPlayer(p);
     }
 }

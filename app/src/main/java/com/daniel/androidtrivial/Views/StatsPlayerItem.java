@@ -56,7 +56,7 @@ public class StatsPlayerItem extends CardView
 
     private void initComponents()
     {
-        playerName = findViewById(R.id.view_summary_text_playerName);
+        playerName = (TextView) findViewById(R.id.view_summary_text_playerName);
         textStatsScore = findViewById(R.id.view_summary_text_score);
         textStatsSquares = findViewById(R.id.view_summary_text_squares);
         textStatsQuestions = findViewById(R.id.view_summary_text_questions);
@@ -64,17 +64,12 @@ public class StatsPlayerItem extends CardView
         playerIcon = findViewById(R.id.view_summary_image_player_color);
 
         img_wedge_blue = findViewById(R.id.view_summary_img_wedge_blue);
-        img_wedge_blue.setVisibility(GONE);
         img_wedge_green = findViewById(R.id.view_summary_img_wedge_green);
-        img_wedge_green.setVisibility(GONE);
         img_wedge_orange = findViewById(R.id.view_summary_img_wedge_orange);
-        img_wedge_orange.setVisibility(GONE);
         img_wedge_yellow = findViewById(R.id.view_summary_img_wedge_yellow);
-        img_wedge_yellow.setVisibility(GONE);
         img_wedge_purple = findViewById(R.id.view_summary_img_wedge_purple);
-        img_wedge_purple.setVisibility(GONE);
         img_wedge_pink = findViewById(R.id.view_summary_img_wedge_pink);
-        img_wedge_pink.setVisibility(GONE);
+        resetOwnedWedges();
 
         expandedLayout = findViewById(R.id.view_summary_expanded_layout);
         expandedLayout.setVisibility(GONE);
@@ -104,6 +99,7 @@ public class StatsPlayerItem extends CardView
         this.textStatsQuestions.setText(String.format(getContext().getString(R.string.summary_stats_questions), p.questionsAnswered));
         this.textStatsCorrectAnswers.setText(String.format(getContext().getString(R.string.summary_stats_correctAnswers), p.correctAnswers));
         this.setIconFromWedges(WedgesColors.valueOf(p.color));
+        resetOwnedWedges();
         this.setOwnedWedges(p.ownedWedges);
     }
 
@@ -115,6 +111,7 @@ public class StatsPlayerItem extends CardView
         this.textStatsQuestions.setText(String.format(getContext().getString(R.string.summary_stats_questions), p.getQuestionsAnswered()));
         this.textStatsCorrectAnswers.setText(String.format(getContext().getString(R.string.summary_stats_correctAnswers), p.getCorrectAnswers()));
         this.setIconFromWedges(p.getPlayerColor());
+        resetOwnedWedges();
         for(WedgesColors c : WedgesColors.values())
         {
             if(p.haveWedge(c))
@@ -147,6 +144,16 @@ public class StatsPlayerItem extends CardView
                 playerIcon.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.piece_yellow_svg));
                 break;
         }
+    }
+
+    public void resetOwnedWedges()
+    {
+        img_wedge_blue.setVisibility(GONE);
+        img_wedge_green.setVisibility(GONE);
+        img_wedge_orange.setVisibility(GONE);
+        img_wedge_yellow.setVisibility(GONE);
+        img_wedge_purple.setVisibility(GONE);
+        img_wedge_pink.setVisibility(GONE);
     }
 
     public void setOwnedWedges(String wedgesList)

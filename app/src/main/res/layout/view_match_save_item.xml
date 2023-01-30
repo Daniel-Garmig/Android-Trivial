@@ -37,6 +37,7 @@
 
         <ImageButton
             android:id="@+id/item_save_bt_delete"
+            style="@style/Widget.AppCompat.ImageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20sp"
@@ -48,6 +49,7 @@
 
         <ImageButton
             android:id="@+id/item_save_bt_play"
+            style="@android:style/Widget.Material.ImageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20sp"

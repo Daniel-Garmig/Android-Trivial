@@ -1,4 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">AndroidTrivial</string>
+
+    <!-- Main Menu -->
+    <string name="menu_bt_newMatch">New Game</string>
+    <string name="menu_bt_loadMatch">Continue</string>
+    <string name="menu_bt_match_record">Game history</string>
+    <string name="menu_bt_create_questions">Load questions</string>
+
+    <!-- Game Fragment -->
+    <string name="game_loading_question">Loading question...</string>
+    <string name="game_loading_game">Loading game</string>
+    <string name="game_info_new_game_title">Welcome</string>
+    <string name="game_info_new_game_text">New Game started</string>
+    <string name="game_info_load_game_title">Welcome</string>
+    <string name="game_info_load_game_text">Game loaded successfully</string>
+    <string name="game_info_nextturn_title">Turn of %1$s</string>
+    <string name="game_info_roll_title">Turn: %1$s</string>
+    <string name="game_info_nextturn_text">"Start a new shift."</string>
+    <string name="game_info_question_title">Question of %1$s</string>
+    <string name="game_info_question_noQuesito">Answer this question to get points and keep moving forward.</string>
+    <string name="game_info_question_quesito">In this question you can get a wedges!</string>
+
+    <string name="game_info_win_chance_title">You have got all the wedges</string>
+    <string name="game_info_win_chance_msg">You are touching victory. You just have to get to the center and correctly answer the final questions</string>
+
+    <!-- Question Fragment -->
+    <string name="question_info_error_title">Wrong answer.</string>
+    <string name="question_info_correct_normal_title">Correct answer! You keep moving forward.</string>
+    <string name="question_info_correct_quesito_title">You have win the wedge of %1$s</string>
+    <string name="question_info_outOfTIme_title">Time is over!</string>
+
+    <!-- DB Creation -->
+    <string name="dialog_createdb_title">Select the language of the questions</string>
+    <string name="dialog_createdb_op_es">Spanish</string>
+    <string name="dialog_createdb_op_en">English</string>
+    <string name="dialog_createdb_bt">Continue</string>
+
+    <!-- Error messages -->
+    <string name="error_matchRoom_error">Error in the game room.</string>
+    <string name="error_dbCreation_error">Error creating question database.</string>
+    <string name="error_dbOperation_error">Error performing operations with the database.</string>
+
+    <!-- New Match room -->
+    <string name="view_room_player_bt_edit">Edit</string>
+    <string name="view_room_player_bt_remove">Remove</string>
+    <string name="room_bt_play">¡Play!</string>
+
+    <!-- Match Record Fragment -->
+    <string name="record_loading_title">Loading history ...</string>
+    <string name="record_bt_view_details">Details</string>
+
+    <!-- Match Summary Fragment -->
+    <string name="summary_loading_title">Loading data...</string>
+
+    <!-- Generics -->
+    <string name="gen_bt_return">Return</string>
+
 </resources>

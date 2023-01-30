@@ -20,6 +20,9 @@
     <string name="game_info_question_title">Pregunta de %1$s</string>
     <string name="game_info_question_noQuesito">Responde a esta pregunta para conseguir puntos y segur avanzando.</string>
     <string name="game_info_question_quesito">¡En esta pregunta puedes conseguir un quesito!</string>
+    <string name="game_bt_exit">Salir</string>
+    <string name="game_bt_end">END</string>
+    <string name="game_bt_Stats">Stats</string>
 
     <string name="game_info_win_chance_title">Has conseguido todos los quesitos</string>
     <string name="game_info_win_chance_msg">Estás tocando la victoria. Sólo tienes que llegar al centro y contestar correstamente las preguntas finales</string>
