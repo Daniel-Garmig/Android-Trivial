@@ -22,17 +22,18 @@
 
     <ImageView
         android:id="@+id/fg_dice_img_dice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150sp"
+        android:layout_height="150sp"
         android:layout_marginStart="45sp"
-        android:layout_marginTop="15sp"
+        android:layout_marginTop="45dp"
         android:layout_marginEnd="45sp"
         android:layout_marginBottom="15sp"
+        android:background="@drawable/dice_default"
+        android:scaleType="centerInside"
         app:layout_constraintBottom_toTopOf="@+id/fg_dice_text_result"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fg_dice_text_info"
-        app:srcCompat="@drawable/trivialpiece" />
+        app:layout_constraintTop_toBottomOf="@+id/fg_dice_text_info" />
 
     <TextView
         android:id="@+id/fg_dice_text_result"

@@ -45,22 +45,22 @@ public class RoomPlayerItem extends CardView
         switch (color)
         {
             case blue:
-                playerIcon.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.piece_green_svg));
+                playerIcon.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.piece_blue_svg));
                 break;
             case green:
                 playerIcon.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.piece_green_svg));
                 break;
             case orange:
-                playerIcon.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.piece_green_svg));
+                playerIcon.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.piece_orange_svg));
                 break;
             case pink:
-                playerIcon.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.piece_green_svg));
+                playerIcon.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.piece_pink_svg));
                 break;
             case purple:
-                playerIcon.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.piece_green_svg));
+                playerIcon.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.piece_purple_svg));
                 break;
             case yellow:
-                playerIcon.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.piece_green_svg));
+                playerIcon.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.piece_yellow_svg));
                 break;
         }
     }

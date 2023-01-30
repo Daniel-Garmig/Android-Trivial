@@ -10,6 +10,13 @@
     <!-- Game Fragment -->
     <string name="game_loading_question">Cargando pregunta...</string>
     <string name="game_loading_game">Cargando partida</string>
+    <string name="game_info_new_game_title">Bienvenido</string>
+    <string name="game_info_new_game_text">Nueva partida iniciada</string>
+    <string name="game_info_load_game_title">Bienvenido</string>
+    <string name="game_info_load_game_text">Juego cargado con éxito</string>
+    <string name="game_info_nextturn_title">Turno de %1$s</string>
+    <string name="game_info_roll_title">Turno: %1$s</string>
+    <string name="game_info_nextturn_text">"Empieza un nuevo turno."</string>
     <string name="game_info_question_title">Pregunta de %1$s</string>
     <string name="game_info_question_noQuesito">Responde a esta pregunta para conseguir puntos y segur avanzando.</string>
     <string name="game_info_question_quesito">¡En esta pregunta puedes conseguir un quesito!</string>

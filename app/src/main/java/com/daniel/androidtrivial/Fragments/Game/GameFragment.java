@@ -63,7 +63,7 @@ public class GameFragment extends Fragment
         initEventHandler();
 
         //FIXME: Quizás esto no va aquí...
-        loadingDialog = LoadingDialogFragment.newInstance("Loading Game!");
+        loadingDialog = LoadingDialogFragment.newInstance(getString(R.string.game_loading_game));
 
         //Set event if match ends after match stats go into db.
         ThreadOrchestrator.getInstance().setOnMatchRecordQueryEnded(new Runnable() {
@@ -277,7 +277,7 @@ public class GameFragment extends Fragment
     {
         viewModel.setStage(GameState.StartGame);
 
-        InfoDialogFragment dg = InfoDialogFragment.newInstance("Welcome!", "Nueva partida iniciada!");
+        InfoDialogFragment dg = InfoDialogFragment.newInstance(getString(R.string.game_info_new_game_title), getString(R.string.game_info_new_game_text));
         dg.setBtActions(new Runnable() {
             @Override
             public void run() {
@@ -295,7 +295,8 @@ public class GameFragment extends Fragment
     {
         viewModel.continueLoadMatch();
 
-        InfoDialogFragment dg = InfoDialogFragment.newInstance("Welcome Back!", "Juego cargado con éxito.");
+        InfoDialogFragment dg = InfoDialogFragment.newInstance(getString(R.string.game_info_load_game_title),
+                getString(R.string.game_info_load_game_text));
         dg.setBtActions(new Runnable() {
             @Override
             public void run() {
@@ -335,7 +336,8 @@ public class GameFragment extends Fragment
         //GetPlayer
         Player p = viewModel.getPlayer(currentPlayerID);
 
-        InfoDialogFragment dg = InfoDialogFragment.newInstance("Turno de " + p.getName(), "Empieza un nuevo turno.");
+        InfoDialogFragment dg = InfoDialogFragment.newInstance(String.format(getString(R.string.game_info_nextturn_title),
+                p.getName()), getString(R.string.game_info_nextturn_text));
         dg.setBtActions(new Runnable() {
             @Override
             public void run() {
@@ -460,7 +462,7 @@ public class GameFragment extends Fragment
     {
         Player p = viewModel.getCurrentPlayer();
 
-        DiceRollFragment dg = DiceRollFragment.newInstance("Turno: " + p.getName());
+        DiceRollFragment dg = DiceRollFragment.newInstance(String.format(getString(R.string.game_info_roll_title), p.getName()));
         dg.setBtActions(new Runnable() {
             @Override
             public void run() {

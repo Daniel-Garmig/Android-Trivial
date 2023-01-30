@@ -171,6 +171,7 @@ public class MatchRoomFragment extends Fragment
             public void onClick(View v) {
                 playerList.remove(p);
                 playerListLayout.removeView(playerListItem);
+                colorAvailable.put(p.getPlayerColor(), true);
             }
         });
     }

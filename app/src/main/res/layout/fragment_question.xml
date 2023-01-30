@@ -10,28 +10,34 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="40dp"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/quest_timeBar" />
 
-    <LinearLayout
-        android:id="@+id/quest_layout_options"
+    <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="30sp"
-        android:gravity="center"
-        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/quest_text_title">
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/quest_layout_options"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="0sp"
+            android:gravity="center"
+            android:orientation="vertical"></LinearLayout>
+    </ScrollView>
 
     <ProgressBar
         android:id="@+id/quest_timeBar"
@@ -39,7 +45,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:max="100"
-        app:layout_constraintBottom_toTopOf="@+id/quest_text_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
