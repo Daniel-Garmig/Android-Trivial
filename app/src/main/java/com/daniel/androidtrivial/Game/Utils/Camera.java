@@ -73,8 +73,8 @@ public class Camera
 
     public Vector2 screenToWorldCoords(Vector2 screenCoords)
     {
-        Vector2 worldCoors =  screenCoords.sum(transform.getPosition());
-        return new Vector2(worldCoors.x * horizontalScale, worldCoors.y * verticalScale);
+        Vector2 worldCoors = new Vector2(screenCoords.x / horizontalScale, screenCoords.y / verticalScale);
+        return worldCoors.sum(transform.getPosition());
     }
 
 
